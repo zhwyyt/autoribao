@@ -1,0 +1,30 @@
+{
+  "name": "shoufacun-download",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "daily-report": "node src/main.js --daily",
+    "install-browsers": "npx playwright install chromium",
+    "parse-template": "node src/parse-daily-template.js",
+    "fill-daily": "node src/fill-daily-template-from-csv-exceljs.js",
+    "qq-bot": "node src/qq-bot.js",
+    "qq-bot-napcat": "node src/qq-bot-napcat.js",
+    "extract-production-plan": "node src/extract-production-plan.js",
+    "extract-production-plan-by-project": "node src/extract-production-plan.js --by-project",
+    "extract-production-plan-by-project-components-changed": "node src/extract-production-plan.js --api --by-project --components-changed-only",
+    "extract-production-plan-info": "node src/extract-production-plan-info.js",
+    "extract-project-list": "node src/extract-project-list.js",
+    "import-production-plan": "node src/import-production-plan-from-excel.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "node-cron": "^4.2.1",
+    "oicq": "^2.3.1",
+    "pg": "^8.20.0",
+    "playwright": "^1.40.0",
+    "ws": "^8.14.2",
+    "xlsx": "^0.18.5"
+  }
+}

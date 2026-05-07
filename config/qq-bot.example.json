@@ -1,0 +1,26 @@
+{
+  "bot": {
+    "qq": 123456789,
+    "password": "",
+    "platform": 5
+  },
+  "authorizedUsers": [],
+  "features": {
+    "autoDailyReport": false,
+    "dailyReportTime": "17:00",
+    "statusCheckTime": "09:00"
+  },
+  "pec": {
+    "unifiedAutomationRoot": "I:\\autoweb\\unified-automation",
+    "runnerScript": "I:\\autoweb\\unified-automation\\backend\\pec\\src\\qq-run-single-file.js",
+    "inputFolder": "E:\\任务单夸克同步网盘\\03PC\\01未排"
+  },
+  "messages": {
+    "onStart": "QQ机器人已上线，可以开始使用指令了",
+    "onDailyReport": "收到指令，开始生成日报...",
+    "onShoufacun": "收到指令，开始生成收发存...",
+    "onSuccess": "生成完成！",
+    "onError": "生成失败：",
+    "onRunning": "正在执行中，请稍候..."
+  }
+}

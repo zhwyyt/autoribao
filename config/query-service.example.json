@@ -1,0 +1,35 @@
+{
+  "mode": "hybrid",
+  "teamDirectory": {
+    "excelPath": "I:\\autoweb\\unified-automation\\backend\\dingdan\\team-files\\班组质检对应表.xlsx",
+    "sheetName": "Sheet1",
+    "cachePath": "./src/data/team-directory-cache.json",
+    "reloadOnBoot": true
+  },
+  "feedbackTemplate": {
+    "excelPath": "I:\\autoweb\\autoribao\\车间构件情况反馈表.xlsx",
+    "outputDir": "./downloads/query-feedback"
+  },
+  "parser": {
+    "splitters": [
+      "以及",
+      "并且",
+      "顺便",
+      "，"
+    ],
+    "enableLlmFallback": false
+  },
+  "query": {
+    "defaultTimezone": "Asia/Shanghai",
+    "maxDetailRows": 20,
+    "maxReplyChars": 1200
+  },
+  "intents": [
+    "org_lookup",
+    "team_unfinished_tasks",
+    "team_daily_fitup_output",
+    "director_unfinished_tasks",
+    "director_daily_fitup_output",
+    "plan_unshipped_components"
+  ]
+}

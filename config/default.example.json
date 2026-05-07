@@ -1,0 +1,54 @@
+{
+  "website": {
+    "loginUrl": "https://example.com/",
+    "subworkStatisticsUrl": "https://example.com/subwork/statistics",
+    "orderHistoryUrl": "https://example.com/order/history",
+    "inboundUrl": "",
+    "outboundUrl": ""
+  },
+  "credentials": {
+    "username": "your-username",
+    "password": "your-password"
+  },
+  "behavior": {
+    "keepBrowserOpenAfterStatistics": true,
+    "skipDownloads": true,
+    "exportCsvAfterStatistics": true,
+    "exportOrderHistoryCsv": true
+  },
+  "browser": {
+    "headless": true,
+    "slowMo": 300,
+    "timeout": 30000
+  },
+  "notify": {
+    "wechat": {
+      "enabled": false,
+      "ahkExe": "C:\\Program Files\\AutoHotkey\\AutoHotkey.exe",
+      "wechatExe": "C:\\Program Files (x86)\\Tencent\\Weixin\\Weixin.exe",
+      "inputClick": {
+        "xRatio": 0.55,
+        "yRatio": 0.95
+      },
+      "targets": [
+        "示例联系人"
+      ],
+      "daily": {
+        "enabled": true
+      },
+      "shoufacun": {
+        "enabled": true
+      }
+    }
+  },
+  "files": {
+    "downloadFolder": "./downloads"
+  },
+  "db": {
+    "host": "localhost",
+    "port": 5432,
+    "user": "postgres",
+    "password": "your-db-password",
+    "database": "dwyunsc"
+  }
+}
