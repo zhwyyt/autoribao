@@ -94,6 +94,8 @@
 | `length` | `numeric(12,3)` | 否 | 长度 |
 | `production_feature` | `text` | 否 | 生产特征 |
 | `location` | `text` | 否 | 区域部位/所在楼层 |
+| `axis_range` | `text` | 否 | 轴线范围（`getPlanArtifacts.轴线范围`） |
+| `component_type_code` | `text` | 否 | 构件类型编码（`getPlanArtifacts.构件类型编码`） |
 | `current_status` | `component_status_type` | 否 | 当前状态快照（可选字段，便于快速过滤） |
 | `current_status_at` | `timestamptz` | 否 | 当前状态时间（可选） |
 | `created_at` | `timestamptz` | 是 | 创建时间 |
@@ -260,6 +262,13 @@ node src/extract-production-plan.js --api --by-project --project-name "H钢智�
 - **删除规则**：`DELETE FROM production_plan WHERE project_id = ? AND plan_id NOT IN (本次抓到的 plan_ids)`
 - **命令**：`npm run extract-production-plan-by-project` 或 `node src/extract-production-plan.js --by-project`
 
+## 云上已删除项目（`cloud_project_deleted`）
+
+- 记录 **getList 不可见**、但 `sales_order` 等仍可能引用的 `cloud_project_id`
+- 订单/桥接增量同步会 **自动跳过** 表内 ID（替代硬编码 1/16/18）
+- 初始化：`node scripts/seed-cloud-projects-deleted.js`
+- 对比并自动登记：`node scripts/compare-db-projects-vs-api.js`
+
 ## 定时任务（Windows 任务计划）
 - **任务名**：`DongwuProjectListSync`
 - **时间**：每天 `16:30`
@@ -271,4 +280,10 @@ node src/extract-production-plan.js --api --by-project --project-name "H钢智�
 - **入口**：`run_production_plan_components_changed.cmd`（`--api --by-project --components-changed-only`）
 - **日志**：`logs/production_plan_components_sync.log`
 - **注册脚本**：以管理员运行 `create_production_plan_components_task.ps1`
+
+- **任务名**：`DongwuDailyOrderSync`
+- **时间**：每天 `03:30`（可用 `create_daily_order_sync_task.ps1 -At "04:00"` 修改）
+- **入口**：`run_daily_order_sync.cmd`（增量订单同步 + 近 24 小时新单项目桥接）
+- **日志**：`logs/daily_order_sync_YYYY-MM-DD.log`
+- **注册脚本**：以管理员运行 `create_daily_order_sync_task.ps1`
 

@@ -43,28 +43,47 @@ class BrowserAutomation {
                         slowMo: this.browserOptions.slowMo
                     });
                 } catch (chromeChannelErr) {
-                    const candidates = [];
                     const pf = process.env.ProgramFiles || 'C:\\Program Files';
                     const pfx86 = process.env['ProgramFiles(x86)'] || 'C:\\Program Files (x86)';
                     const lad = process.env.LOCALAPPDATA;
+                    const launchByExecutable = async (candidates, browserName) => {
+                        const existing = candidates.find(p => p && fs.existsSync(p));
+                        if (!existing) return false;
+                        logger.warn(`channel=${browserName.toLowerCase()} 启动失败，改用 executablePath 启动 ${browserName}: ${existing}`);
+                        this.browser = await chromium.launch({
+                            executablePath: existing,
+                            headless: this.browserOptions.headless,
+                            slowMo: this.browserOptions.slowMo
+                        });
+                        return true;
+                    };
 
-                    candidates.push(path.join(pf, 'Google', 'Chrome', 'Application', 'chrome.exe'));
-                    candidates.push(path.join(pfx86, 'Google', 'Chrome', 'Application', 'chrome.exe'));
+                    const chromeCandidates = [
+                        path.join(pf, 'Google', 'Chrome', 'Application', 'chrome.exe'),
+                        path.join(pfx86, 'Google', 'Chrome', 'Application', 'chrome.exe')
+                    ];
                     if (lad) {
-                        candidates.push(path.join(lad, 'Google', 'Chrome', 'Application', 'chrome.exe'));
+                        chromeCandidates.push(path.join(lad, 'Google', 'Chrome', 'Application', 'chrome.exe'));
                     }
 
-                    const existing = candidates.find(p => p && fs.existsSync(p));
-                    if (!existing) {
-                        throw chromeChannelErr;
+                    if (!await launchByExecutable(chromeCandidates, 'Chrome')) {
+                        logger.warn('Chrome 不可用，尝试使用系统 Edge 启动（channel=msedge）...');
+                        try {
+                            this.browser = await chromium.launch({
+                                channel: 'msedge',
+                                headless: this.browserOptions.headless,
+                                slowMo: this.browserOptions.slowMo
+                            });
+                        } catch (edgeChannelErr) {
+                            const edgeCandidates = [
+                                path.join(pf, 'Microsoft', 'Edge', 'Application', 'msedge.exe'),
+                                path.join(pfx86, 'Microsoft', 'Edge', 'Application', 'msedge.exe')
+                            ];
+                            if (!await launchByExecutable(edgeCandidates, 'Edge')) {
+                                throw edgeChannelErr;
+                            }
+                        }
                     }
-
-                    logger.warn(`channel=chrome 启动失败，改用 executablePath 启动 Chrome: ${existing}`);
-                    this.browser = await chromium.launch({
-                        executablePath: existing,
-                        headless: this.browserOptions.headless,
-                        slowMo: this.browserOptions.slowMo
-                    });
                 }
             }
 

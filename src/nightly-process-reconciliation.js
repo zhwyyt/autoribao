@@ -48,6 +48,7 @@ const PROCESS_TASKS = [
 ];
 
 const MISMATCH_ALERT_TASK_KEYS = new Set(['fitup_report', 'painting']);
+const PROCESS_API_SNAPSHOT_PREFIX = 'PROCESS_API_JSON:';
 
 function ensureDir(dir) {
     if (!dir) return;
@@ -74,6 +75,65 @@ function toNumber(value) {
     if (value == null || value === '') return 0;
     const n = Number(value);
     return Number.isFinite(n) ? n : 0;
+}
+
+function formatProcessRawValue(row) {
+    return `${PROCESS_API_SNAPSHOT_PREFIX}${JSON.stringify({
+        project_name: row.project_name || '',
+        component_guid: row.component_guid || '',
+        component_no: row.component_no || '',
+        spec: row.spec || '',
+        location: row.location || '',
+        quantity: row.quantity,
+        weight_kg: row.weight_kg,
+        event_date: row.event_date || '',
+        operator_name: row.operator_name || '',
+        create_time_text: row.create_time_text || ''
+    })}`;
+}
+
+async function refreshProcessSnapshots(task, apiRows) {
+    if (!task || task.statusType !== 'fitup_weld_report' || !Array.isArray(apiRows) || apiRows.length === 0) {
+        return { updated: 0, unmatched: 0 };
+    }
+    const payload = apiRows.map((row, index) => ({
+        row_no: index + 1,
+        project_name: row.project_name,
+        component_guid: row.component_guid,
+        event_date: row.event_date,
+        raw_value: formatProcessRawValue(row)
+    }));
+    const sql = `
+        WITH raw_input AS (
+            SELECT * FROM jsonb_to_recordset($1::jsonb) AS i(
+                row_no int, project_name text, component_guid text, event_date text, raw_value text
+            )
+        ), input_rows AS (
+            SELECT DISTINCT ON (project_name, component_guid, event_date)
+                row_no, project_name, component_guid, event_date, raw_value
+            FROM raw_input
+            ORDER BY project_name, component_guid, event_date, row_no
+        ), matched AS (
+            SELECT DISTINCT i.row_no, e.event_id, i.raw_value
+            FROM input_rows i
+            JOIN project p ON trim(p.project_name) = trim(i.project_name)
+            JOIN production_plan pp ON pp.project_id = p.project_id
+            JOIN component c ON c.plan_id = pp.plan_id AND trim(c.component_guid) = trim(i.component_guid)
+            JOIN component_status_event e ON e.component_id = c.component_id
+                AND e.status_type = $2 AND e.is_completed = true
+                AND timezone('Asia/Shanghai', e.event_at)::date = i.event_date::date
+        ), updated AS (
+            UPDATE component_status_event e
+            SET raw_value = matched.raw_value, updated_at = now()
+            FROM matched
+            WHERE e.event_id = matched.event_id AND e.raw_value IS DISTINCT FROM matched.raw_value
+            RETURNING e.event_id
+        )
+        SELECT (SELECT count(*)::int FROM updated) AS updated,
+               ((SELECT count(*) FROM input_rows) - (SELECT count(DISTINCT row_no) FROM matched))::int AS unmatched
+    `;
+    const result = await query(sql, [JSON.stringify(payload), task.statusType]);
+    return result.rows[0] || { updated: 0, unmatched: payload.length };
 }
 
 function formatDateYmd(date) {
@@ -272,24 +332,28 @@ async function replayCapturedApiRequest(page, captured) {
         throw new Error('重放 API 请求失败：未捕获到 Token');
     }
 
-    const res = await page.request.post(captured.url, {
+    const requestOptions = {
         data: captured.postData ? JSON.parse(captured.postData) : {},
         headers: {
             Token: token,
             'Content-Type': 'application/json;charset=utf-8',
             ...(cookieStr ? { Cookie: cookieStr } : {})
         },
-        timeout: 60000
-    });
-    try {
-        return await res.json();
-    } catch {
-        let snippet = '';
+        timeout: 180000
+    };
+    let lastError = null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
         try {
-            snippet = String(await res.text() || '').slice(0, 500);
-        } catch {}
-        throw new Error(`重放 API 请求失败：响应非JSON status=${res.status()} body=${snippet}`);
+            const res = await page.request.post(captured.url, requestOptions);
+            if (!res.ok()) throw new Error(`HTTP ${res.status()}`);
+            return await res.json();
+        } catch (error) {
+            lastError = error;
+            if (attempt < 2) await page.waitForTimeout(2000);
+        }
     }
+    const message = String(lastError && lastError.message ? lastError.message : lastError).split(/\r?\n/)[0];
+    throw new Error(`重放工序 API 请求失败（已重试2次）：${message}`);
 }
 
 function buildApiRowKey(row) {
@@ -955,13 +1019,27 @@ async function runNightlyProcessReconciliation(options = {}) {
             throw new Error('登录失败');
         }
 
+        const selectedTasks = Array.isArray(options.taskKeys) && options.taskKeys.length > 0
+            ? PROCESS_TASKS.filter(task => options.taskKeys.includes(task.key))
+            : PROCESS_TASKS;
         const beforeResults = [];
-        for (const task of PROCESS_TASKS) {
+        const apiRowsByTask = new Map();
+        for (const task of selectedTasks) {
             const [apiRows, dbRows] = await Promise.all([
                 fetchApiRows(browserAutomation, task, range),
                 fetchDbRows(task, range, collectTeamNames(directory, task))
             ]);
+            apiRowsByTask.set(task.key, apiRows);
             beforeResults.push(compareProcessRows(task, apiRows, dbRows));
+        }
+
+        let snapshotResult = null;
+        if (options.refreshSnapshots) {
+            const fitupTask = selectedTasks.find(task => task.statusType === 'fitup_weld_report');
+            snapshotResult = await refreshProcessSnapshots(
+                fitupTask,
+                fitupTask ? apiRowsByTask.get(fitupTask.key) : []
+            );
         }
 
         const hasMismatch = hasAnyMismatch(beforeResults);
@@ -973,7 +1051,20 @@ async function runNightlyProcessReconciliation(options = {}) {
                 results: beforeResults,
                 beforeResults,
                 afterResults: beforeResults,
-                syncResult: null,
+                syncResult: snapshotResult ? { snapshotResult } : null,
+                summaryText: buildSummaryText(range, beforeResults, null, beforeResults),
+                reportPath: null
+            };
+        }
+
+        if (options.checkOnly) {
+            return {
+                range,
+                hasMismatch: true,
+                results: beforeResults,
+                beforeResults,
+                afterResults: beforeResults,
+                syncResult: snapshotResult ? { snapshotResult } : null,
                 summaryText: buildSummaryText(range, beforeResults, null, beforeResults),
                 reportPath: null
             };
@@ -1011,7 +1102,9 @@ module.exports = {
     buildPreviousDayRange,
     buildMonthlyBusinessRange,
     buildPlanSyncTargets,
-    shouldCountForMismatch
+    shouldCountForMismatch,
+    formatProcessRawValue,
+    refreshProcessSnapshots
 };
 
 if (require.main === module) {

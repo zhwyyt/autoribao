@@ -8,6 +8,7 @@ const BrowserAutomation = require('./browser-automation');
 const { query } = require('./query/sql-runner');
 const { buildPreviousDayRange } = require('./nightly-process-reconciliation');
 const SHIPPING_RAW_WEIGHT_GUID_RE = /^D9-2MB-2-fxc-251225-(0[1-9]|1[0-6])$/;
+const SHIPPING_API_RAW_PREFIX = 'SHIPPING_API_JSON:';
 
 function ensureDir(dir) {
     if (!dir) return;
@@ -161,16 +162,28 @@ async function replayCapturedApiRequest(page, captured) {
         throw new Error('重放发货 API 请求失败：未捕获到 Token');
     }
 
-    const res = await page.request.post(captured.url, {
+    const requestOptions = {
         data: captured.postData ? JSON.parse(captured.postData) : {},
         headers: {
             Token: token,
             'Content-Type': 'application/json;charset=utf-8',
             ...(cookieStr ? { Cookie: cookieStr } : {})
         },
-        timeout: 60000
-    });
-    return res.json();
+        timeout: 180000
+    };
+    let lastError = null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+            const res = await page.request.post(captured.url, requestOptions);
+            if (!res.ok()) throw new Error(`HTTP ${res.status()}`);
+            return await res.json();
+        } catch (error) {
+            lastError = error;
+            if (attempt < 2) await page.waitForTimeout(2000);
+        }
+    }
+    const message = String(lastError && lastError.message ? lastError.message : lastError).split(/\r?\n/)[0];
+    throw new Error(`重放发货 API 请求失败（已重试2次）：${message}`);
 }
 
 async function ensureLogin(browserAutomation) {
@@ -230,15 +243,18 @@ async function fetchApiRows(browserAutomation, range) {
 async function fetchDbRows(range) {
     const sql = `
         SELECT
-            p.project_name,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'project_name'), ''), p.project_name) AS project_name,
             pp.plan_name,
             COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
-            COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_no,
-            COALESCE(NULLIF(trim(c.spec), ''), '') AS spec,
-            COALESCE(NULLIF(trim(c.location), ''), '') AS location,
-            COALESCE(c.quantity, 1)::int AS quantity,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(c.component_no), ''), '') AS component_no,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'spec'), ''), NULLIF(trim(c.spec), ''), '') AS spec,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'location'), ''), NULLIF(trim(c.location), ''), '') AS location,
+            COALESCE(NULLIF(shipping_snapshot.data->>'quantity', '')::numeric, c.quantity, 1)::numeric(18,3) AS quantity,
             COALESCE(c.weight, 0)::numeric(18,3) AS weight_kg,
-            (COALESCE(c.weight, 0) * COALESCE(c.quantity, 1))::numeric(18,3) AS total_weight_kg,
+            COALESCE(
+                NULLIF(shipping_snapshot.data->>'weight_kg', '')::numeric,
+                COALESCE(c.weight, 0) * COALESCE(c.quantity, 1)
+            )::numeric(18,3) AS total_weight_kg,
             timezone('Asia/Shanghai', e.event_at) AS event_at_local,
             trim(e.operator_name) AS operator_name,
             e.event_id
@@ -246,6 +262,13 @@ async function fetchDbRows(range) {
         JOIN component c ON c.component_id = e.component_id
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
+        LEFT JOIN LATERAL (
+            SELECT CASE
+                WHEN e.raw_value LIKE 'SHIPPING_API_JSON:%'
+                    THEN substring(e.raw_value FROM 19)::jsonb
+                ELSE NULL::jsonb
+            END AS data
+        ) shipping_snapshot ON true
         WHERE e.status_type = 'shipping'
           AND e.is_completed = TRUE
           AND e.event_at IS NOT NULL
@@ -401,11 +424,20 @@ async function fetchComponentMatches(guids) {
     return res.rows || [];
 }
 
-function formatRawValue(operatorName, eventAtText) {
-    const operator = text(operatorName);
-    const eventAt = text(eventAtText);
-    if (operator && eventAt) return `【${operator}】${eventAt}`;
-    return eventAt || operator || '已发货';
+function formatShippingRawValue(row) {
+    return `${SHIPPING_API_RAW_PREFIX}${JSON.stringify({
+        source: 'delivery_history_api',
+        project_name: text(row.project_name),
+        component_guid: text(row.component_guid),
+        component_no: text(row.component_no),
+        spec: text(row.spec),
+        location: text(row.location),
+        quantity: num(row.quantity),
+        weight_kg: num(row.weight_kg),
+        complete_time_text: text(row.complete_time_text),
+        delivery_time_text: text(row.delivery_time_text),
+        delivery_username: text(row.delivery_username)
+    })}`;
 }
 
 async function syncShippingEvents(rows) {
@@ -490,28 +522,52 @@ async function syncShippingEvents(rows) {
 
 function buildSyncRows(apiRows, matches) {
     const grouped = new Map();
+    const groupedWithoutSpec = new Map();
+    const groupedByProjectGuid = new Map();
+    const addMatch = (map, key, row) => {
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(row);
+    };
+    const makeWithoutSpecKey = row => [
+        normalizeText(row.project_name),
+        normalizeText(row.component_guid),
+        normalizeText(row.component_no),
+        normalizeText(row.location)
+    ].join('|');
+    const makeProjectGuidKey = row => [
+        normalizeText(row.project_name),
+        normalizeText(row.component_guid)
+    ].join('|');
     for (const row of matches) {
-        const key = makeKey(row);
-        if (!grouped.has(key)) grouped.set(key, []);
-        grouped.get(key).push(row);
+        addMatch(grouped, makeKey(row), row);
+        addMatch(groupedWithoutSpec, makeWithoutSpecKey(row), row);
+        addMatch(groupedByProjectGuid, makeProjectGuidKey(row), row);
     }
 
     const rows = [];
     const skipped = {
         missingComponent: [],
         ambiguousComponent: [],
-        missingDeliveryTime: []
+        missingDeliveryTime: [],
+        missingComponentCount: 0,
+        ambiguousComponentCount: 0,
+        missingDeliveryTimeCount: 0
     };
 
     for (const row of apiRows) {
-        const dbMatches = grouped.get(row.key) || [];
+        const dbMatches = grouped.get(row.key)
+            || groupedWithoutSpec.get(makeWithoutSpecKey(row))
+            || groupedByProjectGuid.get(makeProjectGuidKey(row))
+            || [];
         if (dbMatches.length === 0) {
+            skipped.missingComponentCount += 1;
             if (skipped.missingComponent.length < 10) skipped.missingComponent.push(row);
             continue;
         }
 
         const componentIds = [...new Set(dbMatches.map(item => Number(item.component_id)).filter(Number.isFinite))];
         if (componentIds.length !== 1) {
+            skipped.ambiguousComponentCount += 1;
             if (skipped.ambiguousComponent.length < 10) {
                 skipped.ambiguousComponent.push({ api: row, dbMatches });
             }
@@ -520,6 +576,7 @@ function buildSyncRows(apiRows, matches) {
 
         const eventAtText = text(row.delivery_time_text || row.complete_time_text);
         if (!eventAtText) {
+            skipped.missingDeliveryTimeCount += 1;
             if (skipped.missingDeliveryTime.length < 10) skipped.missingDeliveryTime.push(row);
             continue;
         }
@@ -533,7 +590,7 @@ function buildSyncRows(apiRows, matches) {
             location: row.location,
             delivery_username: text(row.delivery_username),
             event_at_text: eventAtText,
-            raw_value: formatRawValue(row.delivery_username, eventAtText)
+            raw_value: formatShippingRawValue(row)
         });
     }
 
@@ -665,13 +722,31 @@ async function runNightlyShippingAlignment(options = {}) {
         const before = compareRows(apiRows, beforeDbRows);
         const hasMismatch = before.summary.onlyApiCount > 0 || before.summary.onlyDbCount > 0 || before.summary.mismatchCount > 0;
 
-        if (!hasMismatch) {
+        if (!hasMismatch && !options.refreshSnapshots) {
             return {
                 range,
                 hasMismatch: false,
                 summaryText: buildSummaryText(range, before, { inserted: 0, updated: 0, unchanged: before.summary.dbRowCount }, before),
                 reportPath: null,
                 syncResult: { inserted: 0, updated: 0, unchanged: before.summary.dbRowCount },
+                before,
+                after: before
+            };
+        }
+
+        if (options.checkOnly) {
+            const matches = await fetchComponentMatches([...new Set(apiRows.map(row => row.component_guid).filter(Boolean))]);
+            const syncPreview = buildSyncRows(apiRows, matches);
+            return {
+                range,
+                hasMismatch: true,
+                summaryText: buildSummaryText(range, before, { inserted: 0, updated: 0, unchanged: 0 }, before),
+                reportPath: null,
+                syncResult: null,
+                syncPreview: {
+                    readyRowCount: syncPreview.rows.length,
+                    skipped: syncPreview.skipped
+                },
                 before,
                 after: before
             };
@@ -703,7 +778,9 @@ async function runNightlyShippingAlignment(options = {}) {
 }
 
 module.exports = {
-    runNightlyShippingAlignment
+    runNightlyShippingAlignment,
+    buildSyncRows,
+    formatShippingRawValue
 };
 
 if (require.main === module) {

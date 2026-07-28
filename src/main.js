@@ -6,6 +6,11 @@ const logger = require('./logger');
 const BrowserAutomation = require('./browser-automation');
 const { query } = require('./query/sql-runner');
 const { loadTeamDirectory } = require('./query/team-directory-loader');
+const { buildLatestFitupEventCte } = require('./query/latest-fitup-query');
+const { buildEffectiveProjectFilter, buildEffectivePlanFilter } = require('./query/effective-plan-filter');
+
+const ACTIVE_PROJECT_FILTER = buildEffectiveProjectFilter('p');
+const ACTIVE_PLAN_FILTER = buildEffectivePlanFilter('pp');
 
 const API_ORIGIN = 'https://dwyunsc.ddwjzkj.com:10086';
 const API_GET_STATISTICAL_DAYS = `${API_ORIGIN}/v1.statistical/getStatisticalDays`;
@@ -95,7 +100,7 @@ function findLatestShoufacunXlsx(dir) {
         if (!dir || !fs.existsSync(dir)) return null;
         const files = fs.readdirSync(dir);
         const candidates = files
-            .filter(f => /收发存.*\.xlsx$/i.test(f) && !/模板\.xlsx$/i.test(f))
+            .filter(f => !f.startsWith('~$') && /收发存.*\.xlsx$/i.test(f) && !/模板\.xlsx$/i.test(f))
             .map(f => {
                 const full = path.join(dir, f);
                 let st = null;
@@ -142,6 +147,21 @@ function buildExportCsvName(options = {}) {
 function csvEscape(value) {
     const text = String(value ?? '');
     return `"${text.replace(/"/g, '""')}"`;
+}
+
+function writeCsvWithLockedFileFallback(outPath, content) {
+    try {
+        fs.writeFileSync(outPath, content, 'utf8');
+        return outPath;
+    } catch (error) {
+        if (!error || !['EPERM', 'EBUSY', 'EACCES'].includes(error.code)) throw error;
+        const parsed = path.parse(outPath);
+        const timestamp = new Date().toISOString().replace(/[-:TZ.]/g, '').slice(0, 14);
+        const fallbackPath = path.join(parsed.dir, `${parsed.name}_重生成_${timestamp}${parsed.ext}`);
+        fs.writeFileSync(fallbackPath, content, 'utf8');
+        logger.warn(`目标文件被占用，已改写到：${fallbackPath}`);
+        return fallbackPath;
+    }
 }
 
 async function writeApiListCsv({ outPath, headerNames, rows }) {
@@ -374,53 +394,46 @@ async function exportShoufacunInboundCsvFromDb(options = {}) {
     }
 
     const sql = `
-        WITH latest_fitup AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
+        ${buildLatestFitupEventCte({
+            cteName: 'latest_fitup',
+            currentStateBeforeSql: `($2::date + interval '1 day')`
+        })}
+        SELECT
                 p.project_name,
                 COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_name,
                 COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_no,
                 COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
                 COALESCE(NULLIF(trim(c.spec), ''), '') AS spec,
                 COALESCE(c.quantity, 1)::int AS quantity,
-                COALESCE(c.weight, 0)::numeric(18,3) AS weight_kg,
+                COALESCE(
+                    NULLIF(process_snapshot.data->>'weight_kg', '')::numeric,
+                    c.weight,
+                    0
+                ) AS weight_kg,
                 0::numeric(18,3) AS volume,
                 COALESCE(c.length, 0)::numeric(18,3) AS length,
                 COALESCE(NULLIF(trim(c.production_feature), ''), '') AS production_feature,
                 COALESCE(NULLIF(trim(c.location), ''), '') AS location,
-                timezone('Asia/Shanghai', e.event_at) AS event_at,
-                e.event_id,
-                e.is_completed
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-            ORDER BY
-                p.project_name ASC,
-                pp.plan_name ASC,
-                c.component_guid ASC,
-                COALESCE(timezone('Asia/Shanghai', e.event_at), timezone('Asia/Shanghai', e.updated_at), timezone('Asia/Shanghai', e.created_at)) DESC,
-                e.event_id DESC
-        )
-        SELECT
-            project_name,
-            component_name,
-            component_no,
-            component_guid,
-            spec,
-            quantity,
-            weight_kg,
-            volume,
-            length,
-            production_feature,
-            location,
-            event_at
+                timezone('Asia/Shanghai', latest_fitup.event_at) AS event_at,
+                latest_fitup.event_id
         FROM latest_fitup
-        WHERE is_completed = true
-          AND event_at IS NOT NULL
-          AND timezone('Asia/Shanghai', event_at)::date >= $1::date
-          AND timezone('Asia/Shanghai', event_at)::date <= $2::date
-        ORDER BY project_name ASC, event_at ASC, component_guid ASC, event_id ASC
+        JOIN component c ON c.component_id = latest_fitup.component_id
+        JOIN production_plan pp ON pp.plan_id = c.plan_id
+        JOIN project p ON p.project_id = pp.project_id
+        LEFT JOIN LATERAL (
+            SELECT CASE
+                WHEN latest_fitup.raw_value LIKE 'PROCESS_API_JSON:%'
+                    THEN substring(latest_fitup.raw_value FROM 18)::jsonb
+                ELSE NULL::jsonb
+            END AS data
+        ) process_snapshot ON true
+        WHERE latest_fitup.is_completed = true
+          AND latest_fitup.event_at IS NOT NULL
+          AND timezone('Asia/Shanghai', latest_fitup.event_at)::date >= $1::date
+          AND timezone('Asia/Shanghai', latest_fitup.event_at)::date <= $2::date
+          AND ${ACTIVE_PROJECT_FILTER}
+          AND ${ACTIVE_PLAN_FILTER}
+        ORDER BY p.project_name ASC, latest_fitup.event_at ASC, c.component_guid ASC, latest_fitup.event_id ASC
     `;
     const res = await query(sql, [start, end]);
 
@@ -456,9 +469,9 @@ async function exportShoufacunInboundCsvFromDb(options = {}) {
         ].join(','));
     }
 
-    fs.writeFileSync(outPath, lines.join('\n'), 'utf8');
-    logger.info(`数据库导出收发存入库 CSV 完成：${outPath}（${res.rows.length} 行）`);
-    return outPath;
+    const actualOutPath = writeCsvWithLockedFileFallback(outPath, lines.join('\n'));
+    logger.info(`数据库导出收发存入库 CSV 完成：${actualOutPath}（${res.rows.length} 行）`);
+    return actualOutPath;
 }
 
 async function exportShoufacunOutboundCsvFromDb(options = {}) {
@@ -471,41 +484,94 @@ async function exportShoufacunOutboundCsvFromDb(options = {}) {
 
     const sql = `
         SELECT
-            p.project_name,
-            COALESCE(sum(
-                CASE
-                    WHEN COALESCE(NULLIF(trim(c.component_guid), ''), '') ~ '^D9-2MB-2-fxc-251225-(0[1-9]|1[0-6])$'
-                        THEN COALESCE(c.weight, 0)
-                    ELSE COALESCE(c.weight, 0) * COALESCE(c.quantity, 1)
-                END
-            ), 0)::numeric(18,3) AS weight_kg
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'project_name'), ''), p.project_name) AS project_name,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(c.component_no), ''), '') AS component_name,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(c.component_no), ''), '') AS component_no,
+            COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
+            COALESCE(NULLIF(trim(c.model_id), ''), '') AS model_id,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'spec'), ''), NULLIF(trim(c.spec), ''), '') AS spec,
+            COALESCE(NULLIF(shipping_snapshot.data->>'quantity', '')::numeric, c.quantity, 1)::numeric(18,3) AS quantity,
+            CASE
+                WHEN shipping_snapshot.data IS NOT NULL
+                    THEN COALESCE(NULLIF(shipping_snapshot.data->>'weight_kg', '')::numeric, 0)
+                WHEN COALESCE(NULLIF(trim(c.component_guid), ''), '') ~ '^D9-2MB-2-fxc-251225-(0[1-9]|1[0-6])$'
+                    THEN COALESCE(c.weight, 0)
+                ELSE COALESCE(c.weight, 0) * COALESCE(c.quantity, 1)
+            END AS weight_kg,
+            0::numeric(18,3) AS volume,
+            COALESCE(c.length, 0)::numeric(18,3) AS length,
+            COALESCE(NULLIF(trim(c.production_feature), ''), '') AS production_feature,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'location'), ''), NULLIF(trim(c.location), ''), '') AS location,
+            COALESCE(NULLIF(trim(c.axis_range), ''), '') AS axis_range,
+            COALESCE(NULLIF(trim(c.component_type_code), ''), '') AS component_type_code,
+            to_char(timezone('Asia/Shanghai', inbound.event_at), 'YYYY-MM-DD HH24:MI:SS') AS inbound_at,
+            to_char(timezone('Asia/Shanghai', e.event_at), 'YYYY-MM-DD HH24:MI:SS') AS outbound_at,
+            COALESCE(NULLIF(trim(e.operator_name), ''), '') AS operator_name,
+            e.event_id
         FROM component_status_event e
         JOIN component c ON c.component_id = e.component_id
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
+        LEFT JOIN LATERAL (
+            SELECT CASE
+                WHEN e.raw_value LIKE 'SHIPPING_API_JSON:%'
+                    THEN substring(e.raw_value FROM 19)::jsonb
+                ELSE NULL::jsonb
+            END AS data
+        ) shipping_snapshot ON true
+        LEFT JOIN LATERAL (
+            SELECT fitup.event_at
+            FROM component_status_event fitup
+            WHERE fitup.component_id = c.component_id
+              AND fitup.status_type = 'fitup_weld_report'
+              AND fitup.is_completed = true
+              AND fitup.event_at IS NOT NULL
+            ORDER BY fitup.event_at DESC, fitup.event_id DESC
+            LIMIT 1
+        ) inbound ON true
         WHERE e.status_type = 'shipping'
           AND e.is_completed = true
           AND e.event_at IS NOT NULL
           AND timezone('Asia/Shanghai', e.event_at)::date >= $1::date
           AND timezone('Asia/Shanghai', e.event_at)::date <= $2::date
-        GROUP BY p.project_name
-        ORDER BY p.project_name ASC
+        ORDER BY p.project_name ASC, e.event_at ASC, c.component_guid ASC, e.event_id ASC
     `;
     const res = await query(sql, [start, end]);
 
-    const lines = ['项目名称,重量'];
-    for (const row of res.rows || []) {
-        const projectName = String(row.project_name || '').trim();
-        const weight = Number(row.weight_kg || 0);
+    const lines = [[
+        '#', '', '项目名称', '构件名称', '构件编号', '构件GUID', '模型ID', '规格/型号',
+        '数量', '重量', '体积', '长度', '生产特征', '区域部位/所在楼层', '轴线范围',
+        '构件类型编码', '所属布置图', '入库时间', '出库时间', '操作人'
+    ].map(csvEscape).join(',')];
+    for (let i = 0; i < (res.rows || []).length; i++) {
+        const row = res.rows[i];
         lines.push([
-            csvEscape(projectName),
-            csvEscape(weight.toFixed(3))
-        ].join(','));
+            i + 1,
+            '',
+            row.project_name,
+            row.component_name,
+            row.component_no,
+            row.component_guid,
+            row.model_id,
+            row.spec,
+            Number(row.quantity || 0),
+            Number(row.weight_kg || 0),
+            Number(row.volume || 0),
+            Number(row.length || 0),
+            row.production_feature,
+            row.location,
+            row.axis_range,
+            row.component_type_code,
+            '',
+            row.inbound_at,
+            row.outbound_at,
+            row.operator_name
+        ].map(csvEscape).join(','));
     }
 
-    fs.writeFileSync(outPath, lines.join('\n'), 'utf8');
-    logger.info(`数据库导出收发存出库 CSV 完成：${outPath}（${res.rows.length} 行）`);
-    return outPath;
+    const actualOutPath = writeCsvWithLockedFileFallback(outPath, lines.join('\n'));
+    logger.info(`数据库导出收发存出库 CSV 完成：${actualOutPath}（${res.rows.length} 行）`);
+    return actualOutPath;
 }
 
 function formatWorkshopLabel(member) {
@@ -525,34 +591,25 @@ async function exportDailyFitupCsvFromDb(options = {}) {
     }
 
     const sql = `
-        WITH latest_fitup AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                to_char(timezone('Asia/Shanghai', e.event_at)::date, 'YYYY-MM-DD') AS report_date,
-                COALESCE(NULLIF(trim(e.team_name), ''), '未标记班组') AS team_name,
-                COALESCE(c.weight, 0) * c.quantity AS total_weight,
-                e.is_completed
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND COALESCE(p.project_status::text, '') <> 'closed'
-            ORDER BY
-                p.project_name ASC,
-                pp.plan_name ASC,
-                c.component_guid ASC,
-                COALESCE(timezone('Asia/Shanghai', e.event_at), timezone('Asia/Shanghai', e.updated_at), timezone('Asia/Shanghai', e.created_at)) DESC,
-                e.event_id DESC
-        )
+        ${buildLatestFitupEventCte({
+            cteName: 'latest_fitup',
+            currentStateBeforeSql: `($2::date + interval '1 day')`
+        })}
         SELECT
-            report_date,
-            team_name,
-            COALESCE(sum(total_weight), 0)::numeric(18,3) AS total_weight
+            to_char(timezone('Asia/Shanghai', latest_fitup.event_at)::date, 'YYYY-MM-DD') AS report_date,
+            COALESCE(NULLIF(trim(latest_fitup.team_name), ''), '未标记班组') AS team_name,
+            COALESCE(sum(COALESCE(c.weight, 0) * c.quantity), 0)::numeric(18,3) AS total_weight
         FROM latest_fitup
-        WHERE is_completed = true
-          AND report_date >= $1::text
-          AND report_date <= $2::text
-        GROUP BY report_date, team_name
+        JOIN component c ON c.component_id = latest_fitup.component_id
+        JOIN production_plan pp ON pp.plan_id = c.plan_id
+        JOIN project p ON p.project_id = pp.project_id
+        WHERE latest_fitup.is_completed = true
+          AND latest_fitup.event_at IS NOT NULL
+          AND timezone('Asia/Shanghai', latest_fitup.event_at)::date >= $1::date
+          AND timezone('Asia/Shanghai', latest_fitup.event_at)::date <= $2::date
+          AND ${ACTIVE_PROJECT_FILTER}
+          AND ${ACTIVE_PLAN_FILTER}
+        GROUP BY 1, 2
         ORDER BY report_date ASC, team_name ASC
     `;
     const res = await query(sql, [start, end]);
@@ -1250,6 +1307,55 @@ async function downloadOutbound(browserAutomation) {
     logger.warn('downloadOutbound 尚未实现：需要你提供导出按钮/接口信息');
 }
 
+async function generateShoufacunFromDb(args) {
+    const now = new Date();
+    const shoufacunEnd = args['shoufacun-end'] || args.end;
+    const shoufacunMonth = args['shoufacun-month'] || args.month;
+    const { start, end } = shoufacunEnd
+        ? getMonth26ToMonth25ByEndYmd(shoufacunEnd)
+        : (shoufacunMonth ? getMonth26ToMonth25ByMonthKey(shoufacunMonth) : getLastMonth26ToThisMonth25(now));
+
+    const archiveDir = getDailyArchiveDir(end);
+    ensureDir(archiveDir);
+
+    logger.info(`收发存模式：数据库查询范围 ${start} 至 ${end}`);
+
+    const inboundCsvTarget = path.join(archiveDir, `${end.slice(0, 7)}_装焊入库.csv`);
+    const outboundCsvTarget = path.join(archiveDir, `${end.slice(0, 7)}_构件出库.csv`);
+    const inboundCsv = await exportShoufacunInboundCsvFromDb({ start, end, outPath: inboundCsvTarget });
+    const outboundCsv = await exportShoufacunOutboundCsvFromDb({ start, end, outPath: outboundCsvTarget });
+
+    const { generateShoufacunReport } = require('./generate-shoufacun-report-exceljs');
+    const templatePath = path.join(__dirname, '..', '收发存模板.xlsx');
+    const explicitLastMonthPath = args['last-month'] ? path.resolve(args['last-month']) : null;
+    const prevEnd = addMonths(end, -1);
+    const prevArchiveDir = prevEnd ? getDailyArchiveDir(prevEnd) : null;
+    const autoLastMonthPath = prevArchiveDir ? findLatestShoufacunXlsx(prevArchiveDir) : null;
+    const lastMonthPath = explicitLastMonthPath || autoLastMonthPath;
+
+    if (!explicitLastMonthPath && autoLastMonthPath) {
+        logger.info(`收发存模式：自动找到上月收发存文件用于回填：${autoLastMonthPath}`);
+    }
+
+    const startParts = start.split('-').map(Number);
+    const endParts = end.split('-').map(Number);
+    const periodText = `周期：${startParts[0]}年${startParts[1]}月${startParts[2]}日—${endParts[1]}月${endParts[2]}日  ${endParts[1]}月份`;
+    const outputFileName = `${end.slice(0, 7).replace('-', '')}收发存报表.xlsx`;
+
+    logger.info('收发存模式：开始用数据库明细生成收发存报表...');
+    const outPath = await generateShoufacunReport({
+        inboundCsv,
+        outboundCsv,
+        templatePath,
+        outDir: archiveDir,
+        lastMonthPath,
+        periodText,
+        outputFileName
+    });
+    logger.success(`收发存报表已生成: ${outPath}`);
+    return outPath;
+}
+
 async function main() {
     ensureDirectories();
 
@@ -1320,6 +1426,12 @@ async function main() {
         return;
     }
 
+    if (shoufacunMode && !args['from-api']) {
+        await generateShoufacunFromDb(args);
+        logger.success('流程执行结束');
+        return;
+    }
+
     const browserAutomation = new BrowserAutomation(config);
 
     try {
@@ -1364,13 +1476,13 @@ async function main() {
             const archiveDir = getDailyArchiveDir(end);
             ensureDir(archiveDir);
 
-            logger.info(`收发存模式：导出范围 ${start} 至 ${end}（入库=API优先，出库=API优先，失败回退网页导出）`);
+            logger.info(`收发存 API 模式：导出范围 ${start} 至 ${end}（API失败时回退网页导出）`);
 
             // Force headless for scheduled runs
             config.browser.headless = true;
 
-            const inboundCsvName = `${end.slice(0, 7)}_装焊入库.csv`;
-            const outboundCsvName = `${end.slice(0, 7)}_构件出库.csv`;
+            const inboundCsvName = `${end.slice(0, 7)}_装焊入库_API.csv`;
+            const outboundCsvName = `${end.slice(0, 7)}_构件出库_API.csv`;
 
             const inboundResult = await runSubworkStatistics(browserAutomation, {
                 range: { start, end },
@@ -1425,7 +1537,7 @@ async function main() {
                 outDir: archiveDir,
                 lastMonthPath,
                 periodText,
-                outputFileName: `${end.slice(0, 7).replace('-', '')}收发存报表.xlsx`
+                outputFileName: `${end.slice(0, 7).replace('-', '')}收发存报表_API.xlsx`
             });
             logger.success(`收发存报表已生成: ${outPath}`);
 

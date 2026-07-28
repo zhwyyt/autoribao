@@ -1,40 +1,18 @@
-const { query, buildTeamScopeClause } = require('../sql-runner');
+const { query } = require('../sql-runner');
 const { buildEffectiveProjectFilter, buildEffectivePlanFilter } = require('../effective-plan-filter');
+const {
+    buildLatestFitupScopeClause,
+    buildLatestFitupStatusCte,
+    buildLatestFitupEventCte
+} = require('../latest-fitup-query');
 
 const ACTIVE_PROJECT_FILTER = buildEffectiveProjectFilter('p');
 const ACTIVE_PLAN_FILTER = buildEffectivePlanFilter('pp');
 
 async function fetchUnfinishedFitup(scope, maxDetailRows = 20) {
-    const scopeClause = buildTeamScopeClause('e.team_name', scope, 1);
+    const scopeClause = buildLatestFitupScopeClause(scope, { alias: 'latest', startingIndex: 1 });
     const detailLimitIndex = scopeClause.nextIndex;
-
-    const cte = `
-        WITH filtered AS (
-            SELECT
-                e.event_id,
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-        ),
-        latest AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY p.project_name, pp.plan_name, c.component_guid, COALESCE(e.event_at, e.updated_at, e.created_at) DESC, e.event_id DESC
-        )
-    `;
+    const cte = buildLatestFitupStatusCte({ cteName: 'latest' });
 
     const summarySql = `
         ${cte}
@@ -47,6 +25,7 @@ async function fetchUnfinishedFitup(scope, maxDetailRows = 20) {
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
         WHERE latest.is_completed = false
+          AND ${scopeClause.sql}
           AND ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
     `;
@@ -62,6 +41,7 @@ async function fetchUnfinishedFitup(scope, maxDetailRows = 20) {
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
         WHERE latest.is_completed = false
+          AND ${scopeClause.sql}
           AND ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
         GROUP BY COALESCE(NULLIF(latest.team_name, ''), '未标记班组')
@@ -86,6 +66,7 @@ async function fetchUnfinishedFitup(scope, maxDetailRows = 20) {
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
         WHERE latest.is_completed = false
+          AND ${scopeClause.sql}
           AND ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
         ORDER BY latest.effective_at DESC NULLS LAST, p.project_name, pp.plan_name, c.component_no
@@ -110,32 +91,13 @@ async function fetchUnfinishedFitup(scope, maxDetailRows = 20) {
 }
 
 async function fetchDailyFitupOutput(scope, dateRange) {
-    const scopeClause = buildTeamScopeClause('e.team_name', scope, 1);
+    const scopeClause = buildLatestFitupScopeClause(scope, { alias: 'latest_fitup', startingIndex: 1 });
     const startIndex = scopeClause.nextIndex;
     const endIndex = startIndex + 1;
-
-    const latestCte = `
-        WITH latest_fitup AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                e.event_id,
-                e.event_at,
-                trim(e.team_name) AS team_name,
-                e.is_completed
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY
-                p.project_name ASC,
-                pp.plan_name ASC,
-                c.component_guid ASC,
-                COALESCE(e.event_at, e.updated_at, e.created_at) DESC,
-                e.event_id DESC
-        )
-    `;
+    const latestCte = buildLatestFitupEventCte({
+        cteName: 'latest_fitup',
+        currentStateBeforeSql: `$${endIndex}`
+    });
 
     const summarySql = `
         ${latestCte}
@@ -151,6 +113,7 @@ async function fetchDailyFitupOutput(scope, dateRange) {
         JOIN project p ON p.project_id = pp.project_id
         WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
           AND latest_fitup.is_completed = true
           AND latest_fitup.event_at IS NOT NULL
           AND latest_fitup.event_at >= $${startIndex}
@@ -172,6 +135,7 @@ async function fetchDailyFitupOutput(scope, dateRange) {
         JOIN project p ON p.project_id = pp.project_id
         WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
           AND latest_fitup.is_completed = true
           AND latest_fitup.event_at IS NOT NULL
           AND latest_fitup.event_at >= $${startIndex}
@@ -181,17 +145,17 @@ async function fetchDailyFitupOutput(scope, dateRange) {
     `;
 
     const historySql = `
-        SELECT max(e.event_at) AS last_history_event_at
-        FROM component_status_event e
-        JOIN component c ON c.component_id = e.component_id
+        ${latestCte}
+        SELECT max(latest_fitup.event_at) AS last_history_event_at
+        FROM latest_fitup
+        JOIN component c ON c.component_id = latest_fitup.component_id
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
-        WHERE e.status_type = 'fitup_weld_report'
-          AND e.is_completed = true
-          AND e.event_at IS NOT NULL
-          AND ${scopeClause.sql}
-          AND ${ACTIVE_PROJECT_FILTER}
+        WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
+          AND latest_fitup.is_completed = true
+          AND latest_fitup.event_at IS NOT NULL
     `;
 
     const params = [...scopeClause.params, dateRange.start, dateRange.end];

@@ -1,8 +1,18 @@
 const http = require('http');
-const { spawnSync } = require('child_process');
+const { spawnSync, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
+const { pathToFileURL } = require('url');
 const WebSocket = require('ws');
+const { handleJiajiaoagentBridgeRoute } = require('./jiajiaoagent-bridge-router');
+const { handleJiajiaoagentQuickControl } = require('./jiajiaoagent-quick-router');
+const {
+  parseAssessmentCommand,
+  handleAssessmentCommand,
+  parseFanganCommand,
+  handleAutowebfanganReportCommand
+} = require('./autowebfangan-bridge-router');
 const { handleNaturalLanguageQuery } = require('./query');
 const { queryProjectComponentDetails } = require('./project-component-details');
 const { parseProjectDetailCommand, handleProjectComponentDetailExport } = require('./project-component-details-db');
@@ -43,6 +53,7 @@ const ONEBOT_API = 'http://127.0.0.1:3000';
 const CONFIG_PATH = path.resolve(__dirname, '../config/qq-bot.json');
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const PEC_DEBUG_DIR = path.resolve(__dirname, '../logs/pec-qq-debug');
+const JIAJIAOAGENT_VOICE_DEBUG_DIR = path.resolve(__dirname, '../logs/jiajiaoagent-voice-debug');
 let BOT_QQ = 2162802443;
 let AUTHORIZED_USERS = []; // 授权用户列表（空数组=所有人可用；可在 config/qq-bot.json 覆盖）
 const NIGHTLY_RECONCILIATION_USER_ID = 584201119;
@@ -55,6 +66,26 @@ const PEC_CONFIG = {
   runnerScript: 'I:\\autoweb\\unified-automation\\backend\\pec\\src\\qq-run-single-file.js',
   inputFolder: null
 };
+const AUTOWEBFANGAN_CONFIG = {
+  repoRoot: 'I:\\autoweb\\autowebfangan'
+};
+const JIAJIAOAGENT_REPO_ROOT = 'I:\\jiajiaoagent';
+const JIAJIAOAGENT_ROUTING_CONFIG_PATH = path.join(JIAJIAOAGENT_REPO_ROOT, 'config', 'napcat-routing.json');
+const JIAJIAOAGENT_BACKEND_ENV_PATH = path.join(JIAJIAOAGENT_REPO_ROOT, 'backend', '.env');
+const JIAJIAOAGENT_OPENAI_STT_BASE_URL = 'https://api.openai.com/v1';
+const JIAJIAOAGENT_OPENAI_STT_MODEL = 'gpt-4o-mini-transcribe';
+const JIAJIAOAGENT_GPT_AUDIO_MODEL = 'gpt-4o-audio-preview';
+const JIAJIAOAGENT_MIMO_AUDIO_BASE_URL = 'https://token-plan-cn.xiaomimimo.com/v1';
+const JIAJIAOAGENT_MIMO_AUDIO_MODEL = 'mimo-v2-omni';
+const JIAJIAOAGENT_SILK_WASM_ENTRY = path.join(JIAJIAOAGENT_REPO_ROOT, 'backend', 'node_modules', 'silk-wasm', 'lib', 'index.mjs');
+let QQ_WHITELIST_ROUTING = {
+  defaultTarget: 'ignore',
+  targets: {
+    autoribao: { userIds: [] },
+    jiajiaoagent: { userIds: [] }
+  }
+};
+let jiajiaoagentSttApiKeyCache;
 try {
   const raw = fs.readFileSync(CONFIG_PATH, 'utf8');
   const cfg = JSON.parse(raw);
@@ -69,6 +100,9 @@ try {
   if (cfg && cfg.pec && typeof cfg.pec.inputFolder === 'string' && cfg.pec.inputFolder.trim()) {
     PEC_CONFIG.inputFolder = cfg.pec.inputFolder.trim();
   }
+  if (cfg && cfg.autowebfangan && typeof cfg.autowebfangan.repoRoot === 'string' && cfg.autowebfangan.repoRoot.trim()) {
+    AUTOWEBFANGAN_CONFIG.repoRoot = cfg.autowebfangan.repoRoot.trim();
+  }
   // #region agent log
   DEBUG_LOG('qq-bot-napcat.js:config:loaded', 'loaded config', { configPath: CONFIG_PATH, authorizedUsersCount: AUTHORIZED_USERS.length }, 'H8');
   // #endregion
@@ -76,6 +110,27 @@ try {
   // #region agent log
   DEBUG_LOG('qq-bot-napcat.js:config:error', 'failed to load config', { configPath: CONFIG_PATH, errorMessage: e.message }, 'H8');
   // #endregion
+}
+
+try {
+  const raw = fs.readFileSync(JIAJIAOAGENT_ROUTING_CONFIG_PATH, 'utf8');
+  const cfg = JSON.parse(raw);
+  if (cfg && cfg.targets) {
+    QQ_WHITELIST_ROUTING = cfg;
+  }
+  DEBUG_LOG(
+    'qq-bot-napcat.js:routing:loaded',
+    'loaded napcat whitelist routing config',
+    { routingConfigPath: JIAJIAOAGENT_ROUTING_CONFIG_PATH, targets: Object.keys((QQ_WHITELIST_ROUTING && QQ_WHITELIST_ROUTING.targets) || {}) },
+    'H21'
+  );
+} catch (e) {
+  DEBUG_LOG(
+    'qq-bot-napcat.js:routing:error',
+    'failed to load napcat whitelist routing config',
+    { routingConfigPath: JIAJIAOAGENT_ROUTING_CONFIG_PATH, errorMessage: e.message },
+    'H21'
+  );
 }
 
 // HTTP请求函数
@@ -147,6 +202,24 @@ async function callAPIWithRetry(endpoint, data, retries = 1) {
     }
     throw err;
   }
+}
+
+function normalizeUserId(userId) {
+  return String(userId || '').trim();
+}
+
+function resolveWhitelistTarget(userId) {
+  const normalized = normalizeUserId(userId);
+  const targets = (QQ_WHITELIST_ROUTING && QQ_WHITELIST_ROUTING.targets) || {};
+
+  for (const [target, cfg] of Object.entries(targets)) {
+    const list = Array.isArray(cfg && cfg.userIds) ? cfg.userIds.map((item) => String(item)) : [];
+    if (list.includes(normalized)) {
+      return target;
+    }
+  }
+
+  return (QQ_WHITELIST_ROUTING && QQ_WHITELIST_ROUTING.defaultTarget) || 'ignore';
 }
 
 // 发送私聊消息
@@ -366,11 +439,633 @@ function parseCqFileMessage(rawText) {
   };
 }
 
+function parseCqAttributes(rawText, cqType) {
+  const text = String(rawText || '');
+  const match = text.match(new RegExp(`\\[CQ:${cqType},([^\\]]+)\\]`, 'i'));
+  if (!match) {
+    return null;
+  }
+
+  const attributes = {};
+  const parts = match[1].split(',');
+  for (const part of parts) {
+    const eqIndex = part.indexOf('=');
+    if (eqIndex <= 0) {
+      continue;
+    }
+
+    const key = part.slice(0, eqIndex).trim();
+    const value = part.slice(eqIndex + 1).trim();
+    attributes[key] = value;
+  }
+
+  return attributes;
+}
+
+function firstStringValue(source, keys) {
+  if (!source || typeof source !== 'object') {
+    return '';
+  }
+
+  for (const key of keys) {
+    const value = source[key];
+    if (typeof value === 'string' && value.trim()) {
+      return value.trim();
+    }
+  }
+
+  return '';
+}
+
+function extractSegmentSpeechText(data) {
+  return firstStringValue(data, [
+    'text',
+    'asr_text',
+    'voice_text',
+    'transcript',
+    'transcription',
+    'recognition',
+    'recognition_text',
+    'speech_text',
+    'summary'
+  ]);
+}
+
+function htmlDecodeBasic(value) {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#44;/g, ',')
+    .replace(/&#91;/g, '[')
+    .replace(/&#93;/g, ']');
+}
+
+function findEnvValueInFile(filePath, keys) {
+  try {
+    if (!fs.existsSync(filePath)) {
+      return '';
+    }
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const lines = raw.split(/\r?\n/);
+    for (const key of keys) {
+      const prefix = key + '=';
+      const line = lines.find((item) => item.trim().startsWith(prefix));
+      if (!line) {
+        continue;
+      }
+      return line.trim().slice(prefix.length).replace(/^["']|["']$/g, '').trim();
+    }
+  } catch (_) {}
+  return '';
+}
+
+function findJiajiaoagentEnvValue(keys) {
+  return findEnvValueInFile(JIAJIAOAGENT_BACKEND_ENV_PATH, keys);
+}
+
+function resolveJiajiaoagentSttApiKey() {
+  if (jiajiaoagentSttApiKeyCache !== undefined) {
+    return jiajiaoagentSttApiKeyCache;
+  }
+
+  jiajiaoagentSttApiKeyCache = (
+    process.env.MIMO_API_KEY ||
+    process.env.OPENAI_AUDIO_API_KEY ||
+    process.env.OPENAI_API_KEY ||
+    process.env.GPT_API_KEY ||
+    process.env.OPENAI_STT_API_KEY ||
+    process.env.LLM_API_KEY ||
+    findJiajiaoagentEnvValue(['MIMO_API_KEY', 'OPENAI_AUDIO_API_KEY', 'OPENAI_API_KEY', 'GPT_API_KEY', 'OPENAI_STT_API_KEY', 'LLM_API_KEY'])
+  || '').trim();
+
+  return jiajiaoagentSttApiKeyCache;
+}
+
+function resolveJiajiaoagentDedicatedTranscriptionBaseUrl() {
+  return (
+    process.env.OPENAI_STT_BASE_URL ||
+    process.env.OPENAI_BASE_URL ||
+    findJiajiaoagentEnvValue(['OPENAI_STT_BASE_URL', 'OPENAI_BASE_URL'])
+  || '').trim();
+}
+
+function resolveJiajiaoagentLlmBaseUrl() {
+  return (
+    process.env.OPENAI_AUDIO_BASE_URL ||
+    process.env.MIMO_BASE_URL ||
+    process.env.LLM_BASE_URL ||
+    findJiajiaoagentEnvValue(['OPENAI_AUDIO_BASE_URL', 'MIMO_BASE_URL', 'LLM_BASE_URL'])
+  || '').trim();
+}
+
+function resolveJiajiaoagentTranscriptionModel() {
+  return (
+    process.env.OPENAI_STT_MODEL ||
+    findJiajiaoagentEnvValue(['OPENAI_STT_MODEL']) ||
+    JIAJIAOAGENT_OPENAI_STT_MODEL
+  ).trim();
+}
+
+function resolveJiajiaoagentGptAudioModel() {
+  return (
+    process.env.OPENAI_AUDIO_MODEL ||
+    process.env.MIMO_AUDIO_MODEL ||
+    process.env.LLM_MODEL ||
+    findJiajiaoagentEnvValue(['OPENAI_AUDIO_MODEL', 'MIMO_AUDIO_MODEL', 'LLM_MODEL']) ||
+    JIAJIAOAGENT_GPT_AUDIO_MODEL
+  ).trim();
+}
+
+function extractVoiceInputFromMessage(message) {
+  const segments = normalizeMessageSegments(message);
+  for (const segment of segments) {
+    if (!segment || !segment.data || (segment.type !== 'record' && segment.type !== 'voice')) {
+      continue;
+    }
+    const data = segment.data;
+    return {
+      file: htmlDecodeBasic(data.file || data.file_id || ''),
+      path: htmlDecodeBasic(data.path || ''),
+      url: htmlDecodeBasic(data.url || data.download_url || '')
+    };
+  }
+
+  const rawText = String(message?.raw_message || message?.message || '').trim();
+  const attrs = parseCqAttributes(rawText, 'record') || parseCqAttributes(rawText, 'voice') || {};
+  return {
+    file: htmlDecodeBasic(attrs.file || attrs.file_id || ''),
+    path: htmlDecodeBasic(attrs.path || ''),
+    url: htmlDecodeBasic(attrs.url || attrs.download_url || '')
+  };
+}
+
+function resolveLocalVoicePath(voiceInput) {
+  const candidates = [
+    voiceInput && voiceInput.path,
+    voiceInput && voiceInput.file
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    const normalized = normalizeOutboundFilePath(candidate);
+    if (normalized && fs.existsSync(normalized)) {
+      return normalized;
+    }
+  }
+
+  return '';
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function waitForLocalVoicePath(voiceInput, timeoutMs = 5000) {
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < timeoutMs) {
+    const localPath = resolveLocalVoicePath(voiceInput);
+    if (localPath) {
+      return localPath;
+    }
+    await sleep(250);
+  }
+  return resolveLocalVoicePath(voiceInput);
+}
+
+async function downloadVoiceInputToTemp(voiceInput) {
+  const url = voiceInput && voiceInput.url;
+  if (!url || typeof fetch !== 'function') {
+    return '';
+  }
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Voice download failed: ${response.status}`);
+  }
+
+  const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  const ext = path.extname(voiceInput.file || '') || '.amr';
+  const fileName = `qq-voice-${Date.now()}-${Math.random().toString(16).slice(2)}${ext}`;
+  const filePath = path.join(os.tmpdir(), fileName);
+  fs.writeFileSync(filePath, buffer);
+  return filePath;
+}
+
+async function convertVoiceInputToWavWithNapCat(voiceInput) {
+  if (!voiceInput || !voiceInput.file) {
+    return '';
+  }
+
+  const record = await callAPIWithRetry('get_record', {
+    file: voiceInput.file,
+    out_format: 'wav'
+  }, 1);
+  const convertedPath = normalizeOutboundFilePath(record && (record.file || record.url || ''));
+  if (convertedPath && fs.existsSync(convertedPath)) {
+    return convertedPath;
+  }
+
+  if (record && typeof record.base64 === 'string' && record.base64) {
+    const filePath = path.join(os.tmpdir(), `qq-voice-${Date.now()}-${Math.random().toString(16).slice(2)}.wav`);
+    fs.writeFileSync(filePath, Buffer.from(record.base64, 'base64'));
+    return filePath;
+  }
+
+  return '';
+}
+
+async function prepareVoicePathForTranscription(localPath, voiceInput) {
+  const ext = path.extname(localPath).toLowerCase();
+  if (['.flac', '.mp3', '.mp4', '.mpeg', '.mpga', '.m4a', '.ogg', '.wav', '.webm'].includes(ext)) {
+    return localPath;
+  }
+
+  try {
+    const wavPath = await convertVoiceInputToWavWithNapCat(voiceInput);
+    if (wavPath) {
+      return wavPath;
+    }
+  } catch (e) {
+    writeJiajiaoagentVoiceDebugSnapshot('voice_convert_error', {
+      localPath,
+      voiceInput,
+      errorMessage: e.message,
+      errorCode: e.code
+    });
+  }
+
+  return localPath;
+}
+
+function extractTranscriptFromSttResponse(bodyText) {
+  try {
+    const body = JSON.parse(bodyText || '{}');
+    if (typeof body.text === 'string' && body.text.trim()) {
+      return body.text.trim();
+    }
+    const choiceText = body.choices && body.choices[0] && body.choices[0].message && body.choices[0].message.content;
+    if (typeof choiceText === 'string' && choiceText.trim()) {
+      return choiceText.trim();
+    }
+  } catch (_) {}
+  return '';
+}
+
+function extractChatCompletionText(bodyText) {
+  try {
+    const body = JSON.parse(bodyText || '{}');
+    const content = body.choices && body.choices[0] && body.choices[0].message && body.choices[0].message.content;
+    if (typeof content === 'string' && content.trim()) {
+      return content.trim();
+    }
+    if (Array.isArray(content)) {
+      return content
+        .map((part) => typeof part?.text === 'string' ? part.text : '')
+        .join('')
+        .trim();
+    }
+  } catch (_) {}
+  return '';
+}
+
+function sanitizeVoiceTranscript(transcript) {
+  const text = String(transcript || '').trim();
+  if (!text) {
+    return '';
+  }
+  if (/can[’']?t access (the )?audio|cannot access (the )?audio|unable to access (the )?audio|无法(访问|读取|听到).*音频|不能(访问|读取|听到).*音频/i.test(text)) {
+    return '';
+  }
+  return text;
+}
+
+async function extractChatCompletionStreamText(response) {
+  if (!response.body) {
+    return '';
+  }
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let content = '';
+
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) {
+      break;
+    }
+    buffer += decoder.decode(value, { stream: true });
+    let separatorIndex = buffer.indexOf('\n\n');
+    while (separatorIndex !== -1) {
+      const rawEvent = buffer.slice(0, separatorIndex);
+      buffer = buffer.slice(separatorIndex + 2);
+      const chunk = extractChatCompletionStreamChunk(rawEvent);
+      if (chunk === '[DONE]') {
+        return content.trim();
+      }
+      content += chunk;
+      separatorIndex = buffer.indexOf('\n\n');
+    }
+  }
+
+  content += extractChatCompletionStreamChunk(buffer);
+  return content.trim();
+}
+
+function extractChatCompletionStreamChunk(rawEvent) {
+  const trimmed = String(rawEvent || '').trim();
+  if (!trimmed) {
+    return '';
+  }
+  const lines = trimmed
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith('data:'))
+    .map((line) => line.slice(5).trim());
+
+  let result = '';
+  for (const line of lines) {
+    if (!line) {
+      continue;
+    }
+    if (line === '[DONE]') {
+      return '[DONE]';
+    }
+    try {
+      const parsed = JSON.parse(line);
+      for (const choice of parsed.choices || []) {
+        result += choice.delta && typeof choice.delta.content === 'string' ? choice.delta.content : '';
+      }
+    } catch (_) {}
+  }
+  return result;
+}
+
+function createPcm16leWavBuffer(pcmBuffer, sampleRate) {
+  const dataSize = pcmBuffer.length;
+  const header = Buffer.alloc(44);
+  header.write('RIFF', 0);
+  header.writeUInt32LE(36 + dataSize, 4);
+  header.write('WAVE', 8);
+  header.write('fmt ', 12);
+  header.writeUInt32LE(16, 16);
+  header.writeUInt16LE(1, 20);
+  header.writeUInt16LE(1, 22);
+  header.writeUInt32LE(sampleRate, 24);
+  header.writeUInt32LE(sampleRate * 2, 28);
+  header.writeUInt16LE(2, 32);
+  header.writeUInt16LE(16, 34);
+  header.write('data', 36);
+  header.writeUInt32LE(dataSize, 40);
+  return Buffer.concat([header, pcmBuffer]);
+}
+
+async function prepareAudioForOpenAiTranscription(localPath, audioBuffer) {
+  const ext = path.extname(localPath).toLowerCase();
+  if (['.flac', '.mp3', '.mp4', '.mpeg', '.mpga', '.m4a', '.ogg', '.wav', '.webm'].includes(ext)) {
+    return { buffer: audioBuffer, filename: path.basename(localPath), mimeType: ext === '.wav' ? 'audio/wav' : 'application/octet-stream' };
+  }
+
+  if (!fs.existsSync(JIAJIAOAGENT_SILK_WASM_ENTRY)) {
+    return { buffer: audioBuffer, filename: path.basename(localPath), mimeType: 'application/octet-stream' };
+  }
+
+  const silk = await import(pathToFileURL(JIAJIAOAGENT_SILK_WASM_ENTRY).href);
+  if (typeof silk.isSilk !== 'function' || typeof silk.decode !== 'function' || !silk.isSilk(audioBuffer)) {
+    return { buffer: audioBuffer, filename: path.basename(localPath), mimeType: 'application/octet-stream' };
+  }
+
+  const sampleRate = Number(process.env.QQ_VOICE_SAMPLE_RATE || 24000);
+  const decoded = await silk.decode(audioBuffer, sampleRate);
+  const pcm = Buffer.from(decoded.data);
+  const wavBuffer = createPcm16leWavBuffer(pcm, sampleRate);
+  const wavName = path.basename(localPath, path.extname(localPath)) + '.wav';
+  const debugWavPath = path.join(os.tmpdir(), wavName);
+  try {
+    fs.writeFileSync(debugWavPath, wavBuffer);
+  } catch (_) {}
+  return { buffer: wavBuffer, filename: wavName, mimeType: 'audio/wav', convertedFrom: localPath, debugWavPath };
+}
+
+async function transcribePreparedAudioWithTranscriptionsApi(apiKey, preparedAudio) {
+  const form = new FormData();
+  form.append('model', resolveJiajiaoagentTranscriptionModel());
+  form.append('file', new Blob([preparedAudio.buffer], { type: preparedAudio.mimeType }), preparedAudio.filename);
+
+  const baseUrl = (resolveJiajiaoagentDedicatedTranscriptionBaseUrl() || JIAJIAOAGENT_OPENAI_STT_BASE_URL).replace(/\/+$/, '');
+  const response = await fetch(`${baseUrl}/audio/transcriptions`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`
+    },
+    body: form
+  });
+  const bodyText = await response.text();
+  return {
+    ok: response.ok,
+    status: response.status,
+    bodyText,
+    transcript: response.ok ? sanitizeVoiceTranscript(extractTranscriptFromSttResponse(bodyText)) : '',
+    baseUrl,
+    method: 'audio_transcriptions'
+  };
+}
+
+async function transcribePreparedAudioWithGptAudio(apiKey, preparedAudio) {
+  const baseUrl = (resolveJiajiaoagentLlmBaseUrl() || resolveJiajiaoagentDedicatedTranscriptionBaseUrl() || JIAJIAOAGENT_OPENAI_STT_BASE_URL).replace(/\/+$/, '');
+  const response = await fetch(`${baseUrl}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      model: resolveJiajiaoagentGptAudioModel(),
+      messages: [
+        {
+          role: 'system',
+          content: 'Transcribe the child voice message. Return only the spoken words, with no explanation.'
+        },
+        {
+          role: 'user',
+          content: [
+            {
+              type: 'text',
+              text: 'Please transcribe this audio exactly. If it is English, keep it English. If it is Chinese, keep it Chinese.'
+            },
+            {
+              type: 'input_audio',
+              input_audio: {
+                data: preparedAudio.buffer.toString('base64'),
+                format: 'wav'
+              }
+            }
+          ]
+        }
+      ],
+      temperature: 0,
+      max_completion_tokens: 300,
+      stream: true
+    })
+  });
+  const transcript = response.ok ? sanitizeVoiceTranscript(await extractChatCompletionStreamText(response)) : '';
+  const bodyText = transcript || await response.text();
+  return {
+    ok: response.ok,
+    status: response.status,
+    bodyText,
+    transcript,
+    baseUrl,
+    method: 'chat_audio'
+  };
+}
+
+async function transcribeJiajiaoagentVoiceMessage(message, senderId) {
+  const apiKey = resolveJiajiaoagentSttApiKey();
+  const voiceInput = extractVoiceInputFromMessage(message);
+
+  if (!apiKey || typeof fetch !== 'function' || typeof FormData !== 'function' || typeof Blob !== 'function') {
+    writeJiajiaoagentVoiceDebugSnapshot('voice_stt_skipped', {
+      senderId: String(senderId),
+      hasApiKey: !!apiKey,
+      hasFetch: typeof fetch === 'function',
+      voiceInput,
+      localPath: ''
+    });
+    return '';
+  }
+
+  let localPath = await waitForLocalVoicePath(voiceInput);
+  let downloadedPath = '';
+  try {
+    if (!localPath) {
+      downloadedPath = await downloadVoiceInputToTemp(voiceInput);
+      localPath = downloadedPath;
+    }
+
+    if (!localPath) {
+      writeJiajiaoagentVoiceDebugSnapshot('voice_stt_skipped', {
+        senderId: String(senderId),
+        hasApiKey: !!apiKey,
+        hasLocalPath: false,
+        hasFetch: typeof fetch === 'function',
+        voiceInput,
+        localPath
+      });
+      return '';
+    }
+
+    const originalLocalPath = localPath;
+    localPath = await prepareVoicePathForTranscription(localPath, voiceInput);
+    const audio = fs.readFileSync(localPath);
+    const preparedAudio = await prepareAudioForOpenAiTranscription(localPath, audio);
+    const dedicatedBaseUrl = resolveJiajiaoagentDedicatedTranscriptionBaseUrl();
+    const result = dedicatedBaseUrl
+      ? await transcribePreparedAudioWithTranscriptionsApi(apiKey, preparedAudio)
+      : await transcribePreparedAudioWithGptAudio(apiKey, preparedAudio);
+    const transcript = result.transcript;
+
+    writeJiajiaoagentVoiceDebugSnapshot(transcript ? 'voice_stt_ok' : 'voice_stt_empty', {
+      senderId: String(senderId),
+      status: result.status,
+      localPath,
+      originalLocalPath,
+      downloadedPath,
+      size: preparedAudio.buffer.length,
+      originalSize: audio.length,
+      filename: preparedAudio.filename,
+      convertedFrom: preparedAudio.convertedFrom || '',
+      debugWavPath: preparedAudio.debugWavPath || '',
+      baseUrl: result.baseUrl,
+      method: result.method,
+      transcript,
+      bodyPreview: result.bodyText.slice(0, 500)
+    });
+
+    return transcript;
+  } catch (e) {
+    writeJiajiaoagentVoiceDebugSnapshot('voice_stt_error', {
+      senderId: String(senderId),
+      localPath,
+      downloadedPath,
+      errorMessage: e.message,
+      errorCode: e.code
+    });
+    return '';
+  }
+}
+
+function extractMessageContentForJiajiaoagent(message) {
+  const segments = normalizeMessageSegments(message);
+  const textParts = [];
+
+  for (const segment of segments) {
+    if (!segment || !segment.data) {
+      continue;
+    }
+
+    if (segment.type === 'text') {
+      const text = firstStringValue(segment.data, ['text']);
+      if (text) {
+        textParts.push(text);
+      }
+      continue;
+    }
+
+    if (segment.type === 'record' || segment.type === 'voice') {
+      const speechText = extractSegmentSpeechText(segment.data);
+      if (speechText) {
+        textParts.push(speechText);
+      }
+    }
+  }
+
+  if (textParts.length > 0) {
+    return textParts.join(' ').trim();
+  }
+
+  const rawText = String(message?.raw_message || message?.message || '').trim();
+  const recordAttrs = parseCqAttributes(rawText, 'record') || parseCqAttributes(rawText, 'voice');
+  const cqSpeechText = extractSegmentSpeechText(recordAttrs);
+  if (cqSpeechText) {
+    return cqSpeechText;
+  }
+
+  return rawText;
+}
+
+function isVoiceOnlyMessageWithoutText(message, content) {
+  const rawText = String(message?.raw_message || message?.message || '').trim();
+  if (!rawText || String(content || '').trim() !== rawText) {
+    return false;
+  }
+
+  const segments = normalizeMessageSegments(message);
+  if (segments.some(segment => segment && segment.type === 'text' && firstStringValue(segment.data, ['text']))) {
+    return false;
+  }
+
+  if (segments.some(segment => segment && (segment.type === 'record' || segment.type === 'voice'))) {
+    return true;
+  }
+
+  return /^\[CQ:(record|voice),/i.test(rawText);
+}
+
 function writePecDebugSnapshot(tag, payload) {
   try {
     fs.mkdirSync(PEC_DEBUG_DIR, { recursive: true });
     const filePath = path.join(
       PEC_DEBUG_DIR,
+      `${Date.now()}_${tag}.json`
+    );
+    fs.writeFileSync(filePath, JSON.stringify(payload, null, 2), 'utf8');
+  } catch (_) {}
+}
+
+function writeJiajiaoagentVoiceDebugSnapshot(tag, payload) {
+  try {
+    fs.mkdirSync(JIAJIAOAGENT_VOICE_DEBUG_DIR, { recursive: true });
+    const filePath = path.join(
+      JIAJIAOAGENT_VOICE_DEBUG_DIR,
       `${Date.now()}_${tag}.json`
     );
     fs.writeFileSync(filePath, JSON.stringify(payload, null, 2), 'utf8');
@@ -598,38 +1293,60 @@ async function handleNoticeEvent(event) {
   await handlePecFileMessage(senderId, incomingFile);
 }
 
+function normalizeOutboundFilePath(filePath) {
+  const raw = String(filePath || '').trim();
+  if (!raw) {
+    return raw;
+  }
+
+  const mntMatch = raw.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
+  if (!mntMatch) {
+    return raw;
+  }
+
+  const drive = mntMatch[1].toUpperCase();
+  const rest = mntMatch[2].replace(/\//g, '\\');
+  return drive + ':\\' + rest;
+}
+
 async function sendResultFileToUser(userId, filePath, tag, kind) {
-  const st = statSafe(filePath);
+  const normalizedPath = normalizeOutboundFilePath(filePath);
+  const st = statSafe(normalizedPath);
   // #region agent log
   DEBUG_LOG(
     'qq-bot-napcat.js:result:fileCandidate',
     'candidate result file',
-    { tag, kind, exists: !!st, size: st ? st.size : null, base: st ? path.basename(filePath) : path.basename(filePath) },
+    { tag, kind, exists: !!st, size: st ? st.size : null, base: st ? path.basename(normalizedPath) : path.basename(normalizedPath), originalPath: filePath, normalizedPath },
     'H20'
   );
   // #endregion
   if (!st || !st.isFile()) {
-    await safeSendPrivateMessage(userId, `⚠️ 未找到生成文件：${filePath}`, `${tag}_missing`);
+    await safeSendPrivateMessage(userId, `⚠️ 未找到生成文件：${normalizedPath}`, `${tag}_missing`);
     return false;
   }
 
-  const uri = toFileUri(filePath);
-  const base = path.basename(filePath);
+  const uri = toFileUri(normalizedPath);
+  const base = path.basename(normalizedPath);
 
   // NapCat / OneBot V11: CQ 码形式发送本地文件（enableLocalFile2Url=true 时通常可用）
   const cq =
     kind === 'image'
       ? `[CQ:image,file=${uri}]`
-      : `[CQ:file,file=${uri},name=${base}]`;
+      : kind === 'voice'
+        ? `[CQ:record,file=${uri}]`
+        : `[CQ:file,file=${uri},name=${base}]`;
 
   const ok = await safeSendPrivateMessage(userId, cq, `${tag}_cq_${kind}`);
   if (ok) {
-    await safeSendPrivateMessage(userId, `✅ 已通过QQ发送成果：${base}`, `${tag}_sent_tip`);
+    const shouldSendSuccessTip = kind !== 'voice';
+    if (shouldSendSuccessTip) {
+      await safeSendPrivateMessage(userId, `✅ 已通过QQ发送成果：${base}`, `${tag}_sent_tip`);
+    }
     return true;
   }
 
   // 兜底：发送路径，方便人工取文件
-  await safeSendPrivateMessage(userId, `⚠️ 成果文件已生成但QQ发送失败，可在本机查看：${filePath}`, `${tag}_path_fallback`);
+  await safeSendPrivateMessage(userId, `⚠️ 成果文件已生成但QQ发送失败，可在本机查看：${normalizedPath}`, `${tag}_path_fallback`);
   return false;
 }
 
@@ -660,7 +1377,7 @@ function connectWebSocket() {
       console.error('处理WebSocket消息时出错:', error);
     }
   });
-  
+
   ws.on('close', (code, reason) => {
     // #region agent log
     DEBUG_LOG('qq-bot-napcat.js:connectWebSocket:close', 'WS closed', { code, reason: (reason && reason.toString()) || '' }, 'H3');
@@ -708,15 +1425,83 @@ async function checkConnection() {
 async function handleMessage(message) {
   console.log(`💬 收到消息: ${message.raw_message}`);
   
-  const content = String(message.raw_message || '').trim();
+  const rawContent = String(message.raw_message || '').trim();
+  let content = extractMessageContentForJiajiaoagent(message);
   const senderId = message.sender.user_id;
   const incomingFile = extractIncomingFile(message);
+  const routedTarget = resolveWhitelistTarget(senderId);
+
+  DEBUG_LOG(
+    'qq-bot-napcat.js:routing:resolved',
+    'resolved user route target',
+    { senderId: String(senderId), routedTarget },
+    'H23'
+  );
+
+  if (routedTarget === 'ignore') {
+    return;
+  }
+
+  if (routedTarget === 'jiajiaoagent') {
+    if (!content) {
+      return;
+    }
+
+    if (isVoiceOnlyMessageWithoutText(message, content)) {
+      const transcript = await transcribeJiajiaoagentVoiceMessage(message, senderId);
+      if (transcript) {
+        content = transcript;
+      } else {
+        let getMsgResult = null;
+        let getMsgError = null;
+        if (message && message.message_id != null) {
+          try {
+            getMsgResult = await callAPIWithRetry('get_msg', { message_id: message.message_id }, 1);
+          } catch (e) {
+            getMsgError = { errorCode: e.code, errorMessage: e.message };
+          }
+        }
+        writeJiajiaoagentVoiceDebugSnapshot('voice_without_transcript', {
+          source: 'private_message',
+          senderId: String(senderId),
+          rawContent,
+          extractedContent: content,
+          message,
+          getMsgResult,
+          getMsgError
+        });
+        DEBUG_LOG(
+          'qq-bot-napcat.js:jiajiaoagent:voiceNoTranscript',
+          'received voice message without STT transcript; not forwarding CQ record to tutor',
+          { senderId: String(senderId), messageId: message && message.message_id, hasGetMsgResult: !!getMsgResult, getMsgError, rawPreview: rawContent.slice(0, 240) },
+          'H24'
+        );
+        await safeSendPrivateMessage(
+          senderId,
+          '我收到语音了，但这次语音识别没有成功。你再发一遍短一点的英文，我会继续带读。',
+          'jiajiaoagent_voice_no_transcript'
+        );
+        return;
+      }
+    }
+
+    if (await handleJiajiaoagentQuickControl(senderId, content, safeSendPrivateMessage)) {
+      return;
+    }
+
+    await handleJiajiaoagentBridgeRoute(senderId, content, {
+      debugLog: DEBUG_LOG,
+      sendMessage: safeSendPrivateMessage,
+      sendFile: sendResultFileToUser
+    });
+    return;
+  }
   
   // 权限检查
   const allowAll = AUTHORIZED_USERS.length === 0;
-  const isAuthorized = allowAll || AUTHORIZED_USERS.includes(senderId);
+  const isAuthorized = routedTarget === 'autoribao' ? true : allowAll || AUTHORIZED_USERS.includes(senderId);
   // #region agent log
-  DEBUG_LOG('qq-bot-napcat.js:auth:check', 'auth check', { allowAll, authorizedUsersCount: AUTHORIZED_USERS.length, isAuthorized }, 'H9');
+  DEBUG_LOG('qq-bot-napcat.js:auth:check', 'auth check', { allowAll, authorizedUsersCount: AUTHORIZED_USERS.length, isAuthorized, routedTarget }, 'H9');
   // #endregion
   if (!isAuthorized) {
     await safeSendPrivateMessage(senderId, '❌ 无权限使用此机器人', 'unauthorized');
@@ -742,6 +1527,30 @@ async function handleMessage(message) {
     }
 
     if (!content) {
+      return;
+    }
+
+    const assessmentCommand = parseAssessmentCommand(content);
+    if (assessmentCommand) {
+      await handleAssessmentCommand(senderId, assessmentCommand, {
+        debugLog: DEBUG_LOG,
+        sendMessage: safeSendPrivateMessage,
+        sendFile: sendResultFileToUser
+      }, {
+        repoRoot: AUTOWEBFANGAN_CONFIG.repoRoot
+      });
+      return;
+    }
+
+    const fanganCommand = parseFanganCommand(content);
+    if (fanganCommand) {
+      await handleAutowebfanganReportCommand(senderId, fanganCommand, {
+        debugLog: DEBUG_LOG,
+        sendMessage: safeSendPrivateMessage,
+        sendFile: sendResultFileToUser
+      }, {
+        repoRoot: AUTOWEBFANGAN_CONFIG.repoRoot
+      });
       return;
     }
 
@@ -917,6 +1726,10 @@ async function handleMessage(message) {
 • 日报 - 生成当日日报
 • 收发存 - 生成本月收发存报表
 • 2026年4月收发存 - 生成指定月份收发存报表
+• 技术方案 - 生成上月技术方案统计报告（Excel + PPT）
+• 2026年4月技术方案 - 生成指定月份技术方案统计报告
+• 考核 覃祚威 2026-01-01 2026-05-31 - 生成指定审核人技术方案考核 Excel
+• 考核 覃祚威 2026年1月-5月 - 生成指定月份区间技术方案考核 Excel
 • 工序校对 - 立即执行一次工序 API 与数据库校对
 • 月度工序校对 - 立即执行一次上个 26 至本月 25 的整月工序校对
 • 发货对齐 - 立即执行一次发货 API 与数据库对齐

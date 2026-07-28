@@ -394,6 +394,8 @@ function mapComponentsFromApiList(list, planId) {
         const length = lengthRaw === null || lengthRaw === undefined || String(lengthRaw).trim() === '' ? null : Number(String(lengthRaw).trim());
         const productionFeature = String(item['生产特征'] || item.production_feature || '').trim();
         const location = String(item['区域部位/所在楼层'] || item.location || '').trim();
+        const axisRange = String(item['轴线范围'] || item.axis_range || '').trim();
+        const componentTypeCode = String(item['构件类型编码'] || item.component_type_code || '').trim();
 
         if (!planIdVal || !componentGuid) continue;
         
@@ -418,7 +420,9 @@ function mapComponentsFromApiList(list, planId) {
             weight: weight,
             length: length,
             production_feature: productionFeature,
-            location: location
+            location: location,
+            axis_range: axisRange,
+            component_type_code: componentTypeCode
         });
     }
     return components;
@@ -698,8 +702,8 @@ async function syncComponentsToDb(components, planId) {
     });
 
     const sql = `
-        INSERT INTO component (plan_id, component_guid, component_no, model_id, spec, quantity, weight, length, production_feature, location, updated_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, now())
+        INSERT INTO component (plan_id, component_guid, component_no, model_id, spec, quantity, weight, length, production_feature, location, axis_range, component_type_code, updated_at)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, now())
         ON CONFLICT (plan_id, component_guid) DO UPDATE
           SET component_no = EXCLUDED.component_no,
               model_id = EXCLUDED.model_id,
@@ -709,9 +713,11 @@ async function syncComponentsToDb(components, planId) {
               length = EXCLUDED.length,
               production_feature = EXCLUDED.production_feature,
               location = EXCLUDED.location,
+              axis_range = EXCLUDED.axis_range,
+              component_type_code = EXCLUDED.component_type_code,
               updated_at = now()
-        WHERE (component.component_no, component.model_id, component.spec, component.quantity, component.weight, component.length, component.production_feature, component.location)
-              IS DISTINCT FROM (EXCLUDED.component_no, EXCLUDED.model_id, EXCLUDED.spec, EXCLUDED.quantity, EXCLUDED.weight, EXCLUDED.length, EXCLUDED.production_feature, EXCLUDED.location)
+        WHERE (component.component_no, component.model_id, component.spec, component.quantity, component.weight, component.length, component.production_feature, component.location, component.axis_range, component.component_type_code)
+              IS DISTINCT FROM (EXCLUDED.component_no, EXCLUDED.model_id, EXCLUDED.spec, EXCLUDED.quantity, EXCLUDED.weight, EXCLUDED.length, EXCLUDED.production_feature, EXCLUDED.location, EXCLUDED.axis_range, EXCLUDED.component_type_code)
         RETURNING (xmax = 0) AS inserted
     `;
 
@@ -733,7 +739,9 @@ async function syncComponentsToDb(components, planId) {
                 c.weight,
                 c.length,
                 c.production_feature,
-                c.location
+                c.location,
+                c.axis_range,
+                c.component_type_code
             ]);
             if (res.rowCount === 0) {
                 unchanged++;
@@ -1826,6 +1834,7 @@ async function runFullMode(page) {
 }
 
 module.exports = {
+    mapComponentsFromApiList,
     syncArtifactsForPlanFromApi,
     setCapturedToken,
     buildGjgRollbackEvents

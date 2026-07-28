@@ -11,11 +11,13 @@
     "fill-daily": "node src/fill-daily-template-from-csv-exceljs.js",
     "qq-bot": "node src/qq-bot.js",
     "qq-bot-napcat": "node src/qq-bot-napcat.js",
+    "reconcile-shoufacun-api": "node src/shoufacun-api-reconciliation.js",
     "extract-production-plan": "node src/extract-production-plan.js",
     "extract-production-plan-by-project": "node src/extract-production-plan.js --by-project",
     "extract-production-plan-by-project-components-changed": "node src/extract-production-plan.js --api --by-project --components-changed-only",
     "extract-production-plan-info": "node src/extract-production-plan-info.js",
     "extract-project-list": "node src/extract-project-list.js",
+    "extract-project-order-bridge": "node src/extract-project-order-bridge.js",
     "import-production-plan": "node src/import-production-plan-from-excel.js"
   },
   "dependencies": {

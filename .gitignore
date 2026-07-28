@@ -17,4 +17,9 @@ src/*.log
 *.jpeg
 *.tmp
 
+# Local operational data and one-off diagnostics
+backups/
+debug-*.js
+*零构件清单.xlsx
+
 NapCatOneKey/

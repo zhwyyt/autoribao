@@ -91,6 +91,8 @@ CREATE TABLE IF NOT EXISTS component (
   length         NUMERIC(12,3), -- 长度
   production_feature TEXT,      -- 生产特征
   location       TEXT,          -- 区域部位/所在楼层
+  axis_range     TEXT,          -- 轴线范围
+  component_type_code TEXT,     -- 构件类型编码
 
   -- Optional snapshot for fast filtering / list pages.
   current_status component_status_type,

@@ -1,8 +1,13 @@
 const logger = require('../logger');
-const { query, buildTeamScopeClause } = require('./sql-runner');
+const { query } = require('./sql-runner');
 const { generateFeedbackWorkbook } = require('./feedback-exporter');
 const { normalizeDisplay, normalizeText, stripFitupTeamSuffix } = require('./team-directory-normalize');
 const { buildEffectiveProjectFilter, buildEffectivePlanFilter } = require('./effective-plan-filter');
+const {
+    buildLatestFitupScopeClause,
+    buildLatestFitupStatusCte,
+    buildLatestFitupEventCte
+} = require('./latest-fitup-query');
 
 const FITUP_INTENTS = new Set([
     'team_unfinished_tasks',
@@ -121,33 +126,9 @@ function findWorkshopByTeamName(directory, teamName, scope) {
 }
 
 async function fetchTaskSummaryRows(scope) {
-    const scopeClause = buildTeamScopeClause('e.team_name', scope, 1);
+    const scopeClause = buildLatestFitupScopeClause(scope, { alias: 'latest', startingIndex: 1 });
     const sql = `
-        WITH filtered AS (
-            SELECT
-                e.event_id,
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-        ),
-        latest AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY p.project_name, pp.plan_name, c.component_guid, COALESCE(e.event_at, e.updated_at, e.created_at) DESC, e.event_id DESC
-        )
+        ${buildLatestFitupStatusCte({ cteName: 'latest' })}
         SELECT
             COALESCE(NULLIF(latest.team_name, ''), '未标记班组') AS team_name,
             p.project_name,
@@ -164,6 +145,7 @@ async function fetchTaskSummaryRows(scope) {
         JOIN project p ON p.project_id = pp.project_id
         WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
         GROUP BY 1, 2, 3, 4
         ORDER BY p.project_name, area_name, team_name
     `;
@@ -222,26 +204,16 @@ function filterTaskRowsByHistoricalCompletedAreas(taskRows, historicalCompletedA
 }
 
 async function fetchDailyCompletedRows(scope, dateRange) {
-    const scopeClause = buildTeamScopeClause('e.team_name', scope, 1);
+    const scopeClause = buildLatestFitupScopeClause(scope, { alias: 'filtered', startingIndex: 1 });
     const startIndex = scopeClause.nextIndex;
     const endIndex = startIndex + 1;
     const params = [...scopeClause.params, dateRange.start, dateRange.end];
 
     const summarySql = `
-        WITH filtered AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.event_at,
-                e.is_completed
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY p.project_name, pp.plan_name, c.component_guid, COALESCE(e.event_at, e.updated_at, e.created_at) DESC, e.event_id DESC
-        )
+        ${buildLatestFitupEventCte({
+            cteName: 'filtered',
+            currentStateBeforeSql: `$${endIndex}`
+        })}
         SELECT
             COALESCE(NULLIF(filtered.team_name, ''), '未标记班组') AS team_name,
             p.project_name,
@@ -254,6 +226,7 @@ async function fetchDailyCompletedRows(scope, dateRange) {
         JOIN project p ON p.project_id = pp.project_id
         WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
           AND filtered.is_completed = true
           AND filtered.event_at IS NOT NULL
           AND filtered.event_at >= $${startIndex}
@@ -263,20 +236,10 @@ async function fetchDailyCompletedRows(scope, dateRange) {
     `;
 
     const detailSql = `
-        WITH filtered AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.event_at,
-                e.is_completed
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY p.project_name, pp.plan_name, c.component_guid, COALESCE(e.event_at, e.updated_at, e.created_at) DESC, e.event_id DESC
-        )
+        ${buildLatestFitupEventCte({
+            cteName: 'filtered',
+            currentStateBeforeSql: `$${endIndex}`
+        })}
         SELECT
             COALESCE(NULLIF(filtered.team_name, ''), '未标记班组') AS team_name,
             p.project_name,
@@ -291,6 +254,7 @@ async function fetchDailyCompletedRows(scope, dateRange) {
         JOIN project p ON p.project_id = pp.project_id
         WHERE ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
+          AND ${scopeClause.sql}
           AND filtered.is_completed = true
           AND filtered.event_at IS NOT NULL
           AND filtered.event_at >= $${startIndex}
@@ -310,33 +274,9 @@ async function fetchDailyCompletedRows(scope, dateRange) {
 }
 
 async function fetchUnfinishedDetailRows(scope) {
-    const scopeClause = buildTeamScopeClause('e.team_name', scope, 1);
+    const scopeClause = buildLatestFitupScopeClause(scope, { alias: 'latest', startingIndex: 1 });
     const sql = `
-        WITH filtered AS (
-            SELECT
-                e.event_id,
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-        ),
-        latest AS (
-            SELECT DISTINCT ON (p.project_name, pp.plan_name, c.component_guid)
-                e.component_id,
-                trim(e.team_name) AS team_name,
-                e.is_completed,
-                COALESCE(e.event_at, e.updated_at, e.created_at) AS effective_at
-            FROM component_status_event e
-            JOIN component c ON c.component_id = e.component_id
-            JOIN production_plan pp ON pp.plan_id = c.plan_id
-            JOIN project p ON p.project_id = pp.project_id
-            WHERE e.status_type = 'fitup_weld_report'
-              AND ${scopeClause.sql}
-            ORDER BY p.project_name, pp.plan_name, c.component_guid, COALESCE(e.event_at, e.updated_at, e.created_at) DESC, e.event_id DESC
-        )
+        ${buildLatestFitupStatusCte({ cteName: 'latest' })}
         SELECT
             COALESCE(NULLIF(latest.team_name, ''), '未标记班组') AS team_name,
             p.project_name,
@@ -351,6 +291,7 @@ async function fetchUnfinishedDetailRows(scope) {
         JOIN production_plan pp ON pp.plan_id = c.plan_id
         JOIN project p ON p.project_id = pp.project_id
         WHERE latest.is_completed = false
+          AND ${scopeClause.sql}
           AND ${ACTIVE_PROJECT_FILTER}
           AND ${ACTIVE_PLAN_FILTER}
         ORDER BY latest.effective_at DESC NULLS LAST, p.project_name, area_name, c.component_no

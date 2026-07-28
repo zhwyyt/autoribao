@@ -167,7 +167,7 @@ function normalizeHeader(v) {
 function parseNumberLike(v) {
     if (v == null) return null;
     if (typeof v === 'object') {
-        if (Object.prototype.hasOwnProperty.call(v, 'result')) return parseNumberLike(v.result);
+        if (Object.prototype.hasOwnProperty.call(v, 'result') && v.result != null) return parseNumberLike(v.result);
         if (Object.prototype.hasOwnProperty.call(v, 'text')) return parseNumberLike(v.text);
         if (Object.prototype.hasOwnProperty.call(v, 'richText')) {
             try {
@@ -185,6 +185,15 @@ function parseNumberLike(v) {
     if (!m) return null;
     const n = Number(m[0]);
     return Number.isFinite(n) ? n : null;
+}
+
+function round3(n) {
+    const x = Number(n);
+    return Number.isFinite(x) ? Number(x.toFixed(3)) : 0;
+}
+
+function readNumericCell(row, col) {
+    return parseNumberLike(row.getCell(col).value);
 }
 
 function normalizeProjectName(name) {
@@ -387,6 +396,9 @@ async function readLastMonthBalanceMap(lastMonthPath) {
 
     const nameCol = findColIndex(headers, ['工程名称', '项目名称', '项目', '工程', '名称']);
     const balanceCol = findColIndex(headers, ['本月结存', '结存']);
+    const lastCol = findColIndex(headers, ['上月结存']);
+    const inboundCol = findColIndex(headers, ['本期入库', '入库']);
+    const outboundCol = findColIndex(headers, ['本期出库', '出库']);
     if (!nameCol) throw new Error('上月汇总未找到工程名称列');
     if (!balanceCol) throw new Error('上月汇总未找到本月结存列');
 
@@ -395,7 +407,14 @@ async function readLastMonthBalanceMap(lastMonthPath) {
         const name = normalizeProjectName(ws.getRow(r).getCell(nameCol).value);
         if (!name) continue;
         if (['合计', '编制', '审核', '审批', '统计', '制表'].some(k => name.includes(k))) break;
-        const v = parseNumberLike(ws.getRow(r).getCell(balanceCol).value);
+        const row = ws.getRow(r);
+        let v = parseNumberLike(row.getCell(balanceCol).value);
+        if (v == null && lastCol && inboundCol && outboundCol) {
+            const last = readNumericCell(row, lastCol) || 0;
+            const inbound = readNumericCell(row, inboundCol) || 0;
+            const outbound = readNumericCell(row, outboundCol) || 0;
+            v = round3(last + inbound - outbound);
+        }
         if (v == null) continue;
         map[name] = v;
     }
@@ -470,6 +489,21 @@ async function generateShoufacunReport(options) {
     outWs.spliceRows(1, outWs.rowCount);
     for (const r of inRows) inWs.addRow(r);
     for (const r of outRows) outWs.addRow(r);
+
+    // 明细保留原始重量精度；汇总表仍按吨显示三位小数。
+    const applyDetailWeightFormat = (ws, rows) => {
+        const header = (rows[0] || []).map(normalizeHeader);
+        const weightCol = findColIndex(header, ['重量', '重量(kg)', '重量（kg）']);
+        if (!weightCol || ws.rowCount < 2) return;
+        for (let r = 2; r <= ws.rowCount; r++) {
+            const cell = ws.getRow(r).getCell(weightCol);
+            const numeric = parseNumberLike(cell.value);
+            if (numeric != null) cell.value = numeric;
+            cell.numFmt = '0.###############';
+        }
+    };
+    applyDetailWeightFormat(inWs, inRows);
+    applyDetailWeightFormat(outWs, outRows);
 
     fillPeriodText(sumWs, periodText);
 
@@ -548,7 +582,10 @@ async function generateShoufacunReport(options) {
         const cAddr = `${colToLetter(lastCol)}${r}`;
         const dAddr = `${colToLetter(inboundCol)}${r}`;
         const eAddr = `${colToLetter(outboundCol)}${r}`;
-        sumWs.getRow(r).getCell(balanceCol).value = { formula: `${cAddr}+${dAddr}-${eAddr}` };
+        sumWs.getRow(r).getCell(balanceCol).value = {
+            formula: `${cAddr}+${dAddr}-${eAddr}`,
+            result: round3(last + inW - outW)
+        };
     }
 
     // Delete blank rows / all-zero rows between dataStart..合计行-1.
@@ -614,7 +651,13 @@ async function generateShoufacunReport(options) {
         const cAddr = `${colToLetter(lastCol)}${rr}`;
         const dAddr = `${colToLetter(inboundCol)}${rr}`;
         const eAddr = `${colToLetter(outboundCol)}${rr}`;
-        row.getCell(balanceCol).value = { formula: `${cAddr}+${dAddr}-${eAddr}` };
+        const last = readNumericCell(row, lastCol) || 0;
+        const inbound = readNumericCell(row, inboundCol) || 0;
+        const outbound = readNumericCell(row, outboundCol) || 0;
+        row.getCell(balanceCol).value = {
+            formula: `${cAddr}+${dAddr}-${eAddr}`,
+            result: round3(last + inbound - outbound)
+        };
     }
 
     // Reset total row formulas to match the final data range.
@@ -627,10 +670,17 @@ async function generateShoufacunReport(options) {
             const a2 = sumWs.getRow(dataLast).getCell(col).address;
             return `SUM(${a1}:${a2})`;
         };
-        sumWs.getRow(footerRow).getCell(lastCol).value = { formula: sumRange(lastCol) };
-        sumWs.getRow(footerRow).getCell(inboundCol).value = { formula: sumRange(inboundCol) };
-        sumWs.getRow(footerRow).getCell(outboundCol).value = { formula: sumRange(outboundCol) };
-        sumWs.getRow(footerRow).getCell(balanceCol).value = { formula: sumRange(balanceCol) };
+        const sumCol = (col) => {
+            let total = 0;
+            for (let rr = dataFirst; rr <= dataLast; rr++) {
+                total += readNumericCell(sumWs.getRow(rr), col) || 0;
+            }
+            return round3(total);
+        };
+        sumWs.getRow(footerRow).getCell(lastCol).value = { formula: sumRange(lastCol), result: sumCol(lastCol) };
+        sumWs.getRow(footerRow).getCell(inboundCol).value = { formula: sumRange(inboundCol), result: sumCol(inboundCol) };
+        sumWs.getRow(footerRow).getCell(outboundCol).value = { formula: sumRange(outboundCol), result: sumCol(outboundCol) };
+        sumWs.getRow(footerRow).getCell(balanceCol).value = { formula: sumRange(balanceCol), result: sumCol(balanceCol) };
     }
 
     // Total row formulas are reset above to match the final data range.

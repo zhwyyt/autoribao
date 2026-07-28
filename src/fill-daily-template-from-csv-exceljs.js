@@ -139,11 +139,38 @@ function isCellEmpty(cell) {
     return !t;
 }
 
-function setFormulaIfEmpty(cell, formula) {
+function toCellNumber(cell) {
+    if (!cell) return 0;
+    const value = cell.value;
+    if (typeof value === 'number') return value;
+    if (value && typeof value === 'object' && value.result !== undefined && value.result !== null) {
+        const n = Number(value.result);
+        return Number.isFinite(n) ? n : 0;
+    }
+    return toNumber(cellText(cell));
+}
+
+function sumCellRange(worksheet, rowNumber, startCol, endCol) {
+    let sum = 0;
+    for (let c = startCol; c <= endCol; c++) {
+        sum += toCellNumber(worksheet.getCell(rowNumber, c));
+    }
+    return Number(sum.toFixed(2));
+}
+
+function sumCellList(worksheet, rowNumber, columns) {
+    let sum = 0;
+    for (const col of columns || []) {
+        sum += toCellNumber(worksheet.getCell(rowNumber, col));
+    }
+    return Number(sum.toFixed(2));
+}
+
+function setFormulaIfEmpty(cell, formula, result) {
     if (!cell) return false;
     if (cell.value && typeof cell.value === 'object' && cell.value.formula) return false;
     if (!isCellEmpty(cell)) return false;
-    cell.value = { formula, result: 0 };
+    cell.value = { formula, result: result ?? 0 };
     return true;
 }
 
@@ -349,7 +376,11 @@ async function main() {
                 if (groupStartCol !== null) {
                     const a1 = worksheet.getCell(r, groupStartCol).address;
                     const a2 = worksheet.getCell(r, col - 1).address;
-                    setFormulaIfEmpty(worksheet.getCell(r, col), `SUM(${a1}:${a2})`);
+                    setFormulaIfEmpty(
+                        worksheet.getCell(r, col),
+                        `SUM(${a1}:${a2})`,
+                        sumCellRange(worksheet, r, groupStartCol, col - 1)
+                    );
                 }
                 groupStartCol = null;
             }
@@ -357,7 +388,11 @@ async function main() {
 
         if (totalCol) {
             const cells = orderedPersonCols.map(c => worksheet.getCell(r, c).address);
-            setFormulaIfEmpty(worksheet.getCell(r, totalCol), buildSumCellsFormula(cells));
+            setFormulaIfEmpty(
+                worksheet.getCell(r, totalCol),
+                buildSumCellsFormula(cells),
+                sumCellList(worksheet, r, orderedPersonCols)
+            );
         }
     }
 
@@ -372,29 +407,47 @@ async function main() {
         for (const col of orderedPersonCols) {
             const a1 = worksheet.getCell(first, col).address;
             const a2 = worksheet.getCell(last, col).address;
-            setFormulaIfEmpty(worksheet.getCell(totalRow, col), `SUM(${a1}:${a2})`);
+            let sum = 0;
+            for (const dayRow of dayRows) sum += toCellNumber(worksheet.getCell(dayRow, col));
+            setFormulaIfEmpty(worksheet.getCell(totalRow, col), `SUM(${a1}:${a2})`, Number(sum.toFixed(2)));
         }
         for (const col of subtotalCols) {
             const a1 = worksheet.getCell(first, col).address;
             const a2 = worksheet.getCell(last, col).address;
-            setFormulaIfEmpty(worksheet.getCell(totalRow, col), `SUM(${a1}:${a2})`);
+            let sum = 0;
+            for (const dayRow of dayRows) sum += toCellNumber(worksheet.getCell(dayRow, col));
+            setFormulaIfEmpty(worksheet.getCell(totalRow, col), `SUM(${a1}:${a2})`, Number(sum.toFixed(2)));
         }
         if (totalCol) {
             const a1 = worksheet.getCell(first, totalCol).address;
             const a2 = worksheet.getCell(last, totalCol).address;
-            setFormulaIfEmpty(worksheet.getCell(totalRow, totalCol), `SUM(${a1}:${a2})`);
+            let sum = 0;
+            for (const dayRow of dayRows) sum += toCellNumber(worksheet.getCell(dayRow, totalCol));
+            setFormulaIfEmpty(worksheet.getCell(totalRow, totalCol), `SUM(${a1}:${a2})`, Number(sum.toFixed(2)));
         }
     }
 
     if (avgRow && totalRow && dayCount > 0) {
         for (const col of orderedPersonCols) {
-            setFormulaIfEmpty(worksheet.getCell(avgRow, col), `${worksheet.getCell(totalRow, col).address}/${dayCount}`);
+            setFormulaIfEmpty(
+                worksheet.getCell(avgRow, col),
+                `${worksheet.getCell(totalRow, col).address}/${dayCount}`,
+                Number((toCellNumber(worksheet.getCell(totalRow, col)) / dayCount).toFixed(2))
+            );
         }
         for (const col of subtotalCols) {
-            setFormulaIfEmpty(worksheet.getCell(avgRow, col), `${worksheet.getCell(totalRow, col).address}/${dayCount}`);
+            setFormulaIfEmpty(
+                worksheet.getCell(avgRow, col),
+                `${worksheet.getCell(totalRow, col).address}/${dayCount}`,
+                Number((toCellNumber(worksheet.getCell(totalRow, col)) / dayCount).toFixed(2))
+            );
         }
         if (totalCol) {
-            setFormulaIfEmpty(worksheet.getCell(avgRow, totalCol), `${worksheet.getCell(totalRow, totalCol).address}/${dayCount}`);
+            setFormulaIfEmpty(
+                worksheet.getCell(avgRow, totalCol),
+                `${worksheet.getCell(totalRow, totalCol).address}/${dayCount}`,
+                Number((toCellNumber(worksheet.getCell(totalRow, totalCol)) / dayCount).toFixed(2))
+            );
         }
     }
 
