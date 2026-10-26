@@ -81,14 +81,30 @@ function formatProcessRawValue(row) {
     return `${PROCESS_API_SNAPSHOT_PREFIX}${JSON.stringify({
         project_name: row.project_name || '',
         component_guid: row.component_guid || '',
+        component_name: row.component_name || '',
         component_no: row.component_no || '',
+        model_id: row.model_id || '',
         spec: row.spec || '',
         location: row.location || '',
         quantity: row.quantity,
         weight_kg: row.weight_kg,
+        volume: row.volume,
+        length: row.length,
+        production_feature: row.production_feature || '',
+        axis_range: row.axis_range || '',
+        component_type_code: row.component_type_code || '',
+        layout: row.layout || '',
         event_date: row.event_date || '',
+        process_name: row.process_name || '',
+        department_parent: row.department_parent || '',
+        department: row.department || '',
+        workshop: row.workshop || '',
+        line: row.line || '',
+        welder_trace: row.welder_trace || '',
         operator_name: row.operator_name || '',
-        create_time_text: row.create_time_text || ''
+        create_time_text: row.create_time_text || '',
+        last_process: row.last_process || '',
+        remarks: row.remarks || ''
     })}`;
 }
 
@@ -433,19 +449,31 @@ async function fetchApiRows(browserAutomation, task, range) {
             location: item['区域部位/所在楼层']
         }),
         project_name: String(item.project_name || '').trim(),
+        component_name: String(item['构件名称'] || item.component_name || '').trim(),
         component_guid: String(item['构件GUID'] || '').trim(),
         component_no: String(item['构件编号'] || '').trim(),
+        model_id: String(item['模型ID'] || item.model_id || '').trim(),
         spec: String(item['规格/型号'] || '').trim(),
         location: String(item['区域部位/所在楼层'] || '').trim(),
         weight_kg: toNumber(item['重量']),
         quantity: toNumber(item['数量']),
+        volume: toNumber(item['体积']),
+        length: toNumber(item['长度']),
+        production_feature: String(item['生产特征'] || item.production_feature || '').trim(),
+        axis_range: String(item['轴线范围'] || item.axis_range || '').trim(),
+        component_type_code: String(item['构件类型编码'] || item.component_type_code || '').trim(),
+        layout: String(item['所属布置图'] || item.layout || '').trim(),
         event_date: String(item.today || item['日期'] || '').trim(),
         department_parent: String(item.department_parent || '').trim(),
         department: String(item.department || '').trim(),
-        process_name: String(item.process_name || '').trim(),
-        operator_name: String(item.create_user_name || '').trim(),
-        create_time_text: String(item.create_time_text || '').trim(),
-        last_process: String(item.last_process || '').trim()
+        process_name: String(item.process_name || item['工序'] || '').trim(),
+        workshop: String(item['车间'] || item.workshop || '').trim(),
+        line: String(item['产线'] || item.line || '').trim(),
+        welder_trace: String(item['焊工追朔'] || item.welder_trace || '').trim(),
+        operator_name: String(item.create_user_name || item['操作人'] || '').trim(),
+        create_time_text: String(item.create_time_text || item['操作时间'] || '').trim(),
+        last_process: String(item.last_process || item['最后工序'] || '').trim(),
+        remarks: String(item['备注'] || item.remarks || '').trim()
     }));
 }
 

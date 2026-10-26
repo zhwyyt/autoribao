@@ -17,6 +17,7 @@
 
 ## Done
 
+- [x] QQbot 按日期范围生成发货明细和月度汇总的单个 Excel。
 - [x] Create a dwyunsc API reference document for later use.
 - [x] 收发存默认改为数据库生成，出库输出构件明细。
 - [x] 修正撤回/归档构件的截止日状态判断。

@@ -54,8 +54,12 @@ function buildLatestFitupEventCte(options = {}) {
                 e.component_id,
                 e.event_id,
                 e.event_at,
+                e.created_at,
+                e.updated_at,
                 e.raw_value,
                 trim(e.team_name) AS team_name,
+                trim(e.operator_name) AS operator_name,
+                trim(e.trace_operator_name) AS trace_operator_name,
                 e.is_completed
             FROM component_status_event e
             JOIN component c ON c.component_id = e.component_id

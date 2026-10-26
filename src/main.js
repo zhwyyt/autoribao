@@ -399,23 +399,58 @@ async function exportShoufacunInboundCsvFromDb(options = {}) {
             currentStateBeforeSql: `($2::date + interval '1 day')`
         })}
         SELECT
-                p.project_name,
-                COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_name,
-                COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_no,
-                COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
-                COALESCE(NULLIF(trim(c.spec), ''), '') AS spec,
-                COALESCE(c.quantity, 1)::int AS quantity,
-                COALESCE(
-                    NULLIF(process_snapshot.data->>'weight_kg', '')::numeric,
-                    c.weight,
-                    0
-                ) AS weight_kg,
-                0::numeric(18,3) AS volume,
-                COALESCE(c.length, 0)::numeric(18,3) AS length,
-                COALESCE(NULLIF(trim(c.production_feature), ''), '') AS production_feature,
-                COALESCE(NULLIF(trim(c.location), ''), '') AS location,
-                timezone('Asia/Shanghai', latest_fitup.event_at) AS event_at,
-                latest_fitup.event_id
+            p.project_name,
+            COALESCE(
+                NULLIF(trim(process_snapshot.data->>'component_name'), ''),
+                NULLIF(trim(process_snapshot.data->>'构件名称'), ''),
+                CASE
+                    WHEN trim(COALESCE(c.production_feature, '')) = 'FXC' THEN '发现场'
+                    WHEN lower(trim(COALESCE(c.production_feature, ''))) = 'fxc' THEN NULLIF(trim(pp.plan_name), '')
+                    ELSE NULL
+                END,
+                NULLIF(trim(c.component_no), ''),
+                ''
+            ) AS component_name,
+            COALESCE(NULLIF(trim(c.component_no), ''), '') AS component_no,
+            COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
+            COALESCE(NULLIF(trim(c.spec), ''), '') AS spec,
+            COALESCE(NULLIF(process_snapshot.data->>'quantity', '')::numeric, c.quantity, 1)::numeric(18,3) AS quantity,
+            COALESCE(
+                NULLIF(process_snapshot.data->>'weight_kg', '')::numeric,
+                c.weight,
+                0
+            ) AS weight_kg,
+            COALESCE(NULLIF(process_snapshot.data->>'volume', '')::numeric, 0)::numeric(18,3) AS volume,
+            COALESCE(NULLIF(process_snapshot.data->>'length', '')::numeric, c.length, 0)::numeric(18,3) AS length,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'production_feature'), ''), NULLIF(trim(c.production_feature), ''), '') AS production_feature,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'location'), ''), NULLIF(trim(c.location), ''), '') AS location,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'axis_range'), ''), NULLIF(trim(process_snapshot.data->>'轴线范围'), ''), NULLIF(trim(c.axis_range), ''), '') AS axis_range,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'component_type_code'), ''), NULLIF(trim(process_snapshot.data->>'构件类型编码'), ''), NULLIF(trim(c.component_type_code), ''), '') AS component_type_code,
+            COALESCE(
+                NULLIF(trim(process_snapshot.data->>'layout'), ''),
+                NULLIF(trim(process_snapshot.data->>'layout_name'), ''),
+                NULLIF(trim(process_snapshot.data->>'所属布置图'), ''),
+                CASE
+                    WHEN trim(COALESCE(c.production_feature, '')) = 'FXC' THEN '发现场'
+                    WHEN upper(trim(COALESCE(c.production_feature, ''))) = 'GJG'
+                        AND trim(COALESCE(latest_fitup.team_name, '')) LIKE '%小件班组'
+                        THEN regexp_replace(trim(latest_fitup.team_name), '班组$', '组')
+                    WHEN upper(trim(COALESCE(c.production_feature, ''))) = 'GJG'
+                        AND trim(COALESCE(latest_fitup.team_name, '')) LIKE '%班组'
+                        THEN regexp_replace(trim(latest_fitup.team_name), '班组$', '')
+                    ELSE ''
+                END
+            ) AS layout,
+            to_char(timezone('Asia/Shanghai', latest_fitup.event_at)::date, 'YYYY-MM-DD') AS event_date,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'process_name'), ''), NULLIF(trim(process_snapshot.data->>'process'), ''), NULLIF(trim(process_snapshot.data->>'工序'), ''), '装焊报检') AS process_name,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'workshop'), ''), NULLIF(trim(process_snapshot.data->>'workshop_name'), ''), NULLIF(trim(process_snapshot.data->>'车间'), ''), '') AS workshop_name,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'line'), ''), NULLIF(trim(process_snapshot.data->>'department'), ''), NULLIF(trim(process_snapshot.data->>'产线'), ''), NULLIF(trim(latest_fitup.team_name), ''), '') AS line_name,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'welder_trace'), ''), NULLIF(trim(process_snapshot.data->>'trace_operator_name'), ''), NULLIF(trim(process_snapshot.data->>'焊工追朔'), ''), NULLIF(trim(latest_fitup.trace_operator_name), ''), '') AS welder_trace,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'operator_name'), ''), NULLIF(trim(process_snapshot.data->>'create_user_name'), ''), NULLIF(trim(process_snapshot.data->>'操作人'), ''), NULLIF(trim(latest_fitup.operator_name), ''), '') AS operator_name,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'create_time_text'), ''), NULLIF(trim(process_snapshot.data->>'操作时间'), ''), to_char(timezone('Asia/Shanghai', latest_fitup.event_at), 'YYYY-MM-DD HH24:MI:SS')) AS operation_time,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'last_process'), ''), NULLIF(trim(process_snapshot.data->>'最后工序'), ''), latest_process.process_name, '') AS last_process,
+            COALESCE(NULLIF(trim(process_snapshot.data->>'remarks'), ''), NULLIF(trim(process_snapshot.data->>'remark'), ''), NULLIF(trim(process_snapshot.data->>'note'), ''), NULLIF(trim(process_snapshot.data->>'备注'), ''), '') AS remarks,
+            latest_fitup.event_id
         FROM latest_fitup
         JOIN component c ON c.component_id = latest_fitup.component_id
         JOIN production_plan pp ON pp.plan_id = c.plan_id
@@ -427,6 +462,22 @@ async function exportShoufacunInboundCsvFromDb(options = {}) {
                 ELSE NULL::jsonb
             END AS data
         ) process_snapshot ON true
+        LEFT JOIN LATERAL (
+            SELECT CASE e2.status_type
+                WHEN 'steel_production_start' THEN '钢构生产开始'
+                WHEN 'fitup_weld_report' THEN '装焊报检'
+                WHEN 'fitup_weld_ndi' THEN '装焊探伤'
+                WHEN 'fitup_weld_qc' THEN '装焊质检'
+                WHEN 'painting' THEN '涂装'
+                ELSE e2.status_type::text
+            END AS process_name
+            FROM component_status_event e2
+            WHERE e2.component_id = latest_fitup.component_id
+              AND e2.is_completed = true
+              AND e2.status_type IN ('steel_production_start', 'fitup_weld_report', 'fitup_weld_ndi', 'fitup_weld_qc', 'painting')
+            ORDER BY COALESCE(e2.event_at, e2.updated_at, e2.created_at) DESC, e2.event_id DESC
+            LIMIT 1
+        ) latest_process ON true
         WHERE latest_fitup.is_completed = true
           AND latest_fitup.event_at IS NOT NULL
           AND timezone('Asia/Shanghai', latest_fitup.event_at)::date >= $1::date
@@ -437,36 +488,59 @@ async function exportShoufacunInboundCsvFromDb(options = {}) {
     `;
     const res = await query(sql, [start, end]);
 
+    const workshopByTeam = new Map();
+    try {
+        const directory = await loadTeamDirectory();
+        for (const member of directory.members || []) {
+            const teamName = String(member.fitupTeamName || '').trim();
+            if (!teamName || workshopByTeam.has(teamName)) continue;
+            const label = formatWorkshopLabel(member);
+            if (label) workshopByTeam.set(teamName, label);
+        }
+    } catch (error) {
+        logger.warn(`收发存入库明细加载班组对应表失败，将保留数据库中的车间字段：${error && error.message ? error.message : String(error)}`);
+    }
+
     const lines = [[
-        '#',
-        '项目名称',
-        '构件名称',
-        '构件编号',
-        '构件GUID',
-        '规格/型号',
-        '数量',
-        '重量',
-        '体积',
-        '长度',
-        '生产特征',
-        '区域部位/所在楼层'
-    ].join(',')];
+        '#', '项目名称', '构件名称', '构件编号', '构件GUID', '规格/型号', '数量', '重量', '体积', '长度',
+        '生产特征', '区域部位/所在楼层', '轴线范围', '构件类型编码', '所属布置图', '日期', '工序', '车间',
+        '产线', '焊工追朔', '操作人', '操作时间', '最后工序', '备注'
+    ].map(csvEscape).join(',')];
     for (let i = 0; i < (res.rows || []).length; i++) {
         const row = res.rows[i];
+        const teamName = String(row.line_name || '').trim();
+        const inferredWorkshop = teamName.includes('发现场')
+            ? '现场车间'
+            : (teamName.includes('外协') ? '外协厂' : '');
+        const workshopName = String(row.workshop_name || '').trim()
+            || workshopByTeam.get(teamName)
+            || inferredWorkshop;
         lines.push([
-            csvEscape(i + 1),
-            csvEscape(String(row.project_name || '').trim()),
-            csvEscape(String(row.component_name || '').trim()),
-            csvEscape(String(row.component_no || '').trim()),
-            csvEscape(String(row.component_guid || '').trim()),
-            csvEscape(String(row.spec || '').trim()),
-            csvEscape(Number(row.quantity || 0)),
-            csvEscape(Number(row.weight_kg || 0)),
-            csvEscape(Number(row.volume || 0)),
-            csvEscape(Number(row.length || 0)),
-            csvEscape(String(row.production_feature || '').trim()),
-            csvEscape(String(row.location || '').trim())
-        ].join(','));
+            i + 1,
+            row.project_name,
+            row.component_name,
+            row.component_no,
+            row.component_guid,
+            row.spec,
+            Number(row.quantity || 0),
+            Number(row.weight_kg || 0),
+            Number(row.volume || 0),
+            Number(row.length || 0),
+            row.production_feature,
+            row.location,
+            row.axis_range,
+            row.component_type_code,
+            row.layout,
+            row.event_date,
+            row.process_name,
+            workshopName,
+            teamName,
+            row.welder_trace,
+            row.operator_name,
+            row.operation_time,
+            row.last_process,
+            row.remarks
+        ].map(csvEscape).join(','));
     }
 
     const actualOutPath = writeCsvWithLockedFileFallback(outPath, lines.join('\n'));
@@ -484,29 +558,40 @@ async function exportShoufacunOutboundCsvFromDb(options = {}) {
 
     const sql = `
         SELECT
-            COALESCE(NULLIF(trim(shipping_snapshot.data->>'project_name'), ''), p.project_name) AS project_name,
-            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(c.component_no), ''), '') AS component_name,
-            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(c.component_no), ''), '') AS component_no,
-            COALESCE(NULLIF(trim(c.component_guid), ''), '') AS component_guid,
-            COALESCE(NULLIF(trim(c.model_id), ''), '') AS model_id,
-            COALESCE(NULLIF(trim(shipping_snapshot.data->>'spec'), ''), NULLIF(trim(c.spec), ''), '') AS spec,
-            COALESCE(NULLIF(shipping_snapshot.data->>'quantity', '')::numeric, c.quantity, 1)::numeric(18,3) AS quantity,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'project_name'), ''), NULLIF(trim(shipping_snapshot.data->>'项目名称'), ''), p.project_name) AS project_name,
+            COALESCE(
+                NULLIF(trim(shipping_snapshot.data->>'component_name'), ''),
+                NULLIF(trim(shipping_snapshot.data->>'构件名称'), ''),
+                NULLIF(trim(shipping_snapshot.data->>'component_no'), ''),
+                NULLIF(trim(c.component_no), ''),
+                ''
+            ) AS component_name,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_no'), ''), NULLIF(trim(shipping_snapshot.data->>'构件编号'), ''), NULLIF(trim(c.component_no), ''), '') AS component_no,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_guid'), ''), NULLIF(trim(shipping_snapshot.data->>'构件GUID'), ''), NULLIF(trim(c.component_guid), ''), '') AS component_guid,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'model_id'), ''), NULLIF(trim(shipping_snapshot.data->>'模型ID'), ''), NULLIF(trim(c.model_id), ''), '') AS model_id,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'spec'), ''), NULLIF(trim(shipping_snapshot.data->>'规格/型号'), ''), NULLIF(trim(c.spec), ''), '') AS spec,
+            COALESCE(NULLIF(shipping_snapshot.data->>'quantity', '')::numeric, NULLIF(shipping_snapshot.data->>'数量', '')::numeric, c.quantity, 1)::numeric(18,3) AS quantity,
             CASE
-                WHEN shipping_snapshot.data IS NOT NULL
-                    THEN COALESCE(NULLIF(shipping_snapshot.data->>'weight_kg', '')::numeric, 0)
+                WHEN COALESCE(NULLIF(shipping_snapshot.data->>'weight_kg', ''), NULLIF(shipping_snapshot.data->>'重量', '')) IS NOT NULL
+                    THEN COALESCE(NULLIF(shipping_snapshot.data->>'weight_kg', ''), NULLIF(shipping_snapshot.data->>'重量', ''))::numeric
                 WHEN COALESCE(NULLIF(trim(c.component_guid), ''), '') ~ '^D9-2MB-2-fxc-251225-(0[1-9]|1[0-6])$'
                     THEN COALESCE(c.weight, 0)
                 ELSE COALESCE(c.weight, 0) * COALESCE(c.quantity, 1)
             END AS weight_kg,
-            0::numeric(18,3) AS volume,
-            COALESCE(c.length, 0)::numeric(18,3) AS length,
-            COALESCE(NULLIF(trim(c.production_feature), ''), '') AS production_feature,
-            COALESCE(NULLIF(trim(shipping_snapshot.data->>'location'), ''), NULLIF(trim(c.location), ''), '') AS location,
-            COALESCE(NULLIF(trim(c.axis_range), ''), '') AS axis_range,
-            COALESCE(NULLIF(trim(c.component_type_code), ''), '') AS component_type_code,
-            to_char(timezone('Asia/Shanghai', inbound.event_at), 'YYYY-MM-DD HH24:MI:SS') AS inbound_at,
-            to_char(timezone('Asia/Shanghai', e.event_at), 'YYYY-MM-DD HH24:MI:SS') AS outbound_at,
-            COALESCE(NULLIF(trim(e.operator_name), ''), '') AS operator_name,
+            COALESCE(NULLIF(shipping_snapshot.data->>'volume', '')::numeric, NULLIF(shipping_snapshot.data->>'体积', '')::numeric, 0)::numeric(18,3) AS volume,
+            COALESCE(NULLIF(shipping_snapshot.data->>'length', '')::numeric, NULLIF(shipping_snapshot.data->>'长度', '')::numeric, c.length, 0)::numeric(18,3) AS length,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'production_feature'), ''), NULLIF(trim(shipping_snapshot.data->>'生产特征'), ''), NULLIF(trim(c.production_feature), ''), '') AS production_feature,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'location'), ''), NULLIF(trim(shipping_snapshot.data->>'区域部位/所在楼层'), ''), NULLIF(trim(c.location), ''), '') AS location,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'axis_range'), ''), NULLIF(trim(shipping_snapshot.data->>'轴线范围'), ''), NULLIF(trim(c.axis_range), ''), '') AS axis_range,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'component_type_code'), ''), NULLIF(trim(shipping_snapshot.data->>'构件类型编码'), ''), NULLIF(trim(c.component_type_code), ''), '') AS component_type_code,
+            COALESCE(
+                NULLIF(trim(shipping_snapshot.data->>'layout'), ''),
+                NULLIF(trim(shipping_snapshot.data->>'所属布置图'), ''),
+                CASE WHEN trim(COALESCE(c.production_feature, '')) = 'FXC' THEN '发现场' ELSE '' END
+            ) AS layout,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'complete_time_text'), ''), NULLIF(trim(shipping_snapshot.data->>'入库时间'), ''), to_char(timezone('Asia/Shanghai', inbound.event_at), 'YYYY-MM-DD HH24:MI:SS')) AS inbound_at,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'delivery_time_text'), ''), NULLIF(trim(shipping_snapshot.data->>'出库时间'), ''), to_char(timezone('Asia/Shanghai', e.event_at), 'YYYY-MM-DD HH24:MI:SS')) AS outbound_at,
+            COALESCE(NULLIF(trim(shipping_snapshot.data->>'delivery_username'), ''), NULLIF(trim(shipping_snapshot.data->>'操作人'), ''), NULLIF(trim(e.operator_name), ''), '') AS operator_name,
             e.event_id
         FROM component_status_event e
         JOIN component c ON c.component_id = e.component_id
@@ -562,7 +647,7 @@ async function exportShoufacunOutboundCsvFromDb(options = {}) {
             row.location,
             row.axis_range,
             row.component_type_code,
-            '',
+            row.layout,
             row.inbound_at,
             row.outbound_at,
             row.operator_name

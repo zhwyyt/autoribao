@@ -16,6 +16,7 @@ const {
 const { handleNaturalLanguageQuery } = require('./query');
 const { queryProjectComponentDetails } = require('./project-component-details');
 const { parseProjectDetailCommand, handleProjectComponentDetailExport } = require('./project-component-details-db');
+const { parseShippingRangeCommand, generateShippingRangeReport } = require('./shipping-range-report');
 const { runNightlyProcessReconciliation, buildMonthlyBusinessRange } = require('./nightly-process-reconciliation');
 const { runNightlyShippingAlignment } = require('./nightly-shipping-alignment');
 
@@ -1554,6 +1555,32 @@ async function handleMessage(message) {
       return;
     }
 
+    const shippingRangeCommand = parseShippingRangeCommand(content);
+    if (shippingRangeCommand) {
+      if (!shippingRangeCommand.ok) {
+        await safeSendPrivateMessage(senderId, `❓ ${shippingRangeCommand.error}`, 'shipping_range_invalid');
+        return;
+      }
+
+      const { start, end } = shippingRangeCommand;
+      await safeSendPrivateMessage(senderId, `📦 正在查询 ${start} 至 ${end} 的发货信息...`, 'shipping_range_start');
+      DEBUG_LOG(
+        'qq-bot-napcat.js:shippingRange:start',
+        'generating shipping range report',
+        { senderId: String(senderId), start, end },
+        'H25'
+      );
+
+      const report = await generateShippingRangeReport({ start, end });
+      await safeSendPrivateMessage(
+        senderId,
+        `✅ 发货信息报表已生成：${report.detailCount} 条明细，覆盖 ${report.monthCount} 个月、${report.projectCount} 个项目。`,
+        'shipping_range_done'
+      );
+      await sendResultFileToUser(senderId, report.outputPath, 'shipping_range_result_xlsx', 'file');
+      return;
+    }
+
     const shoufacunCommand = parseShoufacunCommand(content);
     if (shoufacunCommand) {
       const displayMonth = shoufacunCommand.monthKey ? shoufacunCommand.monthKey.replace('-', '年') + '月' : '本月';
@@ -1726,6 +1753,7 @@ async function handleMessage(message) {
 • 日报 - 生成当日日报
 • 收发存 - 生成本月收发存报表
 • 2026年4月收发存 - 生成指定月份收发存报表
+• 发货明细 2026-07-01 至 2026-08-10 - 生成日期范围明细和月度汇总 Excel
 • 技术方案 - 生成上月技术方案统计报告（Excel + PPT）
 • 2026年4月技术方案 - 生成指定月份技术方案统计报告
 • 考核 覃祚威 2026-01-01 2026-05-31 - 生成指定审核人技术方案考核 Excel

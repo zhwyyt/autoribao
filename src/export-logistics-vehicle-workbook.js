@@ -1,12 +1,17 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
+const { spawnSync } = require('child_process');
 const XLSX = require('xlsx');
 const ExcelJS = require('exceljs');
 
-const SOURCE = process.env.LOGISTICS_SOURCE || 'C:/Users/Administrator/Desktop/出入库数据/智能物流数据 -截止260628已发上海胡姬港湾.xlsx';
+const PLATE_RE = /[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼][A-HJ-NP-Z][A-HJ-NP-Z0-9]{5,6}/;
+
 const OUTPUT_ROOT = path.join(__dirname, '..', 'downloads', 'weekly-yard-exports');
+const SOURCE = process.env.LOGISTICS_SOURCE || path.join(OUTPUT_ROOT, '智能物流数据 -截止260628已发上海胡姬港湾.xlsx');
 const OUTPUT_NAME = '上海胡姬港湾_物流车辆及装车构件.xlsx';
 const STATE_PATH = path.join(OUTPUT_ROOT, 'logistics-export-state.json');
+const BACKFILL_AFTER = '2026-07-31';
 
 function repairMojibake(value) {
     const input = String(value == null ? '' : value);
@@ -57,9 +62,50 @@ function saveExportState(state, deliveries, outputPath, statePath = STATE_PATH) 
     fs.writeFileSync(tempPath, `${JSON.stringify(state, null, 2)}\n`, 'utf8');
     fs.renameSync(tempPath, statePath);
 }
-function parseSourceRows() {
-    if (!fs.existsSync(SOURCE)) throw new Error(`找不到物流样表: ${SOURCE}`);
-    const workbook = XLSX.readFile(SOURCE, { cellDates: true });
+function pad2(value) {
+    return String(value).padStart(2, '0');
+}
+function formatLocalDateTime(date) {
+    return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())} ${pad2(date.getHours())}:${pad2(date.getMinutes())}:${pad2(date.getSeconds())}`;
+}
+function parseLocalDateTime(value) {
+    const input = text(value);
+    const match = input.match(/(20\d{2})-(\d{1,2})-(\d{1,2})[ T](\d{1,2}):(\d{1,2}):(\d{1,2})/);
+    if (!match) return null;
+    return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]), Number(match[4]), Number(match[5]), Number(match[6]));
+}
+function fridayOnOrAfter(value) {
+    const key = dateKey(value);
+    const parts = key.match(/^(20\d{2})-(\d{2})-(\d{2})$/);
+    if (!parts) return '';
+    const date = new Date(Number(parts[1]), Number(parts[2]) - 1, Number(parts[3]));
+    date.setDate(date.getDate() + ((5 - date.getDay() + 7) % 7));
+    return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;
+}
+function groupDeliveriesByFriday(deliveries) {
+    const grouped = new Map();
+    for (const delivery of deliveries) {
+        const friday = fridayOnOrAfter(delivery.create_time);
+        if (!friday) continue;
+        if (!grouped.has(friday)) grouped.set(friday, []);
+        grouped.get(friday).push(delivery);
+    }
+    return grouped;
+}
+function fillDeliveryTimes(delivery, random = Math.random) {
+    const current = delivery.logistics && typeof delivery.logistics === 'object' ? delivery.logistics : {};
+    const shipped = parseLocalDateTime(delivery.create_time);
+    if (!shipped) {
+        delivery.logistics = { ...current, depart: text(delivery.create_time) };
+        return;
+    }
+    const arrive = new Date(shipped.getTime() + (2.5 + Number(random()) * 0.5) * 3600000);
+    delivery.logistics = { ...current, depart: formatLocalDateTime(shipped), arrive: formatLocalDateTime(arrive) };
+}
+
+function parseSourceRows(source = SOURCE) {
+    if (!fs.existsSync(source)) return [];
+    const workbook = XLSX.readFile(source, { cellDates: true });
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null, raw: false, dateNF: 'yyyy-mm-dd hh:mm:ss' });
     const groups = []; let current = null;
@@ -90,7 +136,43 @@ function parseProjectIntroduction(value) {
         arrive: ''
     };
 }
-function matchLogistics(groups, deliveries) {
+function firstPlate(value) {
+    const match = text(value).match(PLATE_RE);
+    return match ? match[0] : '';
+}
+function parseDeliveryPdfText(raw) {
+    const input = String(raw == null ? '' : raw);
+    const introMatch = input.match(/项目介绍\s*[：:]\s*([\s\S]*?)(?=\n\s*\d+\s*\/\s*\d+|\n\s*附表|$)/);
+    const intro = parseProjectIntroduction(introMatch ? introMatch[1] : input);
+    const truck = firstPlate((input.match(/运输车号\s*[：:]\s*([^\n]*)/) || [])[1]);
+    const ship = firstPlate((input.match(/发货信息\s*[：:]\s*([^\n]*)/) || [])[1]);
+    return { ...intro, plate: truck || ship || firstPlate(intro.plate) };
+}
+function extractPdfText(buffer) {
+    const tmp = path.join(os.tmpdir(), `delivery-pdf-${process.pid}-${Date.now()}-${Math.random().toString(16).slice(2)}.pdf`);
+    fs.writeFileSync(tmp, buffer);
+    try {
+        const script = 'from pypdf import PdfReader; import sys; sys.stdout.reconfigure(encoding="utf-8"); r=PdfReader(sys.argv[1]); print("\\n".join((p.extract_text() or "") for p in r.pages))';
+        const result = spawnSync('python', ['-c', script, tmp], {
+            encoding: 'utf8',
+            windowsHide: true,
+            env: { ...process.env, PYTHONIOENCODING: 'utf-8' }
+        });
+        if (result.status !== 0) throw new Error(text(result.stderr) || '发货单 PDF 文本提取失败');
+        return result.stdout || '';
+    } finally {
+        fs.rmSync(tmp, { force: true });
+    }
+}
+function nonEmptyLogistics(source) {
+    if (!source || typeof source !== 'object') return {};
+    const result = {};
+    for (const key of ['plate', 'driver', 'driverPhone', 'logisticsCompany', 'receiver', 'receiverContact', 'address', 'depart', 'arrive']) {
+        if (text(source[key])) result[key] = source[key];
+    }
+    return result;
+}
+function matchLogistics(groups, deliveries, random = Math.random) {
     const sourceByDate = new Map();
     for (const group of groups) {
         const key = dateKey(group.depart);
@@ -107,9 +189,14 @@ function matchLogistics(groups, deliveries) {
         sameDay.sort((a, b) => text(a.create_time).localeCompare(text(b.create_time)));
         const source = sourceByDate.get(key) || [];
         sameDay.forEach((delivery, index) => {
-            delivery.logistics = source[index] || delivery.projectLogistics || null;
+            delivery.logistics = {
+                ...nonEmptyLogistics(delivery.projectLogistics),
+                ...nonEmptyLogistics(source[index]),
+                ...nonEmptyLogistics(delivery.pdfLogistics)
+            };
         });
     }
+    for (const delivery of deliveries) fillDeliveryTimes(delivery, random);
     return deliveries;
 }
 function appendDeliveries(wb, deliveries) {
@@ -172,6 +259,19 @@ async function fetchPlatformData(exportedCodes = new Set()) {
         for (const delivery of deliveries) {
             delivery.projectLogistics = projectLogistics;
             delivery.components = [];
+            delivery.pdfLogistics = {};
+            try {
+                const pdfResponse = await page.request.get(`https://dwyunsc.ddwjzkj.com:10086/delivery/info?id=${delivery.id}`, {
+                    headers: { Token: token },
+                    timeout: 60000
+                });
+                const pdfBuffer = Buffer.from(await pdfResponse.body());
+                if (pdfBuffer.subarray(0, 4).toString('ascii') === '%PDF') {
+                    delivery.pdfLogistics = parseDeliveryPdfText(extractPdfText(pdfBuffer));
+                }
+            } catch (error) {
+                delivery.pdfError = error && error.message ? error.message : String(error);
+            }
             for (const pkg of packagesByDelivery.get(String(delivery.id)) || []) {
                 const artifacts = await post('/v1.order/getPackageArtifacts', { id: pkg.id });
                 if (Array.isArray(artifacts)) delivery.components.push(...artifacts);
@@ -182,23 +282,65 @@ async function fetchPlatformData(exportedCodes = new Set()) {
         await browser.closeBrowser();
     }
 }
+function summarizeDeliveries(deliveries) {
+    return {
+        logisticsMatched: deliveries.filter(d => d.logistics).length,
+        pdfPlates: deliveries.filter(d => d.pdfLogistics && String(d.pdfLogistics.plate || '').trim()).length,
+        departFilled: deliveries.filter(d => d.logistics && String(d.logistics.depart || '').trim()).length,
+        arriveFilled: deliveries.filter(d => d.logistics && String(d.logistics.arrive || '').trim()).length,
+        componentCount: deliveries.reduce((n, d) => n + ((d.components && d.components.length) || 0), 0)
+    };
+}
+async function writeWorkbook(deliveries, output) {
+    fs.mkdirSync(path.dirname(output), { recursive: true });
+    const workbook = createWorkbook(deliveries);
+    await workbook.xlsx.writeFile(output);
+    return workbook;
+}
 async function main() {
+    const backfillMissing = process.argv.includes('--backfill-missing');
     const state = loadExportState();
     const exportedCodes = new Set(Object.keys(state.exportedDeliveries));
-    const deliveries = await fetchPlatformData(exportedCodes);
+    const fetched = await fetchPlatformData(backfillMissing ? new Set() : exportedCodes);
+    const deliveries = backfillMissing
+        ? fetched.filter(item => dateKey(item.create_time) > BACKFILL_AFTER)
+        : fetched;
     if (!deliveries.length) {
         console.log(JSON.stringify({ ok: true, skipped: true, reason: '没有未导出的发货单', exportedDeliveryCount: exportedCodes.size }));
         return;
     }
-    const groups = parseSourceRows(); matchLogistics(groups, deliveries); const now = new Date();
+    const groups = parseSourceRows();
+    matchLogistics(groups, deliveries);
+    if (backfillMissing) {
+        const files = [];
+        for (const [friday, weekDeliveries] of groupDeliveriesByFriday(deliveries)) {
+            const [year, month, day] = friday.split('-');
+            const output = path.join(OUTPUT_ROOT, year, month, day, OUTPUT_NAME);
+            const workbook = await writeWorkbook(weekDeliveries, output);
+            saveExportState(state, weekDeliveries, output);
+            files.push({ friday, output, newDeliveryCount: weekDeliveries.length, sheetCount: workbook.worksheets.length, ...summarizeDeliveries(weekDeliveries) });
+        }
+        console.log(JSON.stringify({ ok: true, skipped: false, backfill: true, source: SOURCE, sourceMissing: !fs.existsSync(SOURCE), files }));
+        return;
+    }
+    const now = new Date();
     const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(now).reduce((o, p) => (o[p.type] = p.value, o), {});
-    const outputDir = path.join(OUTPUT_ROOT, parts.year, parts.month, parts.day); fs.mkdirSync(outputDir, { recursive: true });
-    const output = path.join(outputDir, OUTPUT_NAME);
+    const output = path.join(OUTPUT_ROOT, parts.year, parts.month, parts.day, OUTPUT_NAME);
+    fs.mkdirSync(path.dirname(output), { recursive: true });
     const workbook = new ExcelJS.Workbook();
     if (fs.existsSync(output)) await workbook.xlsx.readFile(output);
     await appendDeliveries(workbook, deliveries).xlsx.writeFile(output);
     saveExportState(state, deliveries, output);
-    console.log(JSON.stringify({ ok: true, skipped: false, source: SOURCE, output, newDeliveryCount: deliveries.length, sheetCount: workbook.worksheets.length, logisticsMatched: deliveries.filter(d => d.logistics).length, componentCount: deliveries.reduce((n, d) => n + d.components.length, 0) }));
+    console.log(JSON.stringify({
+        ok: true,
+        skipped: false,
+        source: SOURCE,
+        sourceMissing: !fs.existsSync(SOURCE),
+        output,
+        newDeliveryCount: deliveries.length,
+        sheetCount: workbook.worksheets.length,
+        ...summarizeDeliveries(deliveries)
+    }));
 }
 if (require.main === module) main().catch(error => { console.error(error.stack || error.message); process.exitCode = 1; });
-module.exports = { parseSourceRows, parseProjectIntroduction, loadExportState, saveExportState, appendDeliveries, createWorkbook, matchLogistics, safeSheetName, dateKey, repairMojibake };
+module.exports = { SOURCE, OUTPUT_ROOT, BACKFILL_AFTER, parseSourceRows, parseProjectIntroduction, parseDeliveryPdfText, extractPdfText, loadExportState, saveExportState, appendDeliveries, createWorkbook, matchLogistics, fillDeliveryTimes, fridayOnOrAfter, groupDeliveriesByFriday, safeSheetName, dateKey, repairMojibake };

@@ -1,7 +1,7 @@
 param(
     [string]$TaskName = 'DongwuShoufacunReport',
-    [string]$At = '22:00',
-    [int]$DayOfMonth = 25
+    [string]$At = '03:00',
+    [int]$DayOfMonth = 26
 )
 
 $ErrorActionPreference = 'Stop'
