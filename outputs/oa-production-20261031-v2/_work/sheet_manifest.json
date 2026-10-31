@@ -1,0 +1,319 @@
+[
+  {
+    "name": "00_页面目录",
+    "end": 51,
+    "n": 7,
+    "range": "A1:G51"
+  },
+  {
+    "name": "01_基础选项字典",
+    "end": 93,
+    "n": 5,
+    "range": "A1:E22"
+  },
+  {
+    "name": "B01_组织与班组",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "B02_用户角色与权限",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "B03_业务字典与工序",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 17
+  },
+  {
+    "name": "B04_工艺路线维护",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "P01_项目登记",
+    "end": 29,
+    "n": 12,
+    "range": "A1:L29",
+    "formEnd": 20
+  },
+  {
+    "name": "P02_项目查询",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "P03_设计文件管理",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "P04_构件清单导入",
+    "end": 31,
+    "n": 18,
+    "range": "A1:R31",
+    "formEnd": 18
+  },
+  {
+    "name": "P05_项目构件台账",
+    "end": 26,
+    "n": 18,
+    "range": "A1:R26",
+    "formEnd": 17
+  },
+  {
+    "name": "O01_生产订单",
+    "end": 31,
+    "n": 12,
+    "range": "A1:L31",
+    "formEnd": 22
+  },
+  {
+    "name": "O02_订单台账",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "S01_排产编制",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 18
+  },
+  {
+    "name": "S02_排产台账",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "S03_部门工艺与生产下发",
+    "end": 29,
+    "n": 12,
+    "range": "A1:L29",
+    "formEnd": 18
+  },
+  {
+    "name": "T01_生产计划查询",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "T02_任务分派",
+    "end": 28,
+    "n": 12,
+    "range": "A1:L28",
+    "formEnd": 19
+  },
+  {
+    "name": "T03_生产任务台账",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "T04_任务单与二维码",
+    "end": 27,
+    "n": 16,
+    "range": "A1:P27",
+    "formEnd": 18
+  },
+  {
+    "name": "E01_工序报工",
+    "end": 31,
+    "n": 12,
+    "range": "A1:L31",
+    "formEnd": 19
+  },
+  {
+    "name": "E02_生产过程记录",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "E03_撤销与更正申请",
+    "end": 28,
+    "n": 12,
+    "range": "A1:L28",
+    "formEnd": 18
+  },
+  {
+    "name": "Q01_生产报检",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 18
+  },
+  {
+    "name": "Q02_检验结果登记",
+    "end": 28,
+    "n": 12,
+    "range": "A1:L28",
+    "formEnd": 18
+  },
+  {
+    "name": "Q03_检验记录台账",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "W01_成品入库登记",
+    "end": 29,
+    "n": 12,
+    "range": "A1:L29",
+    "formEnd": 18
+  },
+  {
+    "name": "W02_成品库存查询",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "W03_构件包装单",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 18
+  },
+  {
+    "name": "W04_包装查询",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "W05_发货登记",
+    "end": 29,
+    "n": 12,
+    "range": "A1:L29",
+    "formEnd": 19
+  },
+  {
+    "name": "W06_发货历史台账",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "R01_综合生产统计",
+    "end": 31,
+    "n": 12,
+    "range": "A1:L31",
+    "formEnd": 17
+  },
+  {
+    "name": "R02_班组产量统计",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "R03_构件进度统计",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 18
+  },
+  {
+    "name": "R04_质量统计",
+    "end": 26,
+    "n": 12,
+    "range": "A1:L26",
+    "formEnd": 17
+  },
+  {
+    "name": "R05_项目发货统计",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "R06_月度统计模板",
+    "end": 27,
+    "n": 12,
+    "range": "A1:L27",
+    "formEnd": 18
+  },
+  {
+    "name": "R07_月度统计报表",
+    "end": 31,
+    "n": 12,
+    "range": "A1:L31",
+    "formEnd": 17
+  },
+  {
+    "name": "R08_日度统计报表",
+    "end": 30,
+    "n": 12,
+    "range": "A1:L30",
+    "formEnd": 16
+  },
+  {
+    "name": "R09_统计穿透明细",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "R10_成品收发存报表",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "A01_操作日志查询",
+    "end": 25,
+    "n": 12,
+    "range": "A1:L25",
+    "formEnd": 16
+  },
+  {
+    "name": "Z01_字段对应索引",
+    "end": 767,
+    "n": 7,
+    "range": "A1:G18"
+  },
+  {
+    "name": "Z03_定稿确认事项",
+    "end": 16,
+    "n": 6,
+    "range": "A1:F16"
+  },
+  {
+    "name": "Z02_统计口径示例",
+    "end": 21,
+    "n": 10,
+    "range": "A1:J21"
+  }
+]
