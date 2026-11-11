@@ -1,0 +1,24 @@
+{"kind":"sheet","id":"ws/ianzeo","name":"项目自动创建","index":0,"range":"A1:I7","address":"A1:I7"}
+{"kind":"sheet","id":"ws/pubqw3","name":"项目台账","index":1,"range":"A1:L7","address":"A1:L7"}
+{"kind":"sheet","id":"ws/baql68","name":"订单创建","index":2,"range":"A1:P13","address":"A1:P13"}
+{"kind":"sheet","id":"ws/lvreyj","name":"订单台账","index":3,"range":"A1:K10","address":"A1:K10"}
+{"kind":"sheet","id":"ws/1izk3z","name":"排产创建","index":4,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/rlja7x","name":"排产任务分派","index":5,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/sty8z8","name":"排产台账","index":6,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/amd2n9","name":"生产任务单台账","index":7,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/ocrols","name":"任务单与二维码","index":8,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/9pghnx","name":"工序报工","index":9,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/xcozbu","name":"生产过程记录","index":10,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/1nadcx","name":"撤销与更正","index":11,"range":"A1:L10","address":"A1:L10"}
+{"kind":"sheet","id":"ws/iqkr2h","name":"生产质检","index":12,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/wiime9","name":"质检台账","index":13,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/bh931z","name":"构件打包单","index":14,"range":"A1:L10","address":"A1:L10"}
+{"kind":"sheet","id":"ws/a6l7i2","name":"打包单台账","index":15,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/xu314t","name":"扫码发货","index":16,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/d2msr3","name":"发货台账","index":17,"range":"A1:L9","address":"A1:L9"}
+{"kind":"sheet","id":"ws/1puco5","name":"发货信息登记","index":18,"range":"A1:I6","address":"A1:I6"}
+{"kind":"sheet","id":"ws/gdyd4d","name":"组织架构","index":19,"range":"A1:L11","address":"A1:L11"}
+{"kind":"sheet","id":"ws/cndj7n","name":"人员与权限","index":20,"range":"A1:L10","address":"A1:L10"}
+{"kind":"sheet","id":"ws/v2z313","name":"工序与工艺路线","index":21,"range":"A1:L11","address":"A1:L11"}
+{"kind":"table","sheet":"排产创建","address":"A1:L14","rows":14,"cols":12,"values":[["基本信息",null,null,null,null,null,null,null,null,null,null,null],["S01-H01\n排产编号",null,"系统自动填写\n来源：排产创建保存成功后系统生成；唯一编号",null,null,null,"S01-H02\n排产名称 *",null,"填写\n来源：排产人员填写；计划员维护本批名称",null,null,null],["S01-H03\n来源订单 *",null,"选择 O02有效订单\n来源：订单台账；只显示当前项目范围内状态为待排产或部分排产的订单",null,null,null,"S01-H04\n所属项目 *",null,"系统自动填写\n来源：订单创建.所属项目；由订单带出",null,null,null],["S01-H05\n工艺路线 *",null,"选择 已启用工艺路线\n来源：工序与工艺路线；选择后展示本路线全部工序、前置条件和检验要求",null,null,null,"S01-H06\n计划开始日期 *",null,"填写\n来源：排产人员维护本单字段；填写本批计划开始日期",null,null,null],["S01-H07\n计划结束日期 *",null,"填写\n来源：排产人员维护本单字段；填写本批计划结束日期",null,null,null,"S01-H08\n订单需求日期",null,"系统自动填写\n来源：订单创建.计划结束日期；只读",null,null,null],["S01-H09\n排产计划表Excel *",null,"上传 含构件、数量和生产班组的排产计划表\n来源：排产人员上传；系统保存文件名、版本、上传人和上传时间",null,null,null,"S01-H10\n编制人 *",null,"系统自动填写\n来源：人员与权限.当前登录OA账号；当前用户",null,null,null],["S01-H11\n排产状态",null,"系统自动填写\n来源：排产保存、导入校验、确认下发及生产进度自动更新；草稿、校验失败、待下发、已下发、生产中、已完成、已取消",null,null,null,"S01-H12\n计划说明",null,"填写\n来源：排产人员维护本单字段；填写本批计划说明",null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],["明细模板",null,null,null,null,null,null,null,null,null,null,null],["序号","订单明细ID","构件编号","构件GUID","本次排产数量件","生产班组编码","生产班组名称","所属车间","备注","导入校验结果","匹配班组长","匹配车间负责人"],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null]]}
+{"kind":"notice","message":"Cell search matched 0 entries."}
