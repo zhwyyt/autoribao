@@ -1,0 +1,2615 @@
+[
+  {
+    "id": "A001",
+    "path": "/delivery/info",
+    "module": "M10 文件解析与输出",
+    "method": "GET（代码）",
+    "description": "发运单 PDF 输出资源；不是第二个发运单实体",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "src/export-logistics-vehicle-workbook.js",
+        "line": 264
+      }
+    ],
+    "confidence": "较高可信推断",
+    "coverage": "本仓调用代码，未核验成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A002",
+    "path": "/file/upload",
+    "module": "M10 文件解析与输出",
+    "method": "POST（旧参考记载）",
+    "description": "上传 Excel 或同步文件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "unified-automation 建单、排产、下发流程",
+    "evidence": [
+      {
+        "file": "docs/dwyunsc-api-reference.md",
+        "line": 30
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A003",
+    "path": "/v1.order/add",
+    "module": "M03 订单与构件范围",
+    "method": "POST（旧参考记载）",
+    "description": "创建订单",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "订单名称、编号、项目、日期等",
+    "evidence": [
+      {
+        "file": "docs/dwyunsc-api-reference.md",
+        "line": 103
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A004",
+    "path": "/v1.order/addPackageArtifacts",
+    "module": "M08 包装与发运",
+    "method": "POST（旧参考记载）",
+    "description": "添加构件到包件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "已抓包确认",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 361
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A005",
+    "path": "/v1.order/createPackage",
+    "module": "M08 包装与发运",
+    "method": "待验证",
+    "description": "包装/发货章节列出的候选写能力；约束待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 357
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A006",
+    "path": "/v1.order/delPackage",
+    "module": "M08 包装与发运",
+    "method": "待验证",
+    "description": "包装/发货章节列出的候选写能力；约束待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 364
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A007",
+    "path": "/v1.order/downArtifacts",
+    "module": "M03 订单与构件范围",
+    "method": "待验证",
+    "description": "订单构件归集章节列出的候选能力；逐接口约束待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 170
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A008",
+    "path": "/v1.order/downCodes",
+    "module": "M03 订单与构件范围",
+    "method": "POST（旧参考记载）",
+    "description": "下载订单构件编码包",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id` 或构件相关参数，来自抓包",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 171
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A009",
+    "path": "/v1.order/downPackageCodes",
+    "module": "M08 包装与发运",
+    "method": "POST（旧参考记载）",
+    "description": "下载包件编码",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "返回二进制或文件流",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 363
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A010",
+    "path": "/v1.order/getAllOrder",
+    "module": "M03 订单与构件范围",
+    "method": "POST（旧参考记载）",
+    "description": "某项目下订单列表",
+    "requestFields": [
+      "project_id"
+    ],
+    "responseFields": [
+      "category_name",
+      "code",
+      "construction_order_id",
+      "construction_project_id",
+      "id",
+      "name",
+      "order_status",
+      "order_status_name",
+      "originator_name",
+      "project_id",
+      "project_name",
+      "source_name",
+      "state_name"
+    ],
+    "documentedNotes": "`project_id`",
+    "evidence": [
+      {
+        "file": "logs/project_goujian_capture_1779324343063.json",
+        "pointer": "/capturedApis/3"
+      },
+      {
+        "file": "src/extract-project-order-bridge.js",
+        "line": 5
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 165
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "历史成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A011",
+    "path": "/v1.order/getDeliveryHistory",
+    "module": "M08 包装与发运",
+    "method": "POST（历史请求）",
+    "description": "发货历史，发货对齐使用",
+    "requestFields": [
+      "proj_id",
+      "type",
+      "start_time",
+      "end_time"
+    ],
+    "responseFields": [],
+    "documentedNotes": "日期/筛选条件，来自页面抓包",
+    "evidence": [
+      {
+        "file": "logs/captured_shoufacun_apis_1777278732242.json",
+        "pointer": "/1"
+      },
+      {
+        "file": "src/main.js",
+        "line": 17
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 366
+      }
+    ],
+    "confidence": "较高可信推断",
+    "coverage": "本仓调用代码，未核验成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A012",
+    "path": "/v1.order/getDeliverys",
+    "module": "M08 包装与发运",
+    "method": "POST",
+    "description": "发运单分页列表；含单号、项目、日期和车辆字段",
+    "requestFields": [
+      "proj_id",
+      "keyword",
+      "code",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "code",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "date_str",
+      "id",
+      "name",
+      "project_id",
+      "project_name",
+      "serial_no",
+      "status",
+      "update_time",
+      "vehicle"
+    ],
+    "documentedNotes": "抓包中使用的路径",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/16"
+      },
+      {
+        "file": "src/export-logistics-vehicle-workbook.js",
+        "line": 245
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 365
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A013",
+    "path": "/v1.order/getInfo",
+    "module": "M03 订单与构件范围",
+    "method": "POST",
+    "description": "订单详情与动态构件字段定义",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "category",
+      "category_name",
+      "code",
+      "columns",
+      "construction_order_id",
+      "construction_project_id",
+      "create_time",
+      "create_user",
+      "end_time",
+      "headers",
+      "id",
+      "name",
+      "order_status",
+      "order_status_name",
+      "originator",
+      "originator_name",
+      "project_id",
+      "project_name",
+      "real_end_time",
+      "real_start_time",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "source",
+      "source_name",
+      "start_time",
+      "state",
+      "state_name",
+      "status",
+      "update_time",
+      "weight_sync"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/11"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 164
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A014",
+    "path": "/v1.order/getList",
+    "module": "M03 订单与构件范围",
+    "method": "POST",
+    "description": "订单分页列表；含项目、分类、状态和构件数",
+    "requestFields": [
+      "proj_id",
+      "keyword",
+      "code",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "category",
+      "category_name",
+      "code",
+      "construction_order_id",
+      "construction_project_id",
+      "create_time",
+      "create_user",
+      "end_time",
+      "id",
+      "name",
+      "order_status",
+      "order_status_name",
+      "originator",
+      "originator_name",
+      "project_id",
+      "project_name",
+      "real_end_time",
+      "real_start_time",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "scheduling_count",
+      "source",
+      "source_name",
+      "start_time",
+      "state",
+      "status",
+      "update_time"
+    ],
+    "documentedNotes": "`proj_id`, `keyword`, `code`, `page`, `size`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/10"
+      },
+      {
+        "file": "src/extract-order-sync.js",
+        "line": 32
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 163
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A015",
+    "path": "/v1.order/getOrderArtifacts",
+    "module": "M03 订单与构件范围",
+    "method": "POST",
+    "description": "订单构件实例列表；含排产、包件和发运引用",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "complete_time",
+      "construction_artifact_id",
+      "construction_project_id",
+      "create_time",
+      "create_user",
+      "delivery_id",
+      "file_id",
+      "guid",
+      "id",
+      "install_time",
+      "is_complete",
+      "is_package",
+      "model_id",
+      "name",
+      "order_id",
+      "package_id",
+      "project_id",
+      "scheduling_id",
+      "status",
+      "体积",
+      "区域部位/所在楼层",
+      "所属布置图",
+      "数量",
+      "构件GUID",
+      "构件名称",
+      "构件类型编码",
+      "构件编号",
+      "模型ID",
+      "生产特征",
+      "规格/型号",
+      "轴线范围",
+      "重量",
+      "长度"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/12"
+      },
+      {
+        "file": "src/extract-order-sync.js",
+        "line": 33
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 166
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A016",
+    "path": "/v1.order/getPackageArtifacts",
+    "module": "M08 包装与发运",
+    "method": "POST",
+    "description": "包内构件视图；数量字段为 count，规格为 specifications",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "characteristics",
+      "code",
+      "complete",
+      "count",
+      "delivery",
+      "delivery_id",
+      "guid",
+      "id",
+      "length",
+      "model_id",
+      "name",
+      "order_id",
+      "order_name",
+      "project_id",
+      "project_name",
+      "specifications",
+      "weight"
+    ],
+    "documentedNotes": "后续同步包内构件优先用",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/15"
+      },
+      {
+        "file": "src/export-logistics-vehicle-workbook.js",
+        "line": 276
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 359
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A017",
+    "path": "/v1.order/getPackageInfo",
+    "module": "M08 包装与发运",
+    "method": "POST",
+    "description": "包件详情；含 delivery_id 与发货文本",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "complete_time",
+      "construction_artifact_id",
+      "construction_project_id",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "data",
+      "delivery",
+      "delivery_id",
+      "file_id",
+      "guid",
+      "id",
+      "install_time",
+      "is_complete",
+      "is_package",
+      "model_id",
+      "name",
+      "order_id",
+      "package_id",
+      "project_id",
+      "project_name",
+      "scheduling_id",
+      "status"
+    ],
+    "documentedNotes": "按包件 ID 查询",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/14"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 358
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A018",
+    "path": "/v1.order/getPackageList",
+    "module": "M08 包装与发运",
+    "method": "POST",
+    "description": "包件分页视图；包件样本 is_package=1",
+    "requestFields": [
+      "proj_id",
+      "keyword",
+      "code",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "complete_time",
+      "construction_artifact_id",
+      "construction_project_id",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "data",
+      "delivery",
+      "delivery_id",
+      "file_id",
+      "guid",
+      "id",
+      "install_time",
+      "is_complete",
+      "is_package",
+      "model_id",
+      "name",
+      "order_id",
+      "package_id",
+      "project_id",
+      "project_name",
+      "scheduling_id",
+      "status"
+    ],
+    "documentedNotes": "打包管理入口",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/13"
+      },
+      {
+        "file": "src/export-logistics-vehicle-workbook.js",
+        "line": 250
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 356
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A019",
+    "path": "/v1.order/getUnArtifacts",
+    "module": "M03 订单与构件范围",
+    "method": "POST（旧参考记载）",
+    "description": "获取订单中未挂到排产的构件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`order_id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 167
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A020",
+    "path": "/v1.order/removeArtifacts",
+    "module": "M03 订单与构件范围",
+    "method": "待验证",
+    "description": "订单构件归集章节列出的候选能力；逐接口约束待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 169
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A021",
+    "path": "/v1.order/removePackageArtifacts",
+    "module": "M08 包装与发运",
+    "method": "POST（旧参考记载）",
+    "description": "从包件移除构件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "已抓包确认",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 362
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A022",
+    "path": "/v1.order/searchPackageArtifacts",
+    "module": "M08 包装与发运",
+    "method": "POST（旧参考记载）",
+    "description": "搜索可加入包件的构件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "添加包内构件前使用",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 360
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A023",
+    "path": "/v1.order/submitArtifacts",
+    "module": "M03 订单与构件范围",
+    "method": "POST（旧参考记载）",
+    "description": "将上传文件提交为订单构件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`order_id`, `file_id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 168
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A024",
+    "path": "/v1.production/addScheduling",
+    "module": "M04 排产与工艺配置",
+    "method": "POST（旧参考记载）",
+    "description": "创建排产",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "项目、名称、编号、日期、类型等",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 196
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A025",
+    "path": "/v1.production/cancelProcess",
+    "module": "M06 过程执行",
+    "method": "待验证",
+    "description": "过程状态章节列出的候选撤销能力；前后状态待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 281
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A026",
+    "path": "/v1.production/delPlan",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 232
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A027",
+    "path": "/v1.production/delScheduling",
+    "module": "M04 排产与工艺配置",
+    "method": "待验证",
+    "description": "排产、部门、设计章节列出的候选能力；逐接口语义待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 198
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A028",
+    "path": "/v1.production/downloadInspection",
+    "module": "M07 报检与质量",
+    "method": "待验证",
+    "description": "报检/验收章节列出的候选查询、输出或隐藏能力；效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 327
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A029",
+    "path": "/v1.production/downloadInspections",
+    "module": "M07 报检与质量",
+    "method": "待验证",
+    "description": "报检/验收章节列出的候选查询、输出或隐藏能力；效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 328
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A030",
+    "path": "/v1.production/editDepartment",
+    "module": "M04 排产与工艺配置",
+    "method": "待验证",
+    "description": "排产、部门、设计章节列出的候选能力；逐接口语义待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 203
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A031",
+    "path": "/v1.production/editScheduling",
+    "module": "M04 排产与工艺配置",
+    "method": "待验证",
+    "description": "排产、部门、设计章节列出的候选能力；逐接口语义待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 197
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A032",
+    "path": "/v1.production/exportProduction",
+    "module": "M10 文件解析与输出",
+    "method": "POST（旧参考记载）",
+    "description": "导出排产文件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 240
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A033",
+    "path": "/v1.production/getInspectionArtifactsCodes",
+    "module": "M07 报检与质量",
+    "method": "待验证",
+    "description": "报检/验收章节列出的候选查询、输出或隐藏能力；效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 326
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A034",
+    "path": "/v1.production/getInspectionInfo",
+    "module": "M07 报检与质量",
+    "method": "待验证",
+    "description": "报检/验收章节列出的候选查询、输出或隐藏能力；效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 325
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A035",
+    "path": "/v1.production/getInspections",
+    "module": "M07 报检与质量",
+    "method": "POST",
+    "description": "账号部门过滤后的报检单列表；本次只见撤销样本",
+    "requestFields": [
+      "proj_id",
+      "keyword",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifact_count",
+      "code",
+      "create_time",
+      "create_time_text",
+      "create_user",
+      "create_user_name",
+      "date_idx",
+      "date_str",
+      "flaw_department",
+      "flaw_department_name",
+      "flaw_desc",
+      "flaw_sign",
+      "flaw_time",
+      "flaw_time_text",
+      "flaw_user",
+      "flaw_user_name",
+      "hide",
+      "id",
+      "inspection_department",
+      "inspection_department_name",
+      "inspection_desc",
+      "inspection_sign",
+      "inspection_time",
+      "inspection_time_text",
+      "inspection_user",
+      "inspection_user_name",
+      "plan_id",
+      "plan_name",
+      "project_id",
+      "project_name",
+      "status",
+      "status_name",
+      "submit_department",
+      "submit_department_name",
+      "submit_sign"
+    ],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/17"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 324
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A036",
+    "path": "/v1.production/getPlan",
+    "module": "M05 生产计划与任务视图",
+    "method": "POST",
+    "description": "计划详情；含工艺列和动态构件列",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "category",
+      "category_name",
+      "code",
+      "columns",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "departments",
+      "design_column",
+      "design_id",
+      "design_info",
+      "end_time",
+      "headers",
+      "id",
+      "is_change",
+      "name",
+      "production_process",
+      "production_status",
+      "production_status_name",
+      "project_id",
+      "project_name",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "scheduling_id",
+      "start_time",
+      "state",
+      "state_name",
+      "status",
+      "type",
+      "update_time"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/5"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 231
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A037",
+    "path": "/v1.production/getPlanArtifactCode",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 243
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A038",
+    "path": "/v1.production/getPlanArtifacts",
+    "module": "M05 生产计划与任务视图",
+    "method": "POST",
+    "description": "计划构件执行视图；含节点执行及订单构件引用",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "change",
+      "code",
+      "complete_time",
+      "construction_artifact_id",
+      "construction_project_id",
+      "create_time",
+      "data_process",
+      "department_current",
+      "departments",
+      "file_id",
+      "guid",
+      "id",
+      "is_complete",
+      "is_deliver",
+      "is_print",
+      "length",
+      "length_all",
+      "model_id",
+      "name",
+      "node_current",
+      "node_end",
+      "node_start",
+      "num",
+      "order_artifacts_id",
+      "order_id",
+      "plan_id",
+      "process_items",
+      "project_id",
+      "remark",
+      "scheduling_id",
+      "status",
+      "update_time",
+      "volume",
+      "volume_all",
+      "weight",
+      "weight_all",
+      "体积",
+      "区域部位/所在楼层",
+      "所属布置图",
+      "数量",
+      "构件GUID",
+      "构件名称",
+      "构件类型编码",
+      "构件编号",
+      "模型ID",
+      "涂装",
+      "生产特征",
+      "装焊报检",
+      "装焊探伤",
+      "装焊质检",
+      "规格/型号",
+      "轴线范围",
+      "重量",
+      "钢构生产开始",
+      "长度"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/6"
+      },
+      {
+        "file": "src/download-weekly-hujigangwan-plan-codes.js",
+        "line": 122
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 233
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A039",
+    "path": "/v1.production/getPlanArtifactsCodes",
+    "module": "M05 生产计划与任务视图",
+    "method": "POST（代码）",
+    "description": "下载计划构件编码包",
+    "requestFields": [
+      "id",
+      "ids"
+    ],
+    "responseFields": [],
+    "documentedNotes": "`id`, `ids`",
+    "evidence": [
+      {
+        "file": "src/download-weekly-hujigangwan-plan-codes.js",
+        "line": 137
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 242
+      }
+    ],
+    "confidence": "较高可信推断",
+    "coverage": "本仓调用代码，未核验成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A040",
+    "path": "/v1.production/getPlanUnCompleteArtifacts",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 234
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A041",
+    "path": "/v1.production/getPlans",
+    "module": "M05 生产计划与任务视图",
+    "method": "POST",
+    "description": "生产计划分页视图；含排产引用和工艺定义",
+    "requestFields": [
+      "proj_id",
+      "department",
+      "production_status",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "category",
+      "category_name",
+      "code",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "departments",
+      "design_id",
+      "design_info",
+      "end_time",
+      "headers",
+      "id",
+      "is_change",
+      "name",
+      "plan_end_time",
+      "plan_start_time",
+      "production_process",
+      "production_status",
+      "production_status_name",
+      "project_id",
+      "project_name",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "scheduling_id",
+      "start_time",
+      "state",
+      "state_name",
+      "status",
+      "type",
+      "update_time"
+    ],
+    "documentedNotes": "`proj_id`, `page`, `size`, 筛选条件",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/4"
+      },
+      {
+        "file": "src/download-weekly-hujigangwan-plan-codes.js",
+        "line": 111
+      },
+      {
+        "file": "DB.md",
+        "line": 238
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A042",
+    "path": "/v1.production/getProductionArtifacts",
+    "module": "M04 排产与工艺配置",
+    "method": "POST",
+    "description": "排产构件视图；与计划构件样本共享生产构件 ID",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "change",
+      "code",
+      "complete_time",
+      "construction_artifact_id",
+      "construction_project_id",
+      "create_time",
+      "data_process",
+      "department_current",
+      "departments",
+      "file_id",
+      "guid",
+      "id",
+      "is_complete",
+      "is_print",
+      "length",
+      "length_all",
+      "model_id",
+      "name",
+      "node_current",
+      "node_end",
+      "node_start",
+      "num",
+      "order_artifacts_id",
+      "order_id",
+      "plan_id",
+      "process_items",
+      "project_id",
+      "remark",
+      "scheduling_id",
+      "status",
+      "update_time",
+      "volume",
+      "volume_all",
+      "weight",
+      "weight_all",
+      "体积",
+      "区域部位/所在楼层",
+      "所属布置图",
+      "数量",
+      "构件GUID",
+      "构件名称",
+      "构件类型编码",
+      "构件编号",
+      "模型ID",
+      "涂装",
+      "生产特征",
+      "装焊报检",
+      "装焊探伤",
+      "装焊质检",
+      "规格/型号",
+      "轴线范围",
+      "重量",
+      "钢构生产开始",
+      "长度"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/9"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 235
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A043",
+    "path": "/v1.production/getProductionTasks",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 236
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A044",
+    "path": "/v1.production/getScheduling",
+    "module": "M04 排产与工艺配置",
+    "method": "POST",
+    "description": "排产详情；反向持有 plan_id",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "category",
+      "category_name",
+      "code",
+      "columns",
+      "create_time",
+      "create_user",
+      "departments",
+      "design_column",
+      "design_id",
+      "design_info",
+      "end_time",
+      "headers",
+      "id",
+      "is_change",
+      "name",
+      "plan_id",
+      "project_id",
+      "project_name",
+      "real_end_time",
+      "real_start_time",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "responsible",
+      "responsible_name",
+      "scheduling_status",
+      "scheduling_status_name",
+      "source",
+      "source_name",
+      "start_time",
+      "state",
+      "state_name",
+      "status",
+      "type",
+      "type_name",
+      "update_time"
+    ],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/7"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 195
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A045",
+    "path": "/v1.production/getSchedulingDesign",
+    "module": "M04 排产与工艺配置",
+    "method": "POST",
+    "description": "返回 branchs 与 column 的配置投影，不能直接等同工艺主档",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "branchs",
+      "column"
+    ],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/8"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 199
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A046",
+    "path": "/v1.production/getSchedulings",
+    "module": "M04 排产与工艺配置",
+    "method": "POST（旧参考记载）",
+    "description": "排产列表/查重",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`department`, `proj_id`, `keyword`, `is_produce`, `start_time`, `end_time`, `code`, `page`, `size`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 194
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A047",
+    "path": "/v1.production/getTaskArtifacts",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 238
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A048",
+    "path": "/v1.production/getTaskArtifactsCodes",
+    "module": "M05 生产计划与任务视图",
+    "method": "待验证",
+    "description": "生产计划/任务章节列出的候选视图或操作；实体边界待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 239
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A049",
+    "path": "/v1.production/getTasks",
+    "module": "M05 生产计划与任务视图",
+    "method": "POST",
+    "description": "执行任务列表视图；样本 ID 与计划相同，不能先断定独立 Task 实体",
+    "requestFields": [
+      "proj_id",
+      "keyword",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "artifacts_count",
+      "category",
+      "category_name",
+      "code",
+      "create_time",
+      "create_user",
+      "create_user_name",
+      "departments",
+      "design_id",
+      "design_info",
+      "end_time",
+      "end_time_text",
+      "headers",
+      "id",
+      "is_change",
+      "name",
+      "production_process",
+      "production_status",
+      "project_id",
+      "project_name",
+      "recipient",
+      "recipient_address",
+      "recipient_tel",
+      "scheduling_id",
+      "start_time",
+      "start_time_text",
+      "state",
+      "state_name",
+      "status",
+      "type",
+      "update_time"
+    ],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/18"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 237
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A050",
+    "path": "/v1.production/hideInspection",
+    "module": "M07 报检与质量",
+    "method": "待验证",
+    "description": "报检/验收章节列出的候选查询、输出或隐藏能力；效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 329
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A051",
+    "path": "/v1.production/removeArtifacts",
+    "module": "M04 排产与工艺配置",
+    "method": "待验证",
+    "description": "排产、部门、设计章节列出的候选能力；逐接口语义待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 201
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A052",
+    "path": "/v1.production/sendProduce",
+    "module": "M04 排产与工艺配置",
+    "method": "POST（旧参考记载）",
+    "description": "下发生产",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 205
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A053",
+    "path": "/v1.production/setDepartment",
+    "module": "M04 排产与工艺配置",
+    "method": "待验证",
+    "description": "排产、部门、设计章节列出的候选能力；逐接口语义待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 202
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A054",
+    "path": "/v1.production/setDesign",
+    "module": "M04 排产与工艺配置",
+    "method": "POST（旧参考记载）",
+    "description": "指定工艺流程",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id`, `design_id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 204
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A055",
+    "path": "/v1.production/submitSchedulingArtifacts",
+    "module": "M04 排产与工艺配置",
+    "method": "POST（旧参考记载）",
+    "description": "将订单构件挂到排产",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`scheduling_id`, `order_id`, `artifacts_ids`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 200
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A056",
+    "path": "/v1.production/syncProduction",
+    "module": "M10 文件解析与输出",
+    "method": "POST（旧参考记载）",
+    "description": "同步排产文件",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`scheduling_id`, `file_id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 241
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A057",
+    "path": "/v1.production/updateProcess",
+    "module": "M06 过程执行",
+    "method": "POST（旧参考记载）",
+    "description": "过程更新",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id`, `ids`, `status`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 280
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A058",
+    "path": "/v1.project/add",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 139
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A059",
+    "path": "/v1.project/del",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 141
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A060",
+    "path": "/v1.project/downProjectDesign",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 138
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A061",
+    "path": "/v1.project/edit",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 140
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A062",
+    "path": "/v1.project/getInfo",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [
+      "id"
+    ],
+    "responseFields": [
+      "cover_path",
+      "plan_images_list",
+      "starts_data",
+      "confirmation_data",
+      "tasks_data",
+      "id",
+      "name",
+      "code",
+      "start_time",
+      "end_time",
+      "real_start_time",
+      "real_end_time",
+      "engineer_name",
+      "sort_name",
+      "head_person",
+      "size",
+      "nature",
+      "level",
+      "address",
+      "area",
+      "cover",
+      "plan_images",
+      "introduce",
+      "create_time",
+      "create_user",
+      "update_time",
+      "status",
+      "construction_openid",
+      "qr_title",
+      "category",
+      "completed",
+      "token"
+    ],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "logs/project_component_api_inspect_1779323231441.json",
+        "pointer": "/probeResults/1"
+      },
+      {
+        "file": "src/export-logistics-vehicle-workbook.js",
+        "line": 251
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 133
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "历史成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A063",
+    "path": "/v1.project/getList",
+    "module": "M02 项目与设计资料",
+    "method": "POST",
+    "description": "项目分页列表；本次 count=133",
+    "requestFields": [
+      "keyword",
+      "code",
+      "page",
+      "size"
+    ],
+    "responseFields": [
+      "address",
+      "area",
+      "artifacts_count",
+      "category",
+      "code",
+      "completed",
+      "confirmation_count",
+      "construction_openid",
+      "cover",
+      "cover_path",
+      "create_time",
+      "create_user",
+      "end_time",
+      "engineer_name",
+      "head_person",
+      "head_person_name",
+      "id",
+      "introduce",
+      "level",
+      "name",
+      "nature",
+      "plan_images",
+      "qr_title",
+      "real_end_time",
+      "real_start_time",
+      "size",
+      "sort_name",
+      "start_time",
+      "starts_count",
+      "status",
+      "status_name",
+      "tasks_count",
+      "time",
+      "token",
+      "update_time"
+    ],
+    "documentedNotes": "`keyword`, `page`, `size`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/3"
+      },
+      {
+        "file": "src/extract-project-list.js",
+        "line": 16
+      },
+      {
+        "file": "DB.md",
+        "line": 189
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A064",
+    "path": "/v1.project/getProjectArtifacts",
+    "module": "M02 项目与设计资料",
+    "method": "POST（旧参考记载）",
+    "description": "项目下订单构件，建立订单构件与排产构件桥接",
+    "requestFields": [
+      "proj_id",
+      "order_id",
+      "keyword",
+      "production",
+      "type"
+    ],
+    "responseFields": [
+      "construction_artifact_id",
+      "construction_project_id",
+      "delivery_id",
+      "file_id",
+      "guid",
+      "id",
+      "model_id",
+      "name",
+      "order_id",
+      "order_name",
+      "package_id",
+      "project_id",
+      "scheduling_id",
+      "scheduling_name",
+      "构件GUID",
+      "模型ID"
+    ],
+    "documentedNotes": "`proj_id`, `order_id`, `keyword`, `production`, `type`",
+    "evidence": [
+      {
+        "file": "logs/project_goujian_capture_1779324343063.json",
+        "pointer": "/capturedApis/4"
+      },
+      {
+        "file": "src/extract-project-order-bridge.js",
+        "line": 6
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 137
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "历史成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A065",
+    "path": "/v1.project/getProjectFiles",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 135
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A066",
+    "path": "/v1.project/getProjectSelect",
+    "module": "M02 项目与设计资料",
+    "method": "POST",
+    "description": "项目选择投影；与项目列表共享项目 ID",
+    "requestFields": [],
+    "responseFields": [
+      "address",
+      "area",
+      "category",
+      "code",
+      "completed",
+      "construction_openid",
+      "cover",
+      "create_time",
+      "create_user",
+      "end_time",
+      "engineer_name",
+      "head_person",
+      "id",
+      "introduce",
+      "label",
+      "level",
+      "name",
+      "nature",
+      "plan_images",
+      "qr_title",
+      "real_end_time",
+      "real_start_time",
+      "size",
+      "sort_name",
+      "start_time",
+      "status",
+      "token",
+      "update_time",
+      "value"
+    ],
+    "documentedNotes": "空对象 `{}`",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/2"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 26
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A067",
+    "path": "/v1.project/searchProjectFiles",
+    "module": "M02 项目与设计资料",
+    "method": "待验证",
+    "description": "项目/设计资料章节列出的候选能力；逐接口输入与效果待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 136
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A068",
+    "path": "/v1.statistical/addStatisticalMonth",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 443
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A069",
+    "path": "/v1.statistical/delStatisticalMonth",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 444
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A070",
+    "path": "/v1.statistical/getMonthList",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 442
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A071",
+    "path": "/v1.statistical/getStatisticalArtifacts",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 411
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A072",
+    "path": "/v1.statistical/getStatisticalArtifactsByOpenid",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 412
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A073",
+    "path": "/v1.statistical/getStatisticalData",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 407
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A074",
+    "path": "/v1.statistical/getStatisticalDay",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 446
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A075",
+    "path": "/v1.statistical/getStatisticalDayInfo",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 448
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A076",
+    "path": "/v1.statistical/getStatisticalDays",
+    "module": "M09 统计与报表",
+    "method": "POST（历史请求）",
+    "description": "工序/日报统计，日报生成和工序对账使用",
+    "requestFields": [
+      "types_id",
+      "process_id",
+      "start_time",
+      "end_time",
+      "departments"
+    ],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "logs/captured_shoufacun_apis_1777278732242.json",
+        "pointer": "/0"
+      },
+      {
+        "file": "src/main.js",
+        "line": 16
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 447
+      }
+    ],
+    "confidence": "较高可信推断",
+    "coverage": "本仓调用代码，未核验成功响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A077",
+    "path": "/v1.statistical/getStatisticalDelivery",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 28
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A078",
+    "path": "/v1.statistical/getStatisticalMonth",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 445
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A079",
+    "path": "/v1.statistical/getStatisticalQuality",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 330
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A080",
+    "path": "/v1.statistical/getStatisticalQualityArtifacts",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 331
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A081",
+    "path": "/v1.statistical/getStatisticalTeamArtifacts",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 409
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A082",
+    "path": "/v1.statistical/getStatisticalTeamData",
+    "module": "M09 统计与报表",
+    "method": "待验证",
+    "description": "统计章节列出的候选汇总、下钻或模板能力；逐接口口径待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 408
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A083",
+    "path": "/v1.user/getBranchs",
+    "module": "M01 身份与组织",
+    "method": "POST",
+    "description": "组织树；节点带父级、生产标志和负责人引用",
+    "requestFields": [],
+    "responseFields": [
+      "category",
+      "category_name",
+      "children",
+      "create_time",
+      "create_user",
+      "describe",
+      "director",
+      "director_name",
+      "id",
+      "is_production",
+      "label",
+      "name",
+      "pid",
+      "sort",
+      "status",
+      "update_time",
+      "user_count",
+      "value"
+    ],
+    "documentedNotes": "打包/发运抓包",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/1"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 27
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A084",
+    "path": "/v1.user/getInfo",
+    "module": "M01 身份与组织",
+    "method": "POST（本次）；历史页面请求方法单独保留",
+    "description": "当前账号、部门、角色及权限声明",
+    "requestFields": [],
+    "responseFields": [
+      "account",
+      "avatar",
+      "category",
+      "create_time",
+      "department",
+      "department_name",
+      "id",
+      "is_admin",
+      "mobile",
+      "name",
+      "operator",
+      "role",
+      "role_permission",
+      "status",
+      "token_version",
+      "update_time",
+      "work_number"
+    ],
+    "documentedNotes": "打包/发运抓包",
+    "evidence": [
+      {
+        "file": "_evidence/live-readonly.json",
+        "pointer": "/requests/0"
+      },
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 25
+      }
+    ],
+    "confidence": "已验证",
+    "coverage": "本次只读响应",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A085",
+    "path": "/v1.user/login",
+    "module": "M01 身份与组织",
+    "method": "POST（旧参考记载）",
+    "description": "API 登录，返回 Token",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "unified-automation `api-client.js`",
+    "evidence": [
+      {
+        "file": "docs/dwyunsc-api-reference.md",
+        "line": 27
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A086",
+    "path": "/v2.production/downTaskOrder",
+    "module": "M10 文件解析与输出",
+    "method": "POST（旧参考记载）",
+    "description": "下载生产任务单",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 252
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A087",
+    "path": "/v2.production/downTaskOrderQr",
+    "module": "M10 文件解析与输出",
+    "method": "待验证",
+    "description": "生产文件/任务单章节列出的候选解析、编辑或输出能力；参数待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 253
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A088",
+    "path": "/v2.production/downTaskOrders",
+    "module": "M10 文件解析与输出",
+    "method": "待验证",
+    "description": "生产文件/任务单章节列出的候选解析、编辑或输出能力；参数待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 254
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A089",
+    "path": "/v2.production/downTaskPlans",
+    "module": "M10 文件解析与输出",
+    "method": "待验证",
+    "description": "生产文件/任务单章节列出的候选解析、编辑或输出能力；参数待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 255
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A090",
+    "path": "/v2.production/editArtifactData",
+    "module": "M10 文件解析与输出",
+    "method": "待验证",
+    "description": "生产文件/任务单章节列出的候选解析、编辑或输出能力；参数待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 251
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A091",
+    "path": "/v2.production/getArtifactData",
+    "module": "M10 文件解析与输出",
+    "method": "待验证",
+    "description": "生产文件/任务单章节列出的候选解析、编辑或输出能力；参数待验证",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 250
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  },
+  {
+    "id": "A092",
+    "path": "/v2.production/parserExcelData",
+    "module": "M10 文件解析与输出",
+    "method": "POST（旧参考记载）",
+    "description": "解析上传的生产 Excel",
+    "requestFields": [],
+    "responseFields": [],
+    "documentedNotes": "`file_id`",
+    "evidence": [
+      {
+        "file": "东吴云生产管理平台_重开发数据流转说明.md",
+        "line": 249
+      }
+    ],
+    "confidence": "待验证",
+    "coverage": "仅文档能力记载/失败探测",
+    "limitations": "仅证明所述证据范围；未验证新增/修改/删除/审核、状态转换、全量可见性与服务端约束"
+  }
+]

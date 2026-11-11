@@ -1,0 +1,46 @@
+[
+  {
+    "apiPath": "/v1.design/getManageFeatures",
+    "payload": {
+      "id": "1",
+      "keyword": "",
+      "exist": 1,
+      "page": 1,
+      "size": 10
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.design/getManageFeatures",
+    "payload": {
+      "id": "25",
+      "keyword": "",
+      "exist": 1,
+      "page": 1,
+      "size": 10
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.design/getManageFeatures",
+    "payload": {
+      "id": "36",
+      "keyword": "",
+      "exist": 1,
+      "page": 1,
+      "size": 10
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.design/getManageFeatures",
+    "payload": {
+      "id": "42",
+      "keyword": "",
+      "exist": 1,
+      "page": 1,
+      "size": 10
+    },
+    "limit": 20
+  }
+]

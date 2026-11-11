@@ -1,0 +1,18 @@
+[
+  {
+    "id": "local-arrival",
+    "file": "src/export-logistics-vehicle-workbook.js",
+    "startLine": 95,
+    "endLine": 105,
+    "text": "function fillDeliveryTimes(delivery, random = Math.random) {\n    const current = delivery.logistics && typeof delivery.logistics === 'object' ? delivery.logistics : {};\n    const shipped = parseLocalDateTime(delivery.create_time);\n    if (!shipped) {\n        delivery.logistics = { ...current, depart: text(delivery.create_time) };\n        return;\n    }\n    const arrive = new Date(shipped.getTime() + (2.5 + Number(random()) * 0.5) * 3600000);\n    delivery.logistics = { ...current, depart: formatLocalDateTime(shipped), arrive: formatLocalDateTime(arrive) };\n}\n",
+    "fileSha256": "98aedf009079fa7b8bf60da6adfadde8422511a6d7d7c5dfe9b4a348a286c701"
+  },
+  {
+    "id": "local-arrival-use",
+    "file": "src/export-logistics-vehicle-workbook.js",
+    "startLine": 175,
+    "endLine": 201,
+    "text": "function matchLogistics(groups, deliveries, random = Math.random) {\n    const sourceByDate = new Map();\n    for (const group of groups) {\n        const key = dateKey(group.depart);\n        if (!sourceByDate.has(key)) sourceByDate.set(key, []);\n        sourceByDate.get(key).push(group);\n    }\n    const deliveriesByDate = new Map();\n    for (const delivery of deliveries) {\n        const key = dateKey(delivery.create_time);\n        if (!deliveriesByDate.has(key)) deliveriesByDate.set(key, []);\n        deliveriesByDate.get(key).push(delivery);\n    }\n    for (const [key, sameDay] of deliveriesByDate) {\n        sameDay.sort((a, b) => text(a.create_time).localeCompare(text(b.create_time)));\n        const source = sourceByDate.get(key) || [];\n        sameDay.forEach((delivery, index) => {\n            delivery.logistics = {\n                ...nonEmptyLogistics(delivery.projectLogistics),\n                ...nonEmptyLogistics(source[index]),\n                ...nonEmptyLogistics(delivery.pdfLogistics)\n            };\n        });\n    }\n    for (const delivery of deliveries) fillDeliveryTimes(delivery, random);\n    return deliveries;\n}",
+    "fileSha256": "98aedf009079fa7b8bf60da6adfadde8422511a6d7d7c5dfe9b4a348a286c701"
+  }
+]

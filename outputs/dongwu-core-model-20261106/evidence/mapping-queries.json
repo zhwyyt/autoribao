@@ -1,0 +1,86 @@
+[
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 9154
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 9154
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 5984
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 5984
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 7097
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 7097
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 8819
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 8819
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 4362
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 4362
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlan",
+    "payload": {
+      "id": 9097
+    },
+    "limit": 1000
+  },
+  {
+    "apiPath": "/v1.production/getPlanArtifacts",
+    "payload": {
+      "id": 9097
+    },
+    "limit": 1000
+  }
+]

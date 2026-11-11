@@ -1,0 +1,133 @@
+{
+  "verifiedAt": "2026-11-06T06:11:30.922130+00:00",
+  "status": "passed",
+  "checksPassed": 24,
+  "checksTotal": 24,
+  "checks": [
+    {
+      "name": "All 324 baseline files preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Existing git status unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All JSON parses",
+      "passed": true,
+      "detail": 18
+    },
+    {
+      "name": "26 successful read responses across seven paths",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Every request pointer matches recorded API and payload",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "454 production rows fully saved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "75 order rows fully saved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "75 explicit source joins match GUID",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "27 fxc rows complete coating without flaw completion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Live flaw association completely excludes FXC",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Coating partial JSON and complete page scope disclosed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Process and feature catalogs fully retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "259 pipeline completions end at transfer not coating",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "20 nonempty coating display values are not completions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "29 normal completion times equal coating node times",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Time mismatch points to actual one-second discrepancy",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "87 legacy complete records have zero complete_time",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Three clarification rules trace to two user statements",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Blocked supplement not counted as executed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All document file links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "20 original verification IDs tracked",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Captured frontend asset hashes match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Analysis and collector syntax valid",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Configured credentials absent from new files",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "limits": [
+    "Business confirmations are not empirical verification of legacy write behavior.",
+    "No configuration save, production write, or database synchronization was performed.",
+    "Four optional supplement requests were not launched due to approval-review timeout."
+  ]
+}

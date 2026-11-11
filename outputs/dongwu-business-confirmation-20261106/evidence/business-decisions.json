@@ -1,0 +1,26 @@
+{
+  "confirmedOn": "2026-11-06",
+  "source": "本会话用户对三项业务问题的直接答复",
+  "evidenceType": "user_business_confirmation",
+  "classificationNote": "已验证仅指用户明确确认；不表示原系统API行为已经实测。",
+  "quotes": [
+    {"id": "U01", "text": "平台范围先做项目、订单、钢构生产、质量、包装发运。"},
+    {"id": "U02", "text": "同编号的补件或重制件，在你们管理上算新构件，是原构件的生产状态封存。"},
+    {"id": "U03", "text": "实际动作是涂装完成，也就是整个工序动作全部走完。没有“装焊入库”这个概念吧"}
+  ],
+  "rules": [
+    {"id": "BR-01", "sourceId": "U01", "confidence": "已验证", "scope": "首期平台范围", "statement": "项目、订单、钢构生产、质量、包装发运"},
+    {"id": "BR-02", "sourceId": "U02", "confidence": "已验证", "scope": "构件业务身份", "statement": "同编号补件或重制件算新构件"},
+    {"id": "BR-03", "sourceId": "U02", "confidence": "已验证", "scope": "原构件生产状态", "statement": "原构件的生产状态封存"},
+    {"id": "BR-04", "sourceId": "U03", "confidence": "已验证", "scope": "成品入库定义", "statement": "全部工序动作走完，以涂装完成作为入库动作"},
+    {"id": "BR-05", "sourceId": "U03", "confidence": "已验证", "scope": "目标业务术语", "statement": "不设置装焊入库业务概念；保留装焊报检工序与历史报表来源名称"}
+  ],
+  "notConfirmed": [
+    "封存是否可解除及误录更正方式",
+    "封存是否影响原库存、报废、历史发运及其核算",
+    "返工是否沿用原构件身份",
+    "补制关系的全局基数及源API字段",
+    "源is_complete或complete_time是否直接对应已确认入库定义",
+    "特殊工艺和历史成品库节点的映射"
+  ]
+}

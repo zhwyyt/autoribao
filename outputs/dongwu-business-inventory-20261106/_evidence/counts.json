@@ -1,0 +1,36 @@
+{
+  "scannedPathStrings": 113,
+  "acceptedInventoryPaths": 92,
+  "probeOnlyExcluded": 20,
+  "explicitlyRejectedExcluded": 1,
+  "coverage": {
+    "本仓调用代码，未核验成功响应": 4,
+    "仅文档能力记载/失败探测": 66,
+    "历史成功响应": 3,
+    "本次只读响应": 19
+  },
+  "modules": {
+    "M10 文件解析与输出": 11,
+    "M03 订单与构件范围": 10,
+    "M08 包装与发运": 11,
+    "M04 排产与工艺配置": 13,
+    "M06 过程执行": 2,
+    "M05 生产计划与任务视图": 11,
+    "M07 报检与质量": 6,
+    "M02 项目与设计资料": 10,
+    "M09 统计与报表": 15,
+    "M01 身份与组织": 3
+  },
+  "families": {
+    "delivery": 1,
+    "file": 1,
+    "v1.order": 21,
+    "v1.production": 34,
+    "v1.project": 10,
+    "v1.statistical": 15,
+    "v1.user": 3,
+    "v2.production": 7
+  },
+  "liveRequests": 19,
+  "liveSuccess": 19
+}

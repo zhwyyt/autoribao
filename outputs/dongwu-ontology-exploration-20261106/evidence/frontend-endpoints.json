@@ -1,0 +1,3340 @@
+{
+  "/v1.user/login": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 73513,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/login\",method:\"post\",data:e})}function o(){return Object(i[\"a\"])({url:\"v1.user/logout\",method:\"post\"})}function r(){return Object(i[\"a\"])"
+    }
+  ],
+  "/v1.user/logout": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 73592,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/logout\",method:\"post\"})}function r(){return Object(i[\"a\"])({url:\"v1.user/getInfo\",method:\"post\"})}function c(e){return new Promise((funct"
+    }
+  ],
+  "/v1.user/getInfo": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 73665,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getInfo\",method:\"post\"})}function c(e){return new Promise((function(t,n){Object(i[\"a\"])({url:\"v1.user/getList\",method:\"post\",data:e}).the"
+    }
+  ],
+  "/v1.user/getList": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 73767,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getList\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/addUser": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 73986,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/addUser\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/editUser": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 74205,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/editUser\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)}"
+    }
+  ],
+  "/v1.user/getUser": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 74425,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getUser\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/getBranch": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 74644,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getBranch\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)"
+    }
+  ],
+  "/v1.user/getBranchs": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 74865,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getBranchs\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e"
+    }
+  ],
+  "/v1.user/getPlanUsers": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 75087,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getPlanUsers\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n"
+    }
+  ],
+  "/v1.user/getInspectionUsers": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 75311,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getInspectionUsers\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((functio"
+    }
+  ],
+  "/v1.user/getUserSelect": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 75540,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getUserSelect\",method:\"post\"}).then((function(n){var i=n.data;if(console.log(i),!i)return t(\"没有相关数据.\");e(i)})).catch((function(e){t(e)}))"
+    }
+  ],
+  "/v1.user/addBranch": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 75758,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/addBranch\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)"
+    }
+  ],
+  "/v1.user/editBranch": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 75979,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/editBranch\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e"
+    }
+  ],
+  "/v1.user/delBranch": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 76201,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/delBranch\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)"
+    }
+  ],
+  "/v1.user/banBranch": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 76422,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/banBranch\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)"
+    }
+  ],
+  "/v1.user/addRole": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 76643,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/addRole\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/editRole": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 76862,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/editRole\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)}"
+    }
+  ],
+  "/v1.user/delRole": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 77082,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/delRole\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/delUser": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 77301,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/delUser\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/banUser": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 77520,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/banUser\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/getRole": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 77739,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getRole\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)})"
+    }
+  ],
+  "/v1.user/getRoles": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 77958,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getRoles\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e)}"
+    }
+  ],
+  "/v1.user/getAllRole": [
+    {
+      "file": "frontend/68bf3ebfc358.js",
+      "offset": 78178,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.user/getAllRole\",method:\"post\",data:e}).then((function(e){var i=e.data;if(console.log(i),!i)return n(\"没有相关数据.\");t(i)})).catch((function(e){n(e"
+    }
+  ],
+  "/v1.project/add": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 10746,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 816,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 1467,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 915,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 816,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 1368,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 915,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v1.project/edit": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 10964,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 1034,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 1685,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 1133,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 1034,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 1586,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 1133,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    }
+  ],
+  "/v1.project/del": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 11183,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 1253,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 1904,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 1352,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 1253,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 1805,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 1352,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v1.project/getInfo": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 11401,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 1471,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 2122,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 1570,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 1471,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 2023,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(\"v1.project/getInfo\",r),!r)return e(\"没有相关数据.\");n(r)})).c"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 1570,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).c"
+    }
+  ],
+  "/v1.project/getList": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 11644,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 1714,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 2365,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 1813,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 1714,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 2266,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 1813,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    }
+  ],
+  "/v1.project/getProjectSelect": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 11866,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 1936,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 2587,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 2035,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 1936,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 2488,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functi"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 2035,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/getProjectSelect\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    }
+  ],
+  "/v1.project/getProjectFiles": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 12097,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 2167,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 2818,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 2266,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 2167,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 2719,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 2266,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/getProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    }
+  ],
+  "/v1.project/downProjectDesign": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 12327,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 2397,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 3048,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 2496,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 2397,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 2949,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 2496,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/downProjectDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    }
+  ],
+  "/v1.project/searchProjectFiles": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 12559,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 2629,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 3280,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 2728,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 2629,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 3181,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((func"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 2728,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/searchProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((func"
+    }
+  ],
+  "/v1.project/addProjectFolder": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 12792,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 2862,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 3513,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 2961,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 2862,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 3414,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functi"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 2961,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/addProjectFolder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    }
+  ],
+  "/v1.project/addProjectFiles": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 13023,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 3093,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 3744,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 3192,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 3093,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 3645,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 3192,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/addProjectFiles\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    }
+  ],
+  "/v1.project/delProjectFile": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 13253,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 3323,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 3974,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 3422,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 3323,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 3875,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 3422,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/delProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    }
+  ],
+  "/v1.project/editProjectFile": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 13482,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 3552,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 4203,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 3651,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 3552,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 4104,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 3651,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/editProjectFile\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    }
+  ],
+  "/v1.project/submitProjectDocument": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 13712,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 3782,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 4433,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 3881,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 3782,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 4334,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((f"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 3881,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/submitProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    }
+  ],
+  "/v1.project/removeProjectDocument": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 13948,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 4018,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 4669,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 4117,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 4018,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 4570,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((f"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 4117,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/removeProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((f"
+    }
+  ],
+  "/v1.project/refreshProjectToken": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 14184,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 4254,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 4905,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 4353,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 4254,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 4806,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((fun"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 4353,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/refreshProjectToken\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    }
+  ],
+  "/v1.project/confirmProjectDocument": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 14418,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 4488,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 5139,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 4587,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 4488,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 5040,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch(("
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 4587,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/confirmProjectDocument\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch(("
+    }
+  ],
+  "/v1.project/getProjectArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 14655,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 4725,
+      "route": "/production/task",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 5376,
+      "route": "/production/index",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 4824,
+      "route": "/order/package",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 4725,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 5277,
+      "route": "/order/history",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((fun"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 4824,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.project/getProjectArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fun"
+    }
+  ],
+  "/v1.production/getScheduling": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 16815,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 14266,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 9083,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 17878,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.production/getPlan": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 17031,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 14482,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 9299,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 18094,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    }
+  ],
+  "/v1.production/getSchedulingDesign": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 17241,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getSchedulingDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 14692,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getSchedulingDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 9509,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getSchedulingDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 18304,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getSchedulingDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    }
+  ],
+  "/v1.production/getSchedulings": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 17463,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getSchedulings\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 14914,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getSchedulings\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 9731,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getSchedulings\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 18526,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getSchedulings\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v1.production/addScheduling": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 17680,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/addScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 15131,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/addScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 9948,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/addScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 18743,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/addScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    }
+  ],
+  "/v1.production/editScheduling": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 17911,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/editScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 15362,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/editScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 10179,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/editScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 18974,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/editScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    }
+  ],
+  "/v1.production/delScheduling": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 18143,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/delScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 15594,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/delScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 10411,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/delScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 19206,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/delScheduling\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    }
+  ],
+  "/v1.production/getProductionArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 18374,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getProductionArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 15825,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getProductionArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 10642,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getProductionArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 19437,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getProductionArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    }
+  ],
+  "/v1.production/getPlanArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 18599,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlanArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 16050,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlanArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 10867,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlanArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 19662,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlanArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    }
+  ],
+  "/v1.production/getPlanArtifactsCodes": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 18818,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlanArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 16269,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlanArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 11086,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlanArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 19881,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlanArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    }
+  ],
+  "/v1.production/getPlanArtifactCode": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 19030,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlanArtifactCode\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 16481,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlanArtifactCode\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 11298,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlanArtifactCode\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 20093,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlanArtifactCode\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    }
+  ],
+  "/v1.production/getInspectionArtifactsCodes": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 19252,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getInspectionArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 16703,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getInspectionArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 11520,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getInspectionArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 20315,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getInspectionArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v1.production/getTaskArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 19470,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getTaskArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 16921,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getTaskArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 11738,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getTaskArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 20533,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getTaskArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    }
+  ],
+  "/v1.production/getTaskArtifactsCodes": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 19689,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getTaskArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 17140,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getTaskArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 11957,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getTaskArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 20752,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getTaskArtifactsCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}fu"
+    }
+  ],
+  "/v1.production/removeArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 19901,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 17352,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 12169,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 20964,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v1.production/submitSchedulingArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 20119,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/submitSchedulingArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 17570,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/submitSchedulingArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 12387,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/submitSchedulingArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 21182,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/submitSchedulingArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    }
+  ],
+  "/v1.production/setDepartment": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 20347,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/setDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 17798,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/setDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 12615,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/setDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 21410,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/setDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.production/editDepartment": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 20563,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/editDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 18014,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/editDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 12831,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/editDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 21626,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/editDepartment\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v1.production/setDesign": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 20780,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/setDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 18231,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/setDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 13048,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/setDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 21843,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/setDesign\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    }
+  ],
+  "/v1.production/sendProduce": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 20992,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/sendProduce\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 18443,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/sendProduce\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 13260,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/sendProduce\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 22055,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/sendProduce\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}"
+    }
+  ],
+  "/v1.production/updateProcess": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 21206,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/updateProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 18657,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/updateProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 13474,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/updateProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 22269,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/updateProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.production/cancelProcess": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 21422,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/cancelProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 18873,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/cancelProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 13690,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/cancelProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 22485,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/cancelProcess\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v2.production/downTaskOrder": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 21638,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/downTaskOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 19089,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/downTaskOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 13906,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/downTaskOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 22701,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/downTaskOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v2.production/downTaskOrderQr": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 21854,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/downTaskOrderQr\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 19305,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/downTaskOrderQr\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 14122,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/downTaskOrderQr\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 22917,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/downTaskOrderQr\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v2.production/downTaskOrders": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 22072,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/downTaskOrders\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 19523,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/downTaskOrders\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 14340,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/downTaskOrders\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 23135,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/downTaskOrders\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v2.production/downTaskPlans": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 22289,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/downTaskPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 19740,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/downTaskPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 14557,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/downTaskPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 23352,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/downTaskPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.production/getPlans": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 22505,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 19956,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 14773,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 23568,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    }
+  ],
+  "/v1.production/delPlan": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 22716,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/delPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 20167,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/delPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 14984,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/delPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 23779,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/delPlan\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}func"
+    }
+  ],
+  "/v1.production/getTasks": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 22926,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 20377,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 15194,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 23989,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    }
+  ],
+  "/v1.production/exportProduction": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 23137,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/exportProduction\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function $(t){"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 20588,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/exportProduction\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function F(t){"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 15405,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/exportProduction\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function A(t){"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 24200,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/exportProduction\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function L(t){"
+    }
+  ],
+  "/v1.production/syncProduction": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 23337,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/syncProduction\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 20788,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/syncProduction\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 15605,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/syncProduction\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 24400,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/syncProduction\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v1.production/getProductionTasks": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 23554,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getProductionTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 21005,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getProductionTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 15822,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getProductionTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 24617,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getProductionTasks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    }
+  ],
+  "/v1.production/getPlanUnCompleteArtifacts": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 23775,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getPlanUnCompleteArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 21226,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getPlanUnCompleteArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 16043,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getPlanUnCompleteArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 24838,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getPlanUnCompleteArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    }
+  ],
+  "/v1.production/getInspections": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 24004,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 21455,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 16272,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 25067,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v1.production/downloadInspections": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 24221,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/downloadInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 21672,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/downloadInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 16489,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/downloadInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 25284,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/downloadInspections\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t"
+    }
+  ],
+  "/v1.production/downloadInspection": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 24443,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/downloadInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 21894,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/downloadInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 16711,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/downloadInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 25506,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/downloadInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)"
+    }
+  ],
+  "/v1.production/getInspectionInfo": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 24664,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/getInspectionInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 22115,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/getInspectionInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 16932,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/getInspectionInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 25727,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/getInspectionInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    }
+  ],
+  "/v1.production/hideInspection": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 24884,
+      "route": "/production/plan",
+      "snippet": "url:\"v1.production/hideInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 22335,
+      "route": "/production/task",
+      "snippet": "url:\"v1.production/hideInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 17152,
+      "route": "/production/index",
+      "snippet": "url:\"v1.production/hideInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 25947,
+      "route": "/process/inspection",
+      "snippet": "url:\"v1.production/hideInspection\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v2.production/parserExcelData": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 25101,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/parserExcelData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 22552,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/parserExcelData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 17369,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/parserExcelData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 26164,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/parserExcelData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v2.production/getArtifactData": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 25319,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/getArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 22770,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/getArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 17587,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/getArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 26382,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/getArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))"
+    }
+  ],
+  "/v2.production/editArtifactData": [
+    {
+      "file": "frontend/824d3eb1144a.js",
+      "offset": 25537,
+      "route": "/production/plan",
+      "snippet": "url:\"v2.production/editArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/c3cda033dc26.js",
+      "offset": 22988,
+      "route": "/production/task",
+      "snippet": "url:\"v2.production/editArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/9a531856e087.js",
+      "offset": 17805,
+      "route": "/production/index",
+      "snippet": "url:\"v2.production/editArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    },
+    {
+      "file": "frontend/b70930bccc9b.js",
+      "offset": 26600,
+      "route": "/process/inspection",
+      "snippet": "url:\"v2.production/editArtifactData\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)})"
+    }
+  ],
+  "/v1.order/add": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 13201,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 12471,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/add\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 16277,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/add\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.order/edit": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 13417,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 12687,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/edit\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 16493,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/edit\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}"
+    }
+  ],
+  "/v1.order/del": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 13634,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 12904,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/del\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))})"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 16710,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/del\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))})"
+    }
+  ],
+  "/v1.order/getInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 13850,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).cat"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 13120,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)})).cat"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 16926,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(\"v1.project/getInfo\",r),!r)return e(\"没有相关数据.\");n(r)})).cat"
+    }
+  ],
+  "/v1.order/getSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 14091,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)}))."
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 13361,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(\"v1.project/getInfo\",o),!o)return e(\"没有相关数据.\");n(o)}))."
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 17167,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getSubwork\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(\"v1.project/getInfo\",r),!r)return e(\"没有相关数据.\");n(r)}))."
+    }
+  ],
+  "/v1.order/getList": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 14335,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 13605,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 17411,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getList\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}"
+    }
+  ],
+  "/v1.order/getDeliverys": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 14555,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getDeliverys\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 13825,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getDeliverys\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 17631,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getDeliverys\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/getDeliveryHistory": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 14780,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getDeliveryHistory\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 14050,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getDeliveryHistory\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functi"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 17856,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getDeliveryHistory\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functi"
+    }
+  ],
+  "/v1.order/getAllOrder": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 15011,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getAllOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 14281,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getAllOrder\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 18087,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getAllOrder\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/submitArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 15235,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/submitArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 14505,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/submitArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 18311,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/submitArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}))}f"
+    }
+  ],
+  "/v1.order/getOrderArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 15448,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getOrderArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 14718,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getOrderArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 18524,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getOrderArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}))"
+    }
+  ],
+  "/v1.order/removeArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 15663,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 14933,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/removeArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 18739,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/removeArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}))}f"
+    }
+  ],
+  "/v1.order/getUnArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 15876,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getUnArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 15146,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getUnArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fu"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 18952,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getUnArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}))}fu"
+    }
+  ],
+  "/v1.order/downArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 16088,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/downArtifacts\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function b(t){return n"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 15358,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/downArtifacts\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function g(t){return n"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 19164,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/downArtifacts\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function b(t){return n"
+    }
+  ],
+  "/v1.order/downCodes": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 16280,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/downCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function j(t){retur"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 15550,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/downCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function j(t){retur"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 19356,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/downCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function w(t){retur"
+    }
+  ],
+  "/v1.order/addSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 16475,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/addSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 15745,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/addSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 19551,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/addSubwork\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e("
+    }
+  ],
+  "/v1.order/getSubworks": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 16698,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getSubworks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 15968,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getSubworks\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 19774,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getSubworks\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/editSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 16922,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/editSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 16192,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/editSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 19998,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/editSubwork\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/delSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 17146,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/delSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 16416,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/delSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 20222,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/delSubwork\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e("
+    }
+  ],
+  "/v1.order/getSubworkInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 17369,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 16639,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 20445,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getSubworkInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t"
+    }
+  ],
+  "/v1.order/searchSubworkInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 17596,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/searchSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 16866,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/searchSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 20672,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/searchSubworkInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    }
+  ],
+  "/v1.order/submitSubworkInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 17826,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/submitSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 17096,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/submitSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 20902,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/submitSubworkInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    }
+  ],
+  "/v1.order/removeSubworkInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 18056,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/removeSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 17326,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/removeSubworkInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 21132,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/removeSubworkInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    }
+  ],
+  "/v1.order/completeSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 18286,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/completeSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 17556,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/completeSubwork\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 21362,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/completeSubwork\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function("
+    }
+  ],
+  "/v1.order/exportSubwork": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 18514,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/exportSubwork\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function I(t){return n"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 17784,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/exportSubwork\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function T(t){return n"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 21590,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/exportSubwork\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function I(t){return n"
+    }
+  ],
+  "/v1.order/getPackageList": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 18706,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getPackageList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 17976,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getPackageList\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 21782,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getPackageList\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t"
+    }
+  ],
+  "/v1.order/createPackage": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 18933,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/createPackage\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 18203,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/createPackage\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 22009,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/createPackage\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t)"
+    }
+  ],
+  "/v1.order/getPackageInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 19159,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getPackageInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 18429,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getPackageInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 22235,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getPackageInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t"
+    }
+  ],
+  "/v1.order/searchPackageArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 19386,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/searchPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fu"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 18656,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/searchPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((fu"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 22462,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/searchPackageArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((fu"
+    }
+  ],
+  "/v1.order/addPackageArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 19621,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/addPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 18891,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/addPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 22697,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/addPackageArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    }
+  ],
+  "/v1.order/getPackageArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 19853,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 19123,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getPackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 22929,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getPackageArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    }
+  ],
+  "/v1.order/removePackageArtifacts": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 20085,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/removePackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 19355,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/removePackageArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 23161,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/removePackageArtifacts\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}"
+    }
+  ],
+  "/v1.order/downPackageCodes": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 20305,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/downPackageCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function R(t"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 19575,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/downPackageCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function E(t"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 23381,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/downPackageCodes\",method:\"post\",responseType:\"arraybuffer\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function z(t"
+    }
+  ],
+  "/v1.order/delPackage": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 20507,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/delPackage\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 19777,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/delPackage\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 23583,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/delPackage\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e("
+    }
+  ],
+  "/v1.order/addCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 20730,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/addCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 20000,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/addCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 23806,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/addCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/editCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 20955,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/editCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 20225,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/editCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 24031,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/editCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t)"
+    }
+  ],
+  "/v1.order/delCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 21181,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/delCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 20451,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/delCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 24257,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/delCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/getCalculates": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 21406,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getCalculates\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 20676,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getCalculates\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t)"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 24482,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getCalculates\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t)"
+    }
+  ],
+  "/v1.order/getCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 21632,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 20902,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 24708,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/getCalculateInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 21857,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 21127,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 24933,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getCalculateInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function"
+    }
+  ],
+  "/v1.order/getCalculateAdd": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 22086,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getCalculateAdd\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 21356,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getCalculateAdd\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 25162,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getCalculateAdd\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function("
+    }
+  ],
+  "/v1.order/searchCalculateInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 22314,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/searchCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 21584,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/searchCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 25390,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/searchCalculateInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    }
+  ],
+  "/v1.order/submitCalculateInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 22546,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/submitCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 21816,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/submitCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 25622,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/submitCalculateInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    }
+  ],
+  "/v1.order/removeCalculateInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 22778,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/removeCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 22048,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/removeCalculateInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((funct"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 25854,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/removeCalculateInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((funct"
+    }
+  ],
+  "/v1.order/completeCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 23010,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/completeCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 22280,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/completeCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((functio"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 26086,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/completeCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((functio"
+    }
+  ],
+  "/v1.order/exportCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 23240,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/exportCalculate\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function W(t){return"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 22510,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/exportCalculate\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function W(t){return"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 26316,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/exportCalculate\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}function X(t){return"
+    }
+  ],
+  "/v1.order/submitCalculate": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 23434,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/submitCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 22704,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/submitCalculate\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}f"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 26510,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/submitCalculate\",method:\"post\",data:t}).then((function(t){var r=t.data;if(!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e(t)}))}))}f"
+    }
+  ],
+  "/v1.order/addTransfer": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 23647,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/addTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 22917,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/addTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 26723,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/addTransfer\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/delTransfer": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 23871,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/delTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 23141,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/delTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 26947,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/delTransfer\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/editTransfer": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 24095,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/editTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 23365,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/editTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 27171,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/editTransfer\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/getTransfer": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 24321,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 23591,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getTransfer\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 27397,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getTransfer\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){e"
+    }
+  ],
+  "/v1.order/getTransferInfo": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 24546,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getTransferInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 23816,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getTransferInfo\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function("
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 27622,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getTransferInfo\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function("
+    }
+  ],
+  "/v1.order/getTransfers": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 24775,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/getTransfers\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 24045,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/getTransfers\",method:\"post\",data:t}).then((function(t){var o=t.data;if(console.log(o),!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 27851,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/getTransfers\",method:\"post\",data:t}).then((function(t){var r=t.data;if(console.log(r),!r)return e(\"没有相关数据.\");n(r)})).catch((function(t){"
+    }
+  ],
+  "/v1.order/exportTransfer": [
+    {
+      "file": "frontend/3b9425283f41.js",
+      "offset": 25001,
+      "route": "/order/package",
+      "snippet": "url:\"v1.order/exportTransfer\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}}}]);"
+    },
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 24271,
+      "route": "/order/delivery",
+      "snippet": "url:\"v1.order/exportTransfer\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}}}]);"
+    },
+    {
+      "file": "frontend/002dd9cc0ed4.js",
+      "offset": 28077,
+      "route": "/order/history",
+      "snippet": "url:\"v1.order/exportTransfer\",method:\"post\",responseType:\"blob\",data:t}).then((function(t){n(t)})).catch((function(t){e(t)}))}))}}}]);"
+    }
+  ],
+  "/index/getMainProject": [
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 9512,
+      "route": "/order/delivery",
+      "snippet": "url:\"index/getMainProject\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}funct"
+    }
+  ],
+  "/index/getMainPlans": [
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 9721,
+      "route": "/order/delivery",
+      "snippet": "url:\"index/getMainPlans\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}functio"
+    }
+  ],
+  "/index/getMainTeam": [
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 9928,
+      "route": "/order/delivery",
+      "snippet": "url:\"index/getMainTeam\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}function"
+    }
+  ],
+  "/index/getPlanArtifacts": [
+    {
+      "file": "frontend/b2567a125c38.js",
+      "offset": 10134,
+      "route": "/order/delivery",
+      "snippet": "url:\"index/getPlanArtifacts\",method:\"post\",data:t}).then((function(t){var o=t.data;if(!o)return e(\"没有相关数据.\");n(o)})).catch((function(t){e(t)}))}))}fun"
+    }
+  ],
+  "/v1.design/getList": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 1051,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getList\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}function"
+    }
+  ],
+  "/v1.design/getDesigns": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 1257,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getDesigns\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/getDesign": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 1466,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getDesign\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/getDesignMenu": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 1674,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getDesignMenu\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}fu"
+    }
+  ],
+  "/v1.design/saveDesign": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 1886,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/saveDesign\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/addDesign": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 2095,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/addDesign\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/delDesign": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 2303,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/delDesign\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/getAllManages": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 2511,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getAllManages\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}fu"
+    }
+  ],
+  "/v1.design/getProcessAndType": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 2723,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getProcessAndType\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))})"
+    }
+  ],
+  "/v1.design/getManages": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 2939,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getManages\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/addManage": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 3148,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/addManage\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/getManage": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 3356,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getManage\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/delManage": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 3564,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/delManage\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}functi"
+    }
+  ],
+  "/v1.design/delFeature": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 3772,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/delFeature\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/saveManage": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 3981,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/saveManage\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/addFeature": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 4190,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/addFeature\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/saveFeature": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 4399,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/saveFeature\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}func"
+    }
+  ],
+  "/v1.design/getFeature": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 4609,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getFeature\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}funct"
+    }
+  ],
+  "/v1.design/getFeatures": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 4818,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getFeatures\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))}))}func"
+    }
+  ],
+  "/v1.design/getManageFeatures": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 5028,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/getManageFeatures\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))})"
+    }
+  ],
+  "/v1.design/submitManageFeatures": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 5244,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/submitManageFeatures\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)})"
+    }
+  ],
+  "/v1.design/delManageFeatures": [
+    {
+      "file": "frontend/db28836cf2e1.js",
+      "offset": 5463,
+      "route": "/design/process",
+      "snippet": "url:\"v1.design/delManageFeatures\",method:\"post\",data:t}).then((function(t){var i=t.data;if(!i)return n(\"没有相关数据.\");e(i)})).catch((function(t){n(t)}))})"
+    }
+  ]
+}

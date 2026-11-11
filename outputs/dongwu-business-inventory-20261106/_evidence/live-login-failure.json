@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-11-06T03:16:45.185Z",
+  "scope": "read-only business API samples; credentials and personal contact values redacted",
+  "requests": [],
+  "loginDiagnostics": {
+    "url": "https://dwyunsc.ddwjzkj.com:22222/",
+    "title": "403",
+    "bodyText": "当前访问疑似攻击行为，已被网站管理员设置为拦截\n\n【当前网址】https://dwyunsc.ddwjzkj.com:22222/\n\n【客户端特征】Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\n\n【客户端IP】[REDACTED]\n\n【当前时间】2026-11-06 11:16:45\n\n我是网站管理员，我要处理此异常",
+    "inputCount": 0
+  },
+  "outcome": "blocked",
+  "error": "Existing browser login failed",
+  "finishedAt": "2026-11-06T03:16:58.616Z"
+}

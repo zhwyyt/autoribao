@@ -1,0 +1,2412 @@
+{
+  "scopeComparison": {
+    "startedAt": "2026-11-06T05:04:16.458Z",
+    "finishedAt": "2026-11-06T05:07:38.926Z",
+    "pagination": {
+      "getPlans": {
+        "requests": 17,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "counts": [
+          8432
+        ],
+        "savedRows": 8432,
+        "uniqueIds": 8432,
+        "returnedRows": 8432
+      },
+      "getTasks": {
+        "requests": 17,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "counts": [
+          8479
+        ],
+        "savedRows": 8479,
+        "uniqueIds": 8479,
+        "returnedRows": 8479
+      }
+    },
+    "plansOnlyIds": [],
+    "tasksOnly": [
+      {
+        "id": 8087,
+        "project_id": 149,
+        "scheduling_id": 8424,
+        "name": "JFH构件_上海东站酒店B区四层梁构件清单（3.4）__dup1",
+        "code": "20260423001",
+        "artifacts_count": 399,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 34,
+        "create_time": "2026-04-23 14:52:32",
+        "update_time": "2026-04-23 14:52:32",
+        "evidence": "catalog.json#/requests/19/data/list/17"
+      },
+      {
+        "id": 8086,
+        "project_id": 149,
+        "scheduling_id": 8423,
+        "name": "PEC构件_上海东站酒店B区四层梁构件清单（3.4）__dup1",
+        "code": "20260423001",
+        "artifacts_count": 334,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 34,
+        "create_time": "2026-04-23 14:51:08",
+        "update_time": "2026-04-23 14:51:08",
+        "evidence": "catalog.json#/requests/19/data/list/18"
+      },
+      {
+        "id": 7988,
+        "project_id": 149,
+        "scheduling_id": 8318,
+        "name": "PEC构件-上海东站酒店A区八层梁构件清单（3.27）",
+        "code": "260415-01",
+        "artifacts_count": 803,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 34,
+        "create_time": "2026-04-15 09:51:15",
+        "update_time": "2026-04-15 09:51:15",
+        "evidence": "catalog.json#/requests/19/data/list/101"
+      },
+      {
+        "id": 7962,
+        "project_id": 140,
+        "scheduling_id": 8292,
+        "name": "构件_D地块T2塔楼外框12层变更新增幕墙零件",
+        "code": "260407-01",
+        "artifacts_count": 84,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 2,
+        "type": 0,
+        "is_change": 1,
+        "design_id": 31,
+        "create_time": "2026-04-07 15:58:18",
+        "update_time": "2026-04-07 15:58:41",
+        "evidence": "catalog.json#/requests/19/data/list/125"
+      },
+      {
+        "id": 6685,
+        "project_id": 149,
+        "scheduling_id": 6819,
+        "name": "PC楼板测试",
+        "code": "250908-06",
+        "artifacts_count": 9,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 11,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-09-08 09:27:32",
+        "update_time": "2025-09-08 09:27:56",
+        "evidence": "catalog.json#/requests/21/data/list/280"
+      },
+      {
+        "id": 6684,
+        "project_id": 149,
+        "scheduling_id": 6818,
+        "name": "PC楼梯测试",
+        "code": "250908-04",
+        "artifacts_count": 2,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 13,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-09-08 09:25:24",
+        "update_time": "2025-09-08 09:27:43",
+        "evidence": "catalog.json#/requests/21/data/list/281"
+      },
+      {
+        "id": 6683,
+        "project_id": 149,
+        "scheduling_id": 6817,
+        "name": "测试123",
+        "code": "250908-03",
+        "artifacts_count": 42,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-09-08 09:17:38",
+        "update_time": "2025-09-08 09:17:48",
+        "evidence": "catalog.json#/requests/21/data/list/282"
+      },
+      {
+        "id": 6682,
+        "project_id": 149,
+        "scheduling_id": 6816,
+        "name": "PEC构件工程量统计测试",
+        "code": "250908-02",
+        "artifacts_count": 3,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-09-08 09:15:23",
+        "update_time": "2025-09-08 09:15:41",
+        "evidence": "catalog.json#/requests/21/data/list/283"
+      },
+      {
+        "id": 6681,
+        "project_id": 149,
+        "scheduling_id": 6815,
+        "name": "PEC构件统计测试",
+        "code": "250908-01",
+        "artifacts_count": 4,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 17,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-09-08 09:11:02",
+        "update_time": "2025-09-08 09:11:18",
+        "evidence": "catalog.json#/requests/21/data/list/284"
+      },
+      {
+        "id": 6389,
+        "project_id": 149,
+        "scheduling_id": 6523,
+        "name": "测试-重兆职工公寓2#楼二节PEC柱构件清单",
+        "code": "250717-01",
+        "artifacts_count": 2,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 18,
+        "is_change": 0,
+        "design_id": 26,
+        "create_time": "2025-07-17 15:29:34",
+        "update_time": "2025-07-17 15:29:59",
+        "evidence": "catalog.json#/requests/22/data/list/66"
+      },
+      {
+        "id": 2068,
+        "project_id": 26,
+        "scheduling_id": 2154,
+        "name": "清库存-二中食堂PC（已发货无订单）",
+        "code": "qkc-168",
+        "artifacts_count": 383,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 19,
+        "is_change": 0,
+        "design_id": 30,
+        "create_time": "2023-10-24 09:48:51",
+        "update_time": "2023-10-24 09:49:28",
+        "evidence": "catalog.json#/requests/30/data/list/154"
+      },
+      {
+        "id": 143,
+        "project_id": 26,
+        "scheduling_id": 177,
+        "name": "测试（勿删）20221030-3",
+        "code": "测试（勿删）20221030-3",
+        "artifacts_count": 201,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 12,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-10-30 08:17:14",
+        "update_time": "2023-10-12 09:05:49",
+        "evidence": "catalog.json#/requests/33/data/list/398"
+      },
+      {
+        "id": 142,
+        "project_id": 26,
+        "scheduling_id": 176,
+        "name": "测试（勿删）20221030-2",
+        "code": "测试（勿删）20221030-2",
+        "artifacts_count": 5,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 18,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-10-30 08:14:56",
+        "update_time": "2022-10-30 09:18:43",
+        "evidence": "catalog.json#/requests/33/data/list/399"
+      },
+      {
+        "id": 141,
+        "project_id": 26,
+        "scheduling_id": 175,
+        "name": "测试（勿删）20221030-1",
+        "code": "测试（勿删）20221030-1",
+        "artifacts_count": 17,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 19,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-10-30 08:10:59",
+        "update_time": "2023-10-12 09:06:28",
+        "evidence": "catalog.json#/requests/33/data/list/400"
+      },
+      {
+        "id": 108,
+        "project_id": 2,
+        "scheduling_id": 130,
+        "name": "测试排产",
+        "code": "20220720",
+        "artifacts_count": 15,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 7,
+        "create_time": "2022-07-20 15:28:06",
+        "update_time": "2025-06-25 15:23:04",
+        "evidence": "catalog.json#/requests/33/data/list/422"
+      },
+      {
+        "id": 107,
+        "project_id": 28,
+        "scheduling_id": 129,
+        "name": "2022-07-15培训",
+        "code": "SC00000111",
+        "artifacts_count": 32,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 7,
+        "create_time": "2022-07-18 08:00:40",
+        "update_time": "2022-07-18 08:00:50",
+        "evidence": "catalog.json#/requests/33/data/list/423"
+      },
+      {
+        "id": 103,
+        "project_id": 26,
+        "scheduling_id": 125,
+        "name": "二中食堂楼梯排产",
+        "code": "012",
+        "artifacts_count": 97,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 7,
+        "create_time": "2022-07-11 14:10:05",
+        "update_time": "2023-10-13 16:47:24",
+        "evidence": "catalog.json#/requests/33/data/list/425"
+      },
+      {
+        "id": 102,
+        "project_id": 26,
+        "scheduling_id": 124,
+        "name": "湖州二中食堂PEC五层梁",
+        "code": "PEC五层梁",
+        "artifacts_count": 82,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-07-06 17:24:38",
+        "update_time": "2022-07-19 09:07:39",
+        "evidence": "catalog.json#/requests/33/data/list/426"
+      },
+      {
+        "id": 101,
+        "project_id": 26,
+        "scheduling_id": 123,
+        "name": "湖州二中食堂PEC四层梁",
+        "code": "PEC四层梁",
+        "artifacts_count": 116,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-07-06 17:21:22",
+        "update_time": "2022-07-14 13:31:33",
+        "evidence": "catalog.json#/requests/33/data/list/427"
+      },
+      {
+        "id": 98,
+        "project_id": 26,
+        "scheduling_id": 119,
+        "name": "湖州二中食堂PEC三节住",
+        "code": "PEC三节住",
+        "artifacts_count": 36,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-07-02 08:56:11",
+        "update_time": "2022-07-14 13:39:44",
+        "evidence": "catalog.json#/requests/33/data/list/428"
+      },
+      {
+        "id": 96,
+        "project_id": 26,
+        "scheduling_id": 117,
+        "name": "湖州二中食堂PEC三层梁",
+        "code": "PEC三层梁",
+        "artifacts_count": 178,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-06-29 09:26:27",
+        "update_time": "2022-07-05 15:39:53",
+        "evidence": "catalog.json#/requests/33/data/list/429"
+      },
+      {
+        "id": 93,
+        "project_id": 26,
+        "scheduling_id": 114,
+        "name": "湖州二中食堂PEC二层梁",
+        "code": "PEC二层梁",
+        "artifacts_count": 180,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-06-23 09:07:13",
+        "update_time": "2022-06-28 17:52:36",
+        "evidence": "catalog.json#/requests/33/data/list/430"
+      },
+      {
+        "id": 87,
+        "project_id": 26,
+        "scheduling_id": 108,
+        "name": "湖州二中PEC二节柱",
+        "code": "PEC二节柱",
+        "artifacts_count": 48,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-06-21 16:15:25",
+        "update_time": "2022-06-23 15:49:37",
+        "evidence": "catalog.json#/requests/33/data/list/434"
+      },
+      {
+        "id": 86,
+        "project_id": 26,
+        "scheduling_id": 107,
+        "name": "湖州二中二层楼板",
+        "code": "二层楼板",
+        "artifacts_count": 131,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-06-21 14:13:37",
+        "update_time": "2022-06-21 17:40:17",
+        "evidence": "catalog.json#/requests/33/data/list/435"
+      },
+      {
+        "id": 83,
+        "project_id": 26,
+        "scheduling_id": 104,
+        "name": "湖州二中食堂楼梯",
+        "code": "楼梯",
+        "artifacts_count": 13,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-06-16 16:33:41",
+        "update_time": "2022-06-21 15:22:11",
+        "evidence": "catalog.json#/requests/33/data/list/437"
+      },
+      {
+        "id": 67,
+        "project_id": 26,
+        "scheduling_id": 83,
+        "name": "二中食堂   一节柱",
+        "code": "一节柱",
+        "artifacts_count": 47,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-06-01 16:30:22",
+        "update_time": "2023-10-13 16:49:10",
+        "evidence": "catalog.json#/requests/33/data/list/444"
+      },
+      {
+        "id": 65,
+        "project_id": 26,
+        "scheduling_id": 81,
+        "name": "二中食堂一节柱",
+        "code": "一节柱",
+        "artifacts_count": 1,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-06-01 15:56:16",
+        "update_time": "2023-10-13 16:49:21",
+        "evidence": "catalog.json#/requests/33/data/list/445"
+      },
+      {
+        "id": 47,
+        "project_id": 24,
+        "scheduling_id": 59,
+        "name": "太湖湾",
+        "code": "2-4#22F",
+        "artifacts_count": 47,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-05-13 09:57:52",
+        "update_time": "2022-05-16 15:56:24",
+        "evidence": "catalog.json#/requests/33/data/list/454"
+      },
+      {
+        "id": 46,
+        "project_id": 24,
+        "scheduling_id": 58,
+        "name": "太湖湾",
+        "code": "3-3#14F",
+        "artifacts_count": 82,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-05-11 10:12:41",
+        "update_time": "2022-05-11 10:15:21",
+        "evidence": "catalog.json#/requests/33/data/list/455"
+      },
+      {
+        "id": 45,
+        "project_id": 24,
+        "scheduling_id": 57,
+        "name": "太湖湾",
+        "code": "2-4#21F",
+        "artifacts_count": 47,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-05-07 10:58:08",
+        "update_time": "2022-05-07 11:09:19",
+        "evidence": "catalog.json#/requests/33/data/list/456"
+      },
+      {
+        "id": 44,
+        "project_id": 24,
+        "scheduling_id": 55,
+        "name": "太湖湾0429",
+        "code": "4-4#20F",
+        "artifacts_count": 30,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-04-29 11:22:33",
+        "update_time": "2022-04-29 13:12:08",
+        "evidence": "catalog.json#/requests/33/data/list/457"
+      },
+      {
+        "id": 37,
+        "project_id": 24,
+        "scheduling_id": 47,
+        "name": "太湖湾",
+        "code": "4-4#20F",
+        "artifacts_count": 1,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 13,
+        "create_time": "2022-04-25 09:56:07",
+        "update_time": "2022-04-25 09:56:32",
+        "evidence": "catalog.json#/requests/33/data/list/458"
+      },
+      {
+        "id": 30,
+        "project_id": 2,
+        "scheduling_id": 40,
+        "name": "二维码测试",
+        "code": "QR001",
+        "artifacts_count": 9,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 2,
+        "create_time": "2022-04-18 04:55:18",
+        "update_time": "2022-04-18 05:09:51",
+        "evidence": "catalog.json#/requests/33/data/list/463"
+      },
+      {
+        "id": 28,
+        "project_id": 22,
+        "scheduling_id": 39,
+        "name": "测试041602",
+        "code": "001",
+        "artifacts_count": 29,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-04-16 13:18:34",
+        "update_time": "2022-04-16 13:18:57",
+        "evidence": "catalog.json#/requests/33/data/list/464"
+      },
+      {
+        "id": 27,
+        "project_id": 21,
+        "scheduling_id": 38,
+        "name": "荷花苑0415002",
+        "code": "005",
+        "artifacts_count": 29,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 10,
+        "create_time": "2022-04-15 16:45:46",
+        "update_time": "2022-04-15 16:46:03",
+        "evidence": "catalog.json#/requests/33/data/list/465"
+      },
+      {
+        "id": 25,
+        "project_id": 20,
+        "scheduling_id": 36,
+        "name": "荷花苑03",
+        "code": "003",
+        "artifacts_count": 18,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 9,
+        "create_time": "2022-04-15 13:32:06",
+        "update_time": "2022-04-15 13:32:30",
+        "evidence": "catalog.json#/requests/33/data/list/466"
+      },
+      {
+        "id": 24,
+        "project_id": 19,
+        "scheduling_id": 34,
+        "name": "荷花苑",
+        "code": "0415001",
+        "artifacts_count": 17,
+        "production_status": 1,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 8,
+        "create_time": "2022-04-15 09:10:25",
+        "update_time": "2022-04-15 09:11:08",
+        "evidence": "catalog.json#/requests/33/data/list/467"
+      },
+      {
+        "id": 22,
+        "project_id": 1,
+        "scheduling_id": 32,
+        "name": "20220414_测试",
+        "code": "1111",
+        "artifacts_count": 18,
+        "production_status": 2,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 8,
+        "create_time": "2022-04-14 20:13:05",
+        "update_time": "2022-04-14 20:13:05",
+        "evidence": "catalog.json#/requests/33/data/list/468"
+      },
+      {
+        "id": 21,
+        "project_id": 1,
+        "scheduling_id": 31,
+        "name": "123321",
+        "code": "111",
+        "artifacts_count": 18,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 5,
+        "create_time": "2022-04-14 16:39:28",
+        "update_time": "2022-04-14 16:39:28",
+        "evidence": "catalog.json#/requests/33/data/list/469"
+      },
+      {
+        "id": 15,
+        "project_id": 1,
+        "scheduling_id": 25,
+        "name": "111222",
+        "code": "12",
+        "artifacts_count": 18,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 5,
+        "create_time": "2022-03-24 13:29:42",
+        "update_time": "2022-03-24 13:29:42",
+        "evidence": "catalog.json#/requests/33/data/list/471"
+      },
+      {
+        "id": 14,
+        "project_id": 16,
+        "scheduling_id": 24,
+        "name": "南浔食堂一二层外挂板排产计划",
+        "code": "20220319",
+        "artifacts_count": 15,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 3,
+        "create_time": "2022-03-19 16:23:13",
+        "update_time": "2022-03-19 16:23:13",
+        "evidence": "catalog.json#/requests/33/data/list/472"
+      },
+      {
+        "id": 13,
+        "project_id": 14,
+        "scheduling_id": 22,
+        "name": "荷花苑物业用房",
+        "code": "001",
+        "artifacts_count": 17,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 5,
+        "create_time": "2022-03-09 16:59:43",
+        "update_time": "2022-03-09 16:59:43",
+        "evidence": "catalog.json#/requests/33/data/list/473"
+      },
+      {
+        "id": 11,
+        "project_id": 13,
+        "scheduling_id": 17,
+        "name": "SSSSSS",
+        "code": "1010",
+        "artifacts_count": 14,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 5,
+        "create_time": "2022-03-09 11:12:07",
+        "update_time": "2022-03-09 11:12:07",
+        "evidence": "catalog.json#/requests/33/data/list/474"
+      },
+      {
+        "id": 9,
+        "project_id": 13,
+        "scheduling_id": 13,
+        "name": "荷花苑001",
+        "code": "007",
+        "artifacts_count": 18,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 5,
+        "create_time": "2022-03-09 10:47:33",
+        "update_time": "2022-03-09 10:47:33",
+        "evidence": "catalog.json#/requests/33/data/list/475"
+      },
+      {
+        "id": 6,
+        "project_id": 13,
+        "scheduling_id": 8,
+        "name": "一车间",
+        "code": "CJ001",
+        "artifacts_count": 2,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 2,
+        "create_time": "2022-03-08 15:02:03",
+        "update_time": "2022-03-08 15:02:03",
+        "evidence": "catalog.json#/requests/33/data/list/476"
+      },
+      {
+        "id": 3,
+        "project_id": 13,
+        "scheduling_id": 4,
+        "name": "PC排产测试",
+        "code": "123",
+        "artifacts_count": 10,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 1,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 3,
+        "create_time": "2022-03-04 10:27:02",
+        "update_time": "2022-03-04 10:27:02",
+        "evidence": "catalog.json#/requests/33/data/list/477"
+      },
+      {
+        "id": 1,
+        "project_id": 2,
+        "scheduling_id": 3,
+        "name": "2333",
+        "code": "333",
+        "artifacts_count": 3,
+        "production_status": 0,
+        "state": 1,
+        "status": 1,
+        "state_name": "正常",
+        "category": 0,
+        "type": 0,
+        "is_change": 0,
+        "design_id": 2,
+        "create_time": "2022-03-02 21:56:30",
+        "update_time": "2022-03-02 21:56:30",
+        "evidence": "catalog.json#/requests/33/data/list/478"
+      }
+    ],
+    "tasksOnlyCategoryCounts": {
+      "1": 40,
+      "2": 1,
+      "0": 6
+    },
+    "category2NoChangeIdsEqualPlanIds": true,
+    "uniqueTaskSchedulingIds": 8479,
+    "allPlanCategoryChangeCounts": {
+      "2/0": 8432
+    }
+  },
+  "shippingReconciliation": [
+    {
+      "deliveryId": 8514,
+      "packageId": 1622105,
+      "packageGuid": "B20261106094005",
+      "packageGuidInMainTable": true,
+      "listArtifactsCount": 27,
+      "mainTableQuantity": 1,
+      "appendixRows": 23,
+      "appendixQuantity": 26,
+      "memberRecords": 26,
+      "memberQuantity": "26",
+      "allGroupsMatch": true,
+      "rows": [
+        {
+          "sequence": 1,
+          "name": "T3-23GKL-4",
+          "code": "T3-23GKL-4",
+          "spec": "BH1050×400×20×30",
+          "length": "9240",
+          "quantity": 1,
+          "memberIds": [
+            1567700
+          ],
+          "memberGuids": [
+            "T3-23GKL-4-GJG-20260908145916-0152"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 2,
+          "name": "T3-23GKL-5",
+          "code": "T3-23GKL-5",
+          "spec": "BH950×400×16×30",
+          "length": "8440",
+          "quantity": 1,
+          "memberIds": [
+            1567701
+          ],
+          "memberGuids": [
+            "T3-23GKL-5-GJG-20260908145916-0153"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 3,
+          "name": "T3-23GKL-6",
+          "code": "T3-23GKL-6",
+          "spec": "BH950×400×16×30",
+          "length": "10081",
+          "quantity": 1,
+          "memberIds": [
+            1567702
+          ],
+          "memberGuids": [
+            "T3-23GKL-6-GJG-20260908145916-0154"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 4,
+          "name": "T3-23GKL-7",
+          "code": "T3-23GKL-7",
+          "spec": "BH1050×400×20×30",
+          "length": "9240",
+          "quantity": 1,
+          "memberIds": [
+            1567703
+          ],
+          "memberGuids": [
+            "T3-23GKL-7-GJG-20260908145916-0155"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 5,
+          "name": "T3-23GKL-11",
+          "code": "T3-23GKL-11",
+          "spec": "BH1050×400×20×30",
+          "length": "9240",
+          "quantity": 1,
+          "memberIds": [
+            1567706
+          ],
+          "memberGuids": [
+            "T3-23GKL-11-GJG-20260908145916-0158"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 6,
+          "name": "T3-23GKL-12",
+          "code": "T3-23GKL-12",
+          "spec": "BH1050×400×20×30",
+          "length": "9240",
+          "quantity": 1,
+          "memberIds": [
+            1567707
+          ],
+          "memberGuids": [
+            "T3-23GKL-12-GJG-20260908145916-0159"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 7,
+          "name": "T3-23GKL-14",
+          "code": "T3-23GKL-14",
+          "spec": "BH950×400×16×30",
+          "length": "8440",
+          "quantity": 1,
+          "memberIds": [
+            1567709
+          ],
+          "memberGuids": [
+            "T3-23GKL-14-GJG-20260908145916-0161"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 8,
+          "name": "T3-23GKL-15",
+          "code": "T3-23GKL-15",
+          "spec": "BH950×400×16×30",
+          "length": "10000",
+          "quantity": 1,
+          "memberIds": [
+            1567710
+          ],
+          "memberGuids": [
+            "T3-23GKL-15-GJG-20260908145916-0162"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 9,
+          "name": "T3-23GL-1",
+          "code": "T3-23GL-1",
+          "spec": "BH400×150×8×8",
+          "length": "9980",
+          "quantity": 1,
+          "memberIds": [
+            1567713
+          ],
+          "memberGuids": [
+            "T3-23GL-1-GJG-20260908145916-0165"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 10,
+          "name": "T3-23GL-5",
+          "code": "T3-23GL-5",
+          "spec": "BH400×150×8×8",
+          "length": "9980",
+          "quantity": 4,
+          "memberIds": [
+            1567717,
+            1567718,
+            1567719,
+            1567720
+          ],
+          "memberGuids": [
+            "T3-23GL-5-GJG-20260908145916-0169",
+            "T3-23GL-5-GJG-20260908145916-0170",
+            "T3-23GL-5-GJG-20260908145916-0171",
+            "T3-23GL-5-GJG-20260908145916-0172"
+          ],
+          "sourceQuantitySum": "4",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 11,
+          "name": "T3-23GL-10",
+          "code": "T3-23GL-10",
+          "spec": "BH500×200×7×12",
+          "length": "3541",
+          "quantity": 1,
+          "memberIds": [
+            1567725
+          ],
+          "memberGuids": [
+            "T3-23GL-10-GJG-20260908145916-0177"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 12,
+          "name": "T3-23GL-24",
+          "code": "T3-23GL-24",
+          "spec": "BH500×200×7×12",
+          "length": "9202",
+          "quantity": 1,
+          "memberIds": [
+            1567738
+          ],
+          "memberGuids": [
+            "T3-23GL-24-GJG-20260908145916-0190"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 13,
+          "name": "T3-23GL-39",
+          "code": "T3-23GL-39",
+          "spec": "BH500×200×7×12",
+          "length": "9767",
+          "quantity": 1,
+          "memberIds": [
+            1567753
+          ],
+          "memberGuids": [
+            "T3-23GL-39-GJG-20260908145916-0205"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 14,
+          "name": "T3-23GL-45",
+          "code": "T3-23GL-45",
+          "spec": "BH500×150×200×7×8×10",
+          "length": "6030",
+          "quantity": 1,
+          "memberIds": [
+            1567758
+          ],
+          "memberGuids": [
+            "T3-23GL-45-GJG-20260908145916-0210"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 15,
+          "name": "T3-23GL-65",
+          "code": "T3-23GL-65",
+          "spec": "BH450×200×8×12",
+          "length": "5631",
+          "quantity": 1,
+          "memberIds": [
+            1567763
+          ],
+          "memberGuids": [
+            "T3-23GL-65-GJG-20260908145916-0215"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 16,
+          "name": "T3-23GL-74",
+          "code": "T3-23GL-74",
+          "spec": "异形梁",
+          "length": "10685",
+          "quantity": 1,
+          "memberIds": [
+            1567768
+          ],
+          "memberGuids": [
+            "T3-23GL-74-GJG-20260908145916-0220"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 17,
+          "name": "T3-23GL-114",
+          "code": "T3-23GL-114",
+          "spec": "BH500×150×200×7×8×10",
+          "length": "7087",
+          "quantity": 1,
+          "memberIds": [
+            1567783
+          ],
+          "memberGuids": [
+            "T3-23GL-114-GJG-20260908145916-0235"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 18,
+          "name": "T3-23GL-118",
+          "code": "T3-23GL-118",
+          "spec": "BH500×150×200×7×8×10",
+          "length": "4284",
+          "quantity": 1,
+          "memberIds": [
+            1567787
+          ],
+          "memberGuids": [
+            "T3-23GL-118-GJG-20260908145916-0239"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 19,
+          "name": "T3-23GL-131",
+          "code": "T3-23GL-131",
+          "spec": "异形梁",
+          "length": "12990",
+          "quantity": 1,
+          "memberIds": [
+            1567800
+          ],
+          "memberGuids": [
+            "T3-23GL-131-GJG-20260908145916-0252"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 20,
+          "name": "T3-23GL-136",
+          "code": "T3-23GL-136",
+          "spec": "BH500×200×7×12",
+          "length": "9938",
+          "quantity": 1,
+          "memberIds": [
+            1567805
+          ],
+          "memberGuids": [
+            "T3-23GL-136-GJG-20260908145916-0257"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 21,
+          "name": "T3-23GL-137",
+          "code": "T3-23GL-137",
+          "spec": "BH500×200×7×10",
+          "length": "7694",
+          "quantity": 1,
+          "memberIds": [
+            1567806
+          ],
+          "memberGuids": [
+            "T3-23GL-137-GJG-20260908145916-0258"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 22,
+          "name": "T3-23GL-150",
+          "code": "T3-23GL-150",
+          "spec": "BH400×150×8×8",
+          "length": "9980",
+          "quantity": 1,
+          "memberIds": [
+            1567818
+          ],
+          "memberGuids": [
+            "T3-23GL-150-GJG-20260908145916-0270"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 23,
+          "name": "T3-23GL-151",
+          "code": "T3-23GL-151",
+          "spec": "BH400×150×8×8",
+          "length": "9980",
+          "quantity": 1,
+          "memberIds": [
+            1567819
+          ],
+          "memberGuids": [
+            "T3-23GL-151-GJG-20260908145916-0271"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        }
+      ],
+      "pdfEvidence": "pdfs.json#/requests/0/extraction",
+      "packageEvidence": "../dongwu-ontology-exploration-20261106/evidence/remaining.json#/requests/5/data",
+      "tableCrops": [
+        {
+          "page": 1,
+          "file": "delivery-8514-page-1-table.png",
+          "box": [
+            20,
+            223.42446000000007,
+            575.276,
+            298.4244570000001
+          ],
+          "sha256": "c42cb9662f50229d12d129c674abd6c7914e21311a06ee047325ead66012d44b"
+        },
+        {
+          "page": 2,
+          "file": "delivery-8514-page-2-table.png",
+          "box": [
+            20,
+            106.24688900000001,
+            575.276,
+            836.872
+          ],
+          "sha256": "0cf7e49a45226e41f4bacc2b1826b1eb08bf1227d1aa5b5610e42f9c4390a093"
+        }
+      ]
+    },
+    {
+      "deliveryId": 8513,
+      "packageId": 1614199,
+      "packageGuid": "B20261104130431",
+      "packageGuidInMainTable": true,
+      "listArtifactsCount": 29,
+      "mainTableQuantity": 1,
+      "appendixRows": 28,
+      "appendixQuantity": 28,
+      "memberRecords": 28,
+      "memberQuantity": "28",
+      "allGroupsMatch": true,
+      "rows": [
+        {
+          "sequence": 1,
+          "name": "T2-33GKL-7",
+          "code": "T2-33GKL-7",
+          "spec": "PL16×890",
+          "length": "10188",
+          "quantity": 1,
+          "memberIds": [
+            1576454
+          ],
+          "memberGuids": [
+            "T2-33GKL-7-GJG-20260921094621-0007"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 2,
+          "name": "T2-33GKL-8",
+          "code": "T2-33GKL-8",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576455
+          ],
+          "memberGuids": [
+            "T2-33GKL-8-GJG-20260921094621-0008"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 3,
+          "name": "T2-33GKL-9",
+          "code": "T2-33GKL-9",
+          "spec": "PL16×890",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576456
+          ],
+          "memberGuids": [
+            "T2-33GKL-9-GJG-20260921094621-0009"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 4,
+          "name": "T2-33GKL-10",
+          "code": "T2-33GKL-10",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576457
+          ],
+          "memberGuids": [
+            "T2-33GKL-10-GJG-20260921094621-0010"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 5,
+          "name": "T2-33GKL-11",
+          "code": "T2-33GKL-11",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576458
+          ],
+          "memberGuids": [
+            "T2-33GKL-11-GJG-20260921094621-0011"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 6,
+          "name": "T2-33GKL-12",
+          "code": "T2-33GKL-12",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576459
+          ],
+          "memberGuids": [
+            "T2-33GKL-12-GJG-20260921094621-0012"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 7,
+          "name": "T2-33GKL-13",
+          "code": "T2-33GKL-13",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576460
+          ],
+          "memberGuids": [
+            "T2-33GKL-13-GJG-20260921094621-0013"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 8,
+          "name": "T2-33GKL-15",
+          "code": "T2-33GKL-15",
+          "spec": "PL16×890",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576462
+          ],
+          "memberGuids": [
+            "T2-33GKL-15-GJG-20260921094621-0015"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 9,
+          "name": "T2-33GL-26",
+          "code": "T2-33GL-26",
+          "spec": "PL20×460",
+          "length": "8690",
+          "quantity": 1,
+          "memberIds": [
+            1576493
+          ],
+          "memberGuids": [
+            "T2-33GL-26-GJG-20260921094621-0046"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 10,
+          "name": "T2-33GL-50",
+          "code": "T2-33GL-50",
+          "spec": "PL8×376",
+          "length": "3852",
+          "quantity": 1,
+          "memberIds": [
+            1576517
+          ],
+          "memberGuids": [
+            "T2-33GL-50-GJG-20260921094621-0070"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 11,
+          "name": "T2-33GL-51",
+          "code": "T2-33GL-51",
+          "spec": "PL8×376",
+          "length": "3714",
+          "quantity": 1,
+          "memberIds": [
+            1576518
+          ],
+          "memberGuids": [
+            "T2-33GL-51-GJG-20260921094621-0071"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 12,
+          "name": "T2-33GL-57",
+          "code": "T2-33GL-57",
+          "spec": "PL8×376",
+          "length": "3674",
+          "quantity": 1,
+          "memberIds": [
+            1576524
+          ],
+          "memberGuids": [
+            "T2-33GL-57-GJG-20260921094621-0077"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 13,
+          "name": "T2-33GL-60",
+          "code": "T2-33GL-60",
+          "spec": "PL8×376",
+          "length": "3751",
+          "quantity": 1,
+          "memberIds": [
+            1576527
+          ],
+          "memberGuids": [
+            "T2-33GL-60-GJG-20260921094621-0080"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 14,
+          "name": "T2-33GL-82",
+          "code": "T2-33GL-82",
+          "spec": "BH600×200×8×10",
+          "length": "3192",
+          "quantity": 1,
+          "memberIds": [
+            1576549
+          ],
+          "memberGuids": [
+            "T2-33GL-82-GJG-20260921094621-0102"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 15,
+          "name": "T2-33GL-85",
+          "code": "T2-33GL-85",
+          "spec": "BH600×200×8×10",
+          "length": "4389",
+          "quantity": 1,
+          "memberIds": [
+            1576552
+          ],
+          "memberGuids": [
+            "T2-33GL-85-GJG-20260921094621-0105"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 16,
+          "name": "T2-33GL-88",
+          "code": "T2-33GL-88",
+          "spec": "PL8×390",
+          "length": "2420",
+          "quantity": 1,
+          "memberIds": [
+            1576555
+          ],
+          "memberGuids": [
+            "T2-33GL-88-GJG-20260921094621-0108"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 17,
+          "name": "T2-33GL-89",
+          "code": "T2-33GL-89",
+          "spec": "PL8×384",
+          "length": "3338",
+          "quantity": 1,
+          "memberIds": [
+            1576556
+          ],
+          "memberGuids": [
+            "T2-33GL-89-GJG-20260921094621-0109"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 18,
+          "name": "T2-32GL-28",
+          "code": "T2-32GL-28",
+          "spec": "PL10×730",
+          "length": "3939",
+          "quantity": 1,
+          "memberIds": [
+            1577025
+          ],
+          "memberGuids": [
+            "T2-32GL-28-GJG-20260921094621-0048"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 19,
+          "name": "T2-32GL-37",
+          "code": "T2-32GL-37",
+          "spec": "PL10×744",
+          "length": "4541",
+          "quantity": 1,
+          "memberIds": [
+            1577034
+          ],
+          "memberGuids": [
+            "T2-32GL-37-GJG-20260921094621-0057"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 20,
+          "name": "T2-32GL-38",
+          "code": "T2-32GL-38",
+          "spec": "PL10×746",
+          "length": "4465",
+          "quantity": 1,
+          "memberIds": [
+            1577035
+          ],
+          "memberGuids": [
+            "T2-32GL-38-GJG-20260921094621-0058"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 21,
+          "name": "T2-32GL-46",
+          "code": "T2-32GL-46",
+          "spec": "PL10×748",
+          "length": "3524",
+          "quantity": 1,
+          "memberIds": [
+            1577043
+          ],
+          "memberGuids": [
+            "T2-32GL-46-GJG-20260921094621-0066"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 22,
+          "name": "T2-32GL-47",
+          "code": "T2-32GL-47",
+          "spec": "PL10×748",
+          "length": "4408",
+          "quantity": 1,
+          "memberIds": [
+            1577044
+          ],
+          "memberGuids": [
+            "T2-32GL-47-GJG-20260921094621-0067"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 23,
+          "name": "T2-32GL-48",
+          "code": "T2-32GL-48",
+          "spec": "PL10×748",
+          "length": "3189",
+          "quantity": 1,
+          "memberIds": [
+            1577045
+          ],
+          "memberGuids": [
+            "T2-32GL-48-GJG-20260921094621-0068"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 24,
+          "name": "T2-32GL-50",
+          "code": "T2-32GL-50",
+          "spec": "PL10×748",
+          "length": "3292",
+          "quantity": 1,
+          "memberIds": [
+            1577047
+          ],
+          "memberGuids": [
+            "T2-32GL-50-GJG-20260921094621-0070"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 25,
+          "name": "T2-32GL-54",
+          "code": "T2-32GL-54",
+          "spec": "PL10×748",
+          "length": "3782",
+          "quantity": 1,
+          "memberIds": [
+            1577051
+          ],
+          "memberGuids": [
+            "T2-32GL-54-GJG-20260921094621-0074"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 26,
+          "name": "T2-32GL-100",
+          "code": "T2-32GL-100",
+          "spec": "PL8×384",
+          "length": "2259",
+          "quantity": 1,
+          "memberIds": [
+            1577104
+          ],
+          "memberGuids": [
+            "T2-32GL-100-GJG-20260921094621-0127"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 27,
+          "name": "T2-32GL-101",
+          "code": "T2-32GL-101",
+          "spec": "PL8×384",
+          "length": "3634",
+          "quantity": 1,
+          "memberIds": [
+            1577105
+          ],
+          "memberGuids": [
+            "T2-32GL-101-GJG-20260921094621-0128"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 28,
+          "name": "T2-32GL-102",
+          "code": "T2-32GL-102",
+          "spec": "PL8×384",
+          "length": "3874",
+          "quantity": 1,
+          "memberIds": [
+            1577106
+          ],
+          "memberGuids": [
+            "T2-32GL-102-GJG-20260921094621-0129"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        }
+      ],
+      "pdfEvidence": "pdfs.json#/requests/1/extraction",
+      "packageEvidence": "../dongwu-ontology-exploration-20261106/evidence/remaining.json#/requests/7/data",
+      "tableCrops": [
+        {
+          "page": 1,
+          "file": "delivery-8513-page-1-table.png",
+          "box": [
+            20,
+            223.42446000000007,
+            575.276,
+            298.4244570000001
+          ],
+          "sha256": "cbdc208f4334566471a08c870e27de805bad9c16b09e417960836aa458592e5f"
+        },
+        {
+          "page": 2,
+          "file": "delivery-8513-page-2-table.png",
+          "box": [
+            20,
+            106.24688900000001,
+            575.276,
+            836.872
+          ],
+          "sha256": "aefa83b0c37c3313303f1ce423407aff63c6d7b2e491dc334d25df90282f3018"
+        }
+      ]
+    },
+    {
+      "deliveryId": 8512,
+      "packageId": 1614198,
+      "packageGuid": "B20261104114627",
+      "packageGuidInMainTable": true,
+      "listArtifactsCount": 33,
+      "mainTableQuantity": 1,
+      "appendixRows": 25,
+      "appendixQuantity": 32,
+      "memberRecords": 32,
+      "memberQuantity": "32",
+      "allGroupsMatch": true,
+      "rows": [
+        {
+          "sequence": 1,
+          "name": "T2-33GKL-4",
+          "code": "T2-33GKL-4",
+          "spec": "PL16×910",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576451
+          ],
+          "memberGuids": [
+            "T2-33GKL-4-GJG-20260921094621-0004"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 2,
+          "name": "T2-33GKL-16",
+          "code": "T2-33GKL-16",
+          "spec": "PL16×890",
+          "length": "9900",
+          "quantity": 1,
+          "memberIds": [
+            1576463
+          ],
+          "memberGuids": [
+            "T2-33GKL-16-GJG-20260921094621-0016"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 3,
+          "name": "T2-33GL-2",
+          "code": "T2-33GL-2",
+          "spec": "PL12×747",
+          "length": "8174",
+          "quantity": 1,
+          "memberIds": [
+            1576465
+          ],
+          "memberGuids": [
+            "T2-33GL-2-GJG-20260921094621-0018"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 4,
+          "name": "T2-33GL-13",
+          "code": "T2-33GL-13",
+          "spec": "PL10×574",
+          "length": "13235",
+          "quantity": 1,
+          "memberIds": [
+            1576477
+          ],
+          "memberGuids": [
+            "T2-33GL-13-GJG-20260921094621-0030"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 5,
+          "name": "T2-33GL-17",
+          "code": "T2-33GL-17",
+          "spec": "PL10×574",
+          "length": "12648",
+          "quantity": 1,
+          "memberIds": [
+            1576481
+          ],
+          "memberGuids": [
+            "T2-33GL-17-GJG-20260921094621-0034"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 6,
+          "name": "T2-33GL-22",
+          "code": "T2-33GL-22",
+          "spec": "PL12×572",
+          "length": "12920",
+          "quantity": 3,
+          "memberIds": [
+            1576487,
+            1576488,
+            1576489
+          ],
+          "memberGuids": [
+            "T2-33GL-22-GJG-20260921094621-0040",
+            "T2-33GL-22-GJG-20260921094621-0041",
+            "T2-33GL-22-GJG-20260921094621-0042"
+          ],
+          "sourceQuantitySum": "3",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 7,
+          "name": "T2-33GL-23",
+          "code": "T2-33GL-23",
+          "spec": "PL10×574",
+          "length": "12920",
+          "quantity": 1,
+          "memberIds": [
+            1576490
+          ],
+          "memberGuids": [
+            "T2-33GL-23-GJG-20260921094621-0043"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 8,
+          "name": "T2-33GL-24",
+          "code": "T2-33GL-24",
+          "spec": "PL12×572",
+          "length": "12500",
+          "quantity": 1,
+          "memberIds": [
+            1576491
+          ],
+          "memberGuids": [
+            "T2-33GL-24-GJG-20260921094621-0044"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 9,
+          "name": "T2-33GL-25",
+          "code": "T2-33GL-25",
+          "spec": "PL12×576",
+          "length": "13438",
+          "quantity": 1,
+          "memberIds": [
+            1576492
+          ],
+          "memberGuids": [
+            "T2-33GL-25-GJG-20260921094621-0045"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 10,
+          "name": "T2-33GL-30",
+          "code": "T2-33GL-30",
+          "spec": "PL10×580",
+          "length": "11400",
+          "quantity": 1,
+          "memberIds": [
+            1576497
+          ],
+          "memberGuids": [
+            "T2-33GL-30-GJG-20260921094621-0050"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 11,
+          "name": "T2-33GL-31",
+          "code": "T2-33GL-31",
+          "spec": "PL10×580",
+          "length": "11770",
+          "quantity": 1,
+          "memberIds": [
+            1576498
+          ],
+          "memberGuids": [
+            "T2-33GL-31-GJG-20260921094621-0051"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 12,
+          "name": "T2-33GL-68",
+          "code": "T2-33GL-68",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576535
+          ],
+          "memberGuids": [
+            "T2-33GL-68-GJG-20260921094621-0088"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 13,
+          "name": "T2-33GL-69",
+          "code": "T2-33GL-69",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576536
+          ],
+          "memberGuids": [
+            "T2-33GL-69-GJG-20260921094621-0089"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 14,
+          "name": "T2-33GL-70",
+          "code": "T2-33GL-70",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576537
+          ],
+          "memberGuids": [
+            "T2-33GL-70-GJG-20260921094621-0090"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 15,
+          "name": "T2-33GL-71",
+          "code": "T2-33GL-71",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576538
+          ],
+          "memberGuids": [
+            "T2-33GL-71-GJG-20260921094621-0091"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 16,
+          "name": "T2-33GL-72",
+          "code": "T2-33GL-72",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576539
+          ],
+          "memberGuids": [
+            "T2-33GL-72-GJG-20260921094621-0092"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 17,
+          "name": "T2-33GL-73",
+          "code": "T2-33GL-73",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576540
+          ],
+          "memberGuids": [
+            "T2-33GL-73-GJG-20260921094621-0093"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 18,
+          "name": "T2-33GL-75",
+          "code": "T2-33GL-75",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576542
+          ],
+          "memberGuids": [
+            "T2-33GL-75-GJG-20260921094621-0095"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 19,
+          "name": "T2-33GL-77",
+          "code": "T2-33GL-77",
+          "spec": "PL8×376",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1576544
+          ],
+          "memberGuids": [
+            "T2-33GL-77-GJG-20260921094621-0097"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 20,
+          "name": "T2-33GL-79",
+          "code": "T2-33GL-79",
+          "spec": "PL8×582",
+          "length": "11696",
+          "quantity": 1,
+          "memberIds": [
+            1576546
+          ],
+          "memberGuids": [
+            "T2-33GL-79-GJG-20260921094621-0099"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 21,
+          "name": "T2-33GL-90",
+          "code": "T2-33GL-90",
+          "spec": "PL8×582",
+          "length": "10920",
+          "quantity": 6,
+          "memberIds": [
+            1576557,
+            1576558,
+            1576559,
+            1576560,
+            1576561,
+            1576562
+          ],
+          "memberGuids": [
+            "T2-33GL-90-GJG-20260921094621-0110",
+            "T2-33GL-90-GJG-20260921094621-0111",
+            "T2-33GL-90-GJG-20260921094621-0112",
+            "T2-33GL-90-GJG-20260921094621-0113",
+            "T2-33GL-90-GJG-20260921094621-0114",
+            "T2-33GL-90-GJG-20260921094621-0115"
+          ],
+          "sourceQuantitySum": "6",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 22,
+          "name": "T2-33GL-95",
+          "code": "T2-33GL-95",
+          "spec": "PL8×582",
+          "length": "11093",
+          "quantity": 1,
+          "memberIds": [
+            1576567
+          ],
+          "memberGuids": [
+            "T2-33GL-95-GJG-20260921094621-0120"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 23,
+          "name": "T2-33GL-97",
+          "code": "T2-33GL-97",
+          "spec": "PL8×582",
+          "length": "11449",
+          "quantity": 1,
+          "memberIds": [
+            1576569
+          ],
+          "memberGuids": [
+            "T2-33GL-97-GJG-20260921094621-0122"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 24,
+          "name": "T2-32GL-14",
+          "code": "T2-32GL-14",
+          "spec": "BH400×150×8×8",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1577010
+          ],
+          "memberGuids": [
+            "T2-32GL-14-GJG-20260921094621-0033"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        },
+        {
+          "sequence": 25,
+          "name": "T2-32GL-18",
+          "code": "T2-32GL-18",
+          "spec": "BH400×150×8×8",
+          "length": "10040",
+          "quantity": 1,
+          "memberIds": [
+            1577014
+          ],
+          "memberGuids": [
+            "T2-32GL-18-GJG-20260921094621-0037"
+          ],
+          "sourceQuantitySum": "1",
+          "quantityMatches": true
+        }
+      ],
+      "pdfEvidence": "pdfs.json#/requests/2/extraction",
+      "packageEvidence": "../dongwu-ontology-exploration-20261106/evidence/remaining.json#/requests/9/data",
+      "tableCrops": [
+        {
+          "page": 1,
+          "file": "delivery-8512-page-1-table.png",
+          "box": [
+            20,
+            223.42446000000007,
+            575.276,
+            298.4244570000001
+          ],
+          "sha256": "8975bc088abf54b5a5389cf9c3b6185e92472b26ca50258573c4fe70ab3d0bc3"
+        },
+        {
+          "page": 2,
+          "file": "delivery-8512-page-2-table.png",
+          "box": [
+            20,
+            106.24688900000001,
+            575.276,
+            836.872
+          ],
+          "sha256": "dac0a9d21155ef77b043317e935d345d15ec43332dd0695915917adc05f8a58a"
+        }
+      ]
+    }
+  ],
+  "sourceQuantitySamples": [
+    {
+      "evidence": "exceptions.json#/requests/1/data",
+      "apiPath": "/v1.production/getPlanArtifacts",
+      "id": 8087,
+      "field": "num",
+      "returnedRows": 399,
+      "savedRows": 399,
+      "quantityDistribution": {
+        "1": 399
+      },
+      "greaterThanOne": 0
+    },
+    {
+      "evidence": "exceptions.json#/requests/3/data",
+      "apiPath": "/v1.production/getPlanArtifacts",
+      "id": 7962,
+      "field": "num",
+      "returnedRows": 84,
+      "savedRows": 84,
+      "quantityDistribution": {
+        "1": 84
+      },
+      "greaterThanOne": 0
+    },
+    {
+      "evidence": "exceptions.json#/requests/5/data",
+      "apiPath": "/v1.production/getPlanArtifacts",
+      "id": 6685,
+      "field": "num",
+      "returnedRows": 9,
+      "savedRows": 9,
+      "quantityDistribution": {
+        "1": 9
+      },
+      "greaterThanOne": 0
+    },
+    {
+      "evidence": "exceptions.json#/requests/6/data",
+      "apiPath": "/v1.order/getOrderArtifacts",
+      "id": 8826,
+      "field": "数量",
+      "returnedRows": 636,
+      "savedRows": 636,
+      "quantityDistribution": {
+        "1": 636
+      },
+      "greaterThanOne": 0
+    },
+    {
+      "evidence": "exceptions.json#/requests/7/data",
+      "apiPath": "/v1.order/getOrderArtifacts",
+      "id": 8903,
+      "field": "数量",
+      "returnedRows": 169,
+      "savedRows": 169,
+      "quantityDistribution": {
+        "1": 169
+      },
+      "greaterThanOne": 0
+    },
+    {
+      "evidence": "exceptions.json#/requests/9/data",
+      "apiPath": "/v1.production/getPlanArtifacts",
+      "id": 22,
+      "field": "num",
+      "returnedRows": 18,
+      "savedRows": 18,
+      "quantityDistribution": {
+        "1": 18
+      },
+      "greaterThanOne": 0
+    }
+  ],
+  "requestsByPhase": {
+    "catalog": 34,
+    "exceptions": 10,
+    "scope-pages": 11,
+    "pdfs": 3,
+    "pdf-visuals": 3
+  }
+}

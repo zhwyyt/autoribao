@@ -1,0 +1,103 @@
+[
+  {
+    "apiPath": "/v1.production/getInspections",
+    "payload": {
+      "all": 1,
+      "hide": 1,
+      "department": 0,
+      "proj_id": 0,
+      "number": "",
+      "create_user": 0,
+      "status": -1,
+      "start_time": 0,
+      "end_time": 0,
+      "code": "",
+      "page": 1,
+      "size": 3
+    },
+    "limit": 3
+  },
+  {
+    "apiPath": "/v1.design/getDesign",
+    "payload": {
+      "id": 31
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.design/getDesign",
+    "payload": {
+      "id": 22
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.design/getDesign",
+    "payload": {
+      "id": 30
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.order/getPackageInfo",
+    "payload": {
+      "id": 1622105
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.order/getPackageArtifacts",
+    "payload": {
+      "id": 1622105
+    },
+    "limit": 100
+  },
+  {
+    "apiPath": "/v1.order/getPackageInfo",
+    "payload": {
+      "id": 1614199
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.order/getPackageArtifacts",
+    "payload": {
+      "id": 1614199
+    },
+    "limit": 100
+  },
+  {
+    "apiPath": "/v1.order/getPackageInfo",
+    "payload": {
+      "id": 1614198
+    },
+    "limit": 20
+  },
+  {
+    "apiPath": "/v1.order/getPackageArtifacts",
+    "payload": {
+      "id": 1614198
+    },
+    "limit": 100
+  },
+  {
+    "apiPath": "/v1.order/getDeliveryHistory",
+    "payload": {
+      "proj_id": 140,
+      "type": 2,
+      "start_time": 1793894400,
+      "end_time": 1793894400
+    },
+    "limit": 100
+  },
+  {
+    "apiPath": "/v1.order/getDeliveryHistory",
+    "payload": {
+      "proj_id": 140,
+      "type": 3,
+      "start_time": 1793894400,
+      "end_time": 1793894400
+    },
+    "limit": 100
+  }
+]

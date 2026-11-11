@@ -1,0 +1,162 @@
+{
+  "verifiedAt": "2026-11-06T04:06:36.328318+00:00",
+  "status": "passed",
+  "checksPassed": 26,
+  "checksTotal": 26,
+  "checks": [
+    {
+      "name": "All baseline source and prior deliverable hashes unchanged",
+      "passed": true,
+      "detail": {
+        "files": 240,
+        "changed": []
+      }
+    },
+    {
+      "name": "Existing tracked and untracked git state preserved",
+      "passed": true,
+      "detail": {
+        "exitCode": 0,
+        "preexistingInaccessibleDirectories": true
+      }
+    },
+    {
+      "name": "All evidence JSON parses",
+      "passed": true,
+      "detail": {
+        "files": 18
+      }
+    },
+    {
+      "name": "All request pointers resolve to the stated API and payload",
+      "passed": true,
+      "detail": 83
+    },
+    {
+      "name": "All indexed responses succeeded",
+      "passed": true,
+      "detail": 83
+    },
+    {
+      "name": "Captured business requests use get-prefixed read operations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Request totals and distinct paths match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Known duplicate is identical and excluded once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "408 complete source-ID joins including GUID and scope",
+      "passed": true,
+      "detail": 408
+    },
+    {
+      "name": "Task subset counts verified from complete arrays",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Task sample department predicates match exactly",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "My task sample contains 32 completed records",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Multi-plan inspection counterexample verified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Cross-order package counterexamples verified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Five inspection result states exist in actual details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Package and outgoing-history member IDs match completely",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Package member weight equals history total",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Shipping discrepancy preserved rather than silently normalized",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All 15 original frontend excerpts and offsets resolve",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Every final declaration excerpt matches source offset",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Downloaded frontend assets retain captured SHA-256",
+      "passed": true,
+      "detail": {
+        "captures": 22,
+        "distinctFiles": 18
+      }
+    },
+    {
+      "name": "API union and discovery counts independently match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All Markdown file links resolve",
+      "passed": true,
+      "detail": {
+        "links": 228,
+        "broken": []
+      }
+    },
+    {
+      "name": "All 20 original verification items are tracked",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Standalone analysis and collector syntax valid",
+      "passed": true,
+      "detail": {
+        "pythonScripts": 3,
+        "nodeExitCode": 0
+      }
+    },
+    {
+      "name": "Configured credential values absent from all new outputs",
+      "passed": true,
+      "detail": {
+        "filesWithMatches": []
+      }
+    }
+  ],
+  "limits": [
+    "Does not validate backend write rules, global cardinalities, or uncollected records.",
+    "Credential check checks configured login values, not complete anonymization of business data.",
+    "Git status has preexisting permission warnings for two unrelated soffice directories."
+  ]
+}

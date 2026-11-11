@@ -1,0 +1,32 @@
+[
+  {
+    "apiPath": "/v1.production/getTaskArtifacts",
+    "payload": {
+      "id": "9081",
+      "type": "current"
+    },
+    "limit": 500
+  },
+  {
+    "apiPath": "/v1.production/getTaskArtifacts",
+    "payload": {
+      "id": "9081",
+      "type": "my"
+    },
+    "limit": 500
+  },
+  {
+    "apiPath": "/v1.production/getInspectionInfo",
+    "payload": {
+      "id": 33407
+    },
+    "limit": 500
+  },
+  {
+    "apiPath": "/v1.production/getInspectionInfo",
+    "payload": {
+      "id": 30613
+    },
+    "limit": 500
+  }
+]

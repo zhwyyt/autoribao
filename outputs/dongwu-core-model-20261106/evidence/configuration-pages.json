@@ -1,0 +1,941 @@
+{
+  "phase": "configuration-pages",
+  "startedAt": "2026-11-06T05:46:45.974Z",
+  "pages": [
+    {
+      "route": "/design/manage",
+      "capturedAt": "2026-11-06T05:46:54.981Z",
+      "httpStatus": 200,
+      "finalUrl": "https://dwyunsc.ddwjzkj.com:22222/design/manage/index",
+      "title": "东吴云构件生产管理系统",
+      "bodyText": "业务管理信息系统平台\n系统首页\n项目管理\n订单管理\n报工管理\n数据统计\n排产管理\n生产过程管理\n资料管理\n滚动计划\n工艺与产线\n平台管理\n系统首页/\n工艺与产线/\n工序管理\n郑文阳\n【重钢涂装车间】\n 工序管理 \n查询\n重置\n新建\n工序管理\n\t\t工序类型\n\t类型\n\t创建人\t流程数\t特征数\t\n\t\t\n开始节点\n\t\n钢构\n\t\nAdmin\n\t\n13\n\t\n9\n\t\n\t\t\n结束节点\n\t\n钢构\n\t\nAdmin\n\t\n10\n\t\n6\n\t\n\t\t\n结束节点\n\t\n钢构\n\t\nAdmin\n\t\n9\n\t\n7\n\t\n\t\t\n过程节点\n\t\n钢构\n\t\n郑文阳\n\t\n7\n\t\n5\n\t\n\t\t\n过程节点\n\t\n钢构\n\t\nAdmin\n\t\n6\n\t\n6\n\t\n\t\t\n过程节点\n\t\n钢构\n\t\n郑文阳\n\t\n2\n\t\n2\n\t\n\t\t\n结束节点\n\t\n钢构\n\t\n郑文阳\n\t\n3\n\t\n3\n\t\n\t\t\n过程节点\n\t\n钢构\n\t\nAdmin\n\t\n5\n\t\n4\n\t\n\t工序名称\n\t\t\t\t\t\t\n\t\n钢构生产开始\n\t\t\t\t\t\t\n\n\t\n涂装\n\t\t\t\t\t\t\n\n\t\n成品库\n\t\t\t\t\t\t\n\n\t\n装焊质检\n\t\t\t\t\t\t\n\n\t\n装焊报检\n\t\t\t\t\t\t\n\n\t\n流水线报工\n\t\t\t\t\t\t\n\n\t\n转运\n\t\t\t\t\t\t\n\n\t\n装焊探伤\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t操作\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除\n\n\t\t\t\t\t\t\t\n特征管理\n编辑\n删除",
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "请输入工序名称",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        }
+      ],
+      "buttons": [
+        "",
+        "查询",
+        "重置",
+        "新建",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除",
+        "特征管理",
+        "编辑",
+        "删除"
+      ]
+    },
+    {
+      "route": "/design/feature",
+      "capturedAt": "2026-11-06T05:46:56.227Z",
+      "httpStatus": 200,
+      "finalUrl": "https://dwyunsc.ddwjzkj.com:22222/design/feature",
+      "title": "特征管理 - 东吴云构件生产管理系统",
+      "bodyText": "业务管理信息系统平台\n系统首页\n项目管理\n订单管理\n报工管理\n数据统计\n排产管理\n生产过程管理\n资料管理\n滚动计划\n工艺与产线\n工艺流程\n工序管理\n特征管理\n平台管理\n系统首页/\n工艺与产线/\n特征管理\n郑文阳\n【重钢涂装车间】\n 特征管理 \n查询\n重置\n新建\n特征管理\n\t\t特征码\t类型\n\t创建人\t使用数\t\n\t\t\nGJG\n\t\n钢构\n\t\nAdmin\n\t\n17\n\t\n\t\t\nlsx\n\t\n钢构\n\t\nAdmin\n\t\n14\n\t\n\t\t\nzh\n\t\n钢构\n\t\nAdmin\n\t\n9\n\t\n\t\t\nFXC\n\t\n钢构\n\t\n赵晨\n\t\n7\n\t\n\t\t\nZFJ\n\t\n钢构\n\t\n郑文阳\n\t\n4\n\t\n\t\t\nPEC\n\t\n钢构\n\t\n郑文阳\n\t\n7\n\t\n\t\t\nqkc\n\t\n钢构\n\t\n郑文阳\n\t\n2\n\t\n\t\t\nxc\n\t\n钢构\n\t\n郑文阳\n\t\n3\n\t\n\t\t\nWX\n\t\n钢构\n\t\n郑文阳\n\t\n8\n\t\n\t特征名称\n\t\t\t\t\t\n\t\n钢结构\n\t\t\t\t\t\n\n\t\n组焊上线\n\t\t\t\t\t\n\n\t\n组焊不上线\n\t\t\t\t\t\n\n\t\n发现场散件\n\t\t\t\t\t\n\n\t\n直发件\n\t\t\t\t\t\n\n\t\nPEC构件\n\t\t\t\t\t\n\n\t\n清库存\n\t\t\t\t\t\n\n\t\n型材加工\n\t\t\t\t\t\n\n\t\n外协\n\t\t\t\t\t\n\t\t\t\t\t\t操作\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除\n\n\t\t\t\t\t\t\n编辑\n删除",
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "请输入特征名称/特征码",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        },
+        {
+          "type": "checkbox",
+          "placeholder": "",
+          "value": ""
+        }
+      ],
+      "buttons": [
+        "",
+        "查询",
+        "重置",
+        "新建 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 ",
+        " 编辑 ",
+        " 删除 "
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "route": "/design/manage",
+      "apiPath": "/v1.user/getInfo",
+      "method": "POST",
+      "payload": null,
+      "httpStatus": 200,
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "department_name": "重钢涂装车间",
+        "role_permission": {
+          "0": "/project",
+          "1": "/project/index",
+          "2": "project_add",
+          "3": "project_look",
+          "4": "project_edit",
+          "5": "project_del",
+          "6": "/order",
+          "7": "/process",
+          "8": "/production",
+          "9": "/data",
+          "10": "/design",
+          "11": "/platform",
+          "12": "/order/index",
+          "13": "/production/index",
+          "14": "/production/plan",
+          "15": "/production/task",
+          "16": "/process/update",
+          "17": "/process/plan",
+          "18": "/data/index",
+          "19": "/design/process",
+          "20": "/design/manage",
+          "21": "/design/feature",
+          "22": "/platform/person",
+          "23": "/platform/jobs",
+          "24": "/platform/branch",
+          "25": "/platform/permissions",
+          "26": "order_add",
+          "27": "order_edit",
+          "28": "order_look",
+          "29": "order_del",
+          "30": "/transfer/index",
+          "31": "/process/task",
+          "32": "/",
+          "33": "production_add",
+          "34": "production_look",
+          "35": "production_edit",
+          "36": "production_del",
+          "37": "production_download",
+          "38": "production_plan_look",
+          "39": "production_task_look",
+          "40": "process_update_plan",
+          "41": "process_update_task",
+          "44": "design_process_set",
+          "45": "design_process_edit",
+          "46": "design_process_del",
+          "47": "design_manage_feature",
+          "48": "design_manage_edit",
+          "49": "design_manage_del",
+          "50": "design_process_add",
+          "51": "design_manage_add",
+          "52": "design_feature_add",
+          "53": "design_feature_edit",
+          "54": "design_feature_del",
+          "55": "platform_person_add",
+          "56": "platform_person_edit",
+          "57": "platform_person_del",
+          "58": "platform_jobs_add",
+          "59": "platform_jobs_permission",
+          "60": "platform_jobs_edit",
+          "61": "platform_jobs_del",
+          "62": "platform_branch_add",
+          "63": "platform_branch_edit",
+          "64": "platform_branch_del",
+          "65": "platform_permissions_add",
+          "66": "platform_permissions_edit",
+          "67": "platform_permissions_del",
+          "68": "platform_branch_ban",
+          "69": "platform_person_ban",
+          "70": "/order/delivery",
+          "71": "/subwork",
+          "72": "/subwork/index",
+          "73": "/order/package",
+          "74": "/calculate",
+          "75": "/calculate/index",
+          "76": "/rolling",
+          "77": "/rolling/index",
+          "78": "/rolling/code",
+          "79": "/statistical/month",
+          "80": "/subwork/auto",
+          "81": "/subwork/statistics",
+          "82": "/order/history",
+          "83": "/statistical/data",
+          "84": "process_cancel_plan",
+          "85": "process_transfer_department",
+          "86": "process_change_department",
+          "87": "/process/inspection",
+          "88": "/statistical/team",
+          "89": "/statistical/delivery",
+          "90": "/statistical/taskorder",
+          "91": "/statistical/artifacts",
+          "92": "/statistical/quality",
+          "93": "/platform/welder",
+          "94": "platform_welder_add",
+          "95": "platform_welder_edit",
+          "96": "platform_welder_del",
+          "97": "process_edit_artifact",
+          "98": "/production/change"
+        },
+        "category": 2,
+        "id": 55,
+        "account": "[REDACTED]",
+        "mobile": "[REDACTED]",
+        "name": "郑文阳",
+        "role": 39,
+        "department": 68,
+        "status": 1,
+        "work_number": "",
+        "update_time": "2025-11-24 15:13:55",
+        "create_time": "2022-05-23 13:23:38",
+        "operator": 0,
+        "is_admin": 1,
+        "token_version": "[REDACTED]",
+        "avatar": "[REDACTED]"
+      }
+    },
+    {
+      "route": "/design/manage",
+      "apiPath": "/v1.design/getManages",
+      "method": "POST",
+      "payload": {
+        "keyword": "",
+        "page": 1,
+        "size": 10
+      },
+      "httpStatus": 200,
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "list": [
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "type_name": "开始节点",
+            "use_count": 13,
+            "feature_count": 9,
+            "id": 1,
+            "status": 1,
+            "name": "钢构生产开始",
+            "type": 1,
+            "create_time": "2022-02-28 08:25:44",
+            "create_user": 1,
+            "category": 2,
+            "quality": 0
+          },
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "type_name": "结束节点",
+            "use_count": 10,
+            "feature_count": 6,
+            "id": 25,
+            "status": 1,
+            "name": "涂装",
+            "type": 3,
+            "create_time": "2022-03-24 16:19:47",
+            "create_user": 1,
+            "category": 2,
+            "quality": 0
+          },
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "type_name": "结束节点",
+            "use_count": 9,
+            "feature_count": 7,
+            "id": 26,
+            "status": 1,
+            "name": "成品库",
+            "type": 3,
+            "create_time": "2022-03-24 16:20:19",
+            "create_user": 1,
+            "category": 2,
+            "quality": 0
+          },
+          {
+            "create_user_name": "郑文阳",
+            "category_name": "钢构",
+            "type_name": "过程节点",
+            "use_count": 7,
+            "feature_count": 5,
+            "id": 36,
+            "status": 1,
+            "name": "装焊质检",
+            "type": 2,
+            "create_time": "2022-11-19 14:56:33",
+            "create_user": 55,
+            "category": 2,
+            "quality": 2
+          },
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "type_name": "过程节点",
+            "use_count": 6,
+            "feature_count": 6,
+            "id": 42,
+            "status": 1,
+            "name": "装焊报检",
+            "type": 2,
+            "create_time": "2023-07-10 01:56:59",
+            "create_user": 1,
+            "category": 2,
+            "quality": 1
+          }
+        ],
+        "count": 8,
+        "size": 10,
+        "page": 1,
+        "returnedListLength": 8
+      }
+    },
+    {
+      "route": "/design/feature",
+      "apiPath": "/v1.user/getInfo",
+      "method": "POST",
+      "payload": null,
+      "httpStatus": 200,
+      "code": 0,
+      "msg": "success",
+      "data": {
+        "department_name": "重钢涂装车间",
+        "role_permission": {
+          "0": "/project",
+          "1": "/project/index",
+          "2": "project_add",
+          "3": "project_look",
+          "4": "project_edit",
+          "5": "project_del",
+          "6": "/order",
+          "7": "/process",
+          "8": "/production",
+          "9": "/data",
+          "10": "/design",
+          "11": "/platform",
+          "12": "/order/index",
+          "13": "/production/index",
+          "14": "/production/plan",
+          "15": "/production/task",
+          "16": "/process/update",
+          "17": "/process/plan",
+          "18": "/data/index",
+          "19": "/design/process",
+          "20": "/design/manage",
+          "21": "/design/feature",
+          "22": "/platform/person",
+          "23": "/platform/jobs",
+          "24": "/platform/branch",
+          "25": "/platform/permissions",
+          "26": "order_add",
+          "27": "order_edit",
+          "28": "order_look",
+          "29": "order_del",
+          "30": "/transfer/index",
+          "31": "/process/task",
+          "32": "/",
+          "33": "production_add",
+          "34": "production_look",
+          "35": "production_edit",
+          "36": "production_del",
+          "37": "production_download",
+          "38": "production_plan_look",
+          "39": "production_task_look",
+          "40": "process_update_plan",
+          "41": "process_update_task",
+          "44": "design_process_set",
+          "45": "design_process_edit",
+          "46": "design_process_del",
+          "47": "design_manage_feature",
+          "48": "design_manage_edit",
+          "49": "design_manage_del",
+          "50": "design_process_add",
+          "51": "design_manage_add",
+          "52": "design_feature_add",
+          "53": "design_feature_edit",
+          "54": "design_feature_del",
+          "55": "platform_person_add",
+          "56": "platform_person_edit",
+          "57": "platform_person_del",
+          "58": "platform_jobs_add",
+          "59": "platform_jobs_permission",
+          "60": "platform_jobs_edit",
+          "61": "platform_jobs_del",
+          "62": "platform_branch_add",
+          "63": "platform_branch_edit",
+          "64": "platform_branch_del",
+          "65": "platform_permissions_add",
+          "66": "platform_permissions_edit",
+          "67": "platform_permissions_del",
+          "68": "platform_branch_ban",
+          "69": "platform_person_ban",
+          "70": "/order/delivery",
+          "71": "/subwork",
+          "72": "/subwork/index",
+          "73": "/order/package",
+          "74": "/calculate",
+          "75": "/calculate/index",
+          "76": "/rolling",
+          "77": "/rolling/index",
+          "78": "/rolling/code",
+          "79": "/statistical/month",
+          "80": "/subwork/auto",
+          "81": "/subwork/statistics",
+          "82": "/order/history",
+          "83": "/statistical/data",
+          "84": "process_cancel_plan",
+          "85": "process_transfer_department",
+          "86": "process_change_department",
+          "87": "/process/inspection",
+          "88": "/statistical/team",
+          "89": "/statistical/delivery",
+          "90": "/statistical/taskorder",
+          "91": "/statistical/artifacts",
+          "92": "/statistical/quality",
+          "93": "/platform/welder",
+          "94": "platform_welder_add",
+          "95": "platform_welder_edit",
+          "96": "platform_welder_del",
+          "97": "process_edit_artifact",
+          "98": "/production/change"
+        },
+        "category": 2,
+        "id": 55,
+        "account": "[REDACTED]",
+        "mobile": "[REDACTED]",
+        "name": "郑文阳",
+        "role": 39,
+        "department": 68,
+        "status": 1,
+        "work_number": "",
+        "update_time": "2025-11-24 15:13:55",
+        "create_time": "2022-05-23 13:23:38",
+        "operator": 0,
+        "is_admin": 1,
+        "token_version": "[REDACTED]",
+        "avatar": "[REDACTED]"
+      }
+    },
+    {
+      "route": "/design/feature",
+      "apiPath": "/v1.design/getFeatures",
+      "method": "POST",
+      "payload": {
+        "keyword": "",
+        "page": 1,
+        "size": 10
+      },
+      "httpStatus": 200,
+      "code": 0,
+      "msg": "操作成功",
+      "data": {
+        "list": [
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "count": 17,
+            "id": 2,
+            "name": "钢结构",
+            "code": "GJG",
+            "status": 1,
+            "category": 2,
+            "describe": "",
+            "create_time": "2022-03-07 13:26:12",
+            "create_user": 1
+          },
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "count": 14,
+            "id": 3,
+            "name": "组焊上线",
+            "code": "lsx",
+            "status": 1,
+            "category": 2,
+            "describe": "主体上线",
+            "create_time": "2022-03-07 15:57:31",
+            "create_user": 1
+          },
+          {
+            "create_user_name": "Admin",
+            "category_name": "钢构",
+            "count": 9,
+            "id": 4,
+            "name": "组焊不上线",
+            "code": "zh",
+            "status": 1,
+            "category": 2,
+            "describe": "主体不上线",
+            "create_time": "2022-03-07 15:58:05",
+            "create_user": 1
+          },
+          {
+            "create_user_name": "赵晨",
+            "category_name": "钢构",
+            "count": 7,
+            "id": 13,
+            "name": "发现场散件",
+            "code": "FXC",
+            "status": 1,
+            "category": 2,
+            "describe": "",
+            "create_time": "2022-10-25 14:35:02",
+            "create_user": 148
+          },
+          {
+            "create_user_name": "郑文阳",
+            "category_name": "钢构",
+            "count": 4,
+            "id": 14,
+            "name": "直发件",
+            "code": "ZFJ",
+            "status": 1,
+            "category": 2,
+            "describe": "",
+            "create_time": "2023-04-22 13:15:06",
+            "create_user": 55
+          }
+        ],
+        "count": 9,
+        "size": 10,
+        "page": 1,
+        "returnedListLength": 9
+      }
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/assets/js/layer/layer.js",
+      "file": "frontend/e1442d21356e.js",
+      "sha256": "48a5c6a7ece7048ade2fbeb17df4e02ae79b98741b2417ebaf03e7345706f6b7",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/app.bd368eb1.js",
+      "file": "frontend/68bf3ebfc358.js",
+      "sha256": "2db470000183d1932933c5e481edb2375a73ff6f56faf0fb564acce0abd910f8",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/chunk-elementUI.b1349678.js",
+      "file": "frontend/542d8a665045.js",
+      "sha256": "5d7c40dc484f87f0ec0bbe463ed47244331f8d3070655c4af650539e014bf662",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/chunk-libs.eee4da7e.js",
+      "file": "frontend/e712c83c677b.js",
+      "sha256": "b256b536fb8950d024fe18422ec2a5f2ee64879d884961c10cd6ce1361d86d27",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/chunk-2d225e02.fe636259.js",
+      "file": "frontend/1454b6559657.js",
+      "sha256": "8d2d960a089b6e6c288818e4f112009c2cc202361118931a3089b5b017b84e12",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/chunk-01534ac0.6528934d.js",
+      "file": "frontend/6b3f57141397.js",
+      "sha256": "505d24ba044adf62ae377111e68ad3c074cb33087045d486654e011d187da146",
+      "route": "/design/manage"
+    },
+    {
+      "url": "https://dwyunsc.ddwjzkj.com:22222/static/js/chunk-12c895a8.b6148853.js",
+      "file": "frontend/1322a73f4343.js",
+      "sha256": "c16f653f7e4f685dbc203595568d5c6a06854899068573093aac686826375b3a",
+      "route": "/design/feature"
+    }
+  ],
+  "outcome": "completed",
+  "finishedAt": "2026-11-06T05:46:57.653Z"
+}

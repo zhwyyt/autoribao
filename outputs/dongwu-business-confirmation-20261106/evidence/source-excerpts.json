@@ -1,0 +1,34 @@
+[
+  {
+    "id": "S01",
+    "file": "src/main.js",
+    "startLine": 138,
+    "endLine": 148,
+    "text": "function buildExportCsvName(options = {}) {\n    if (options.fileName && typeof options.fileName === 'string') {\n        return options.fileName;\n    }\n    const yearMonth = toYearMonth(options.endYmd);\n    const label = options.label || '装焊入库';\n    return yearMonth ? `${yearMonth}_${label}.csv` : `export_${Date.now()}_${label}.csv`;\n}\n\nfunction csvEscape(value) {\n    const text = String(value ?? '');",
+    "sha256": "a6d55a47636218459b146eda47907900ecee7e3e86a8ecb472f654330acdf364"
+  },
+  {
+    "id": "S02",
+    "file": "src/main.js",
+    "startLine": 280,
+    "endLine": 294,
+    "text": "    logger.debug(`当前URL: ${page.url()}`);\n\n    logger.info('统计部门勾选“钢结构厂”（精确匹配）...');\n    await clickFormControlByLabel(page, '统计部门');\n    await selectCascaderCheckboxByText(page, '钢结构厂', { exact: true });\n    await page.keyboard.press('Escape');\n    await page.waitForTimeout(500);\n\n    logger.info('工序选择“装焊报检”...');\n    await clickFormControlByLabel(page, '工序');\n    await selectDropdownOption(page, '装焊报检');\n\n    const range = options.range || getLastMonth26ToThisMonth25(new Date());\n    const start = range.start;\n    const end = range.end;",
+    "sha256": "a6d55a47636218459b146eda47907900ecee7e3e86a8ecb472f654330acdf364"
+  },
+  {
+    "id": "S03",
+    "file": "src/main.js",
+    "startLine": 332,
+    "endLine": 342,
+    "text": "}\n\nasync function exportSubworkStatisticsCsvViaApi(browserAutomation, options = {}) {\n    const range = options.range || getLastMonth26ToThisMonth25(new Date());\n    const { start, end } = range;\n    const { headerNames, rows } = await fetchSubworkStatisticsTable(browserAutomation, { ...options, range });\n    const desiredName = options.exportFileName || buildExportCsvName({ endYmd: end, label: '装焊入库' });\n    const outDir = options.outDir\n        ? (path.isAbsolute(options.outDir) ? options.outDir : path.join(__dirname, '..', options.outDir))\n        : resolveDownloadDir();\n    ensureDir(outDir);",
+    "sha256": "a6d55a47636218459b146eda47907900ecee7e3e86a8ecb472f654330acdf364"
+  },
+  {
+    "id": "S04",
+    "file": "src/main.js",
+    "startLine": 1187,
+    "endLine": 1201,
+    "text": "    const shoufacunMode = Boolean(args.shoufacun);\n\n    if (dailyMode) {\n        const now = args.date ? parseYmdToLocalDate(args.date) : new Date();\n        const { start, end } = getFactoryMonth26ToToday(now);\n        const exportFileName = `${start}至${end}_装焊入库.csv`;\n        const archiveDir = getDailyArchiveDir(end);\n        ensureDir(archiveDir);\n\n        logger.info(`每日模式：数据库查询范围 ${start} 至 ${end}，文件名 ${exportFileName}`);\n\n        const csvPath = path.join(archiveDir, exportFileName);\n        const reportOut = path.join(archiveDir, `日报_${end}_装焊入库重量.xlsx`);\n        await exportDailyFitupCsvFromDb({ start, end, outPath: csvPath });\n",
+    "sha256": "a6d55a47636218459b146eda47907900ecee7e3e86a8ecb472f654330acdf364"
+  }
+]

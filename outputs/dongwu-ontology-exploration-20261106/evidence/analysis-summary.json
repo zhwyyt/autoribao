@@ -1,0 +1,732 @@
+{
+  "phaseOutcomes": {
+    "pages": {
+      "outcome": "completed",
+      "savedRequests": 28,
+      "startedAt": "2026-11-06T03:43:55.358Z",
+      "finishedAt": "2026-11-06T03:44:32.767Z"
+    },
+    "details": {
+      "outcome": "blocked",
+      "savedRequests": 20,
+      "startedAt": "2026-11-06T03:47:10.765Z",
+      "finishedAt": "2026-11-06T03:48:08.478Z"
+    },
+    "remaining": {
+      "outcome": "completed",
+      "savedRequests": 12,
+      "startedAt": "2026-11-06T03:49:30.199Z",
+      "finishedAt": "2026-11-06T03:49:40.303Z"
+    },
+    "detail-pages": {
+      "outcome": "completed",
+      "savedRequests": 16,
+      "startedAt": "2026-11-06T03:52:21.279Z",
+      "finishedAt": "2026-11-06T03:52:37.006Z"
+    },
+    "followup": {
+      "outcome": "completed",
+      "savedRequests": 4,
+      "startedAt": "2026-11-06T03:54:03.736Z",
+      "finishedAt": "2026-11-06T03:54:09.709Z"
+    },
+    "identity": {
+      "outcome": "completed",
+      "savedRequests": 4,
+      "startedAt": "2026-11-06T03:55:37.549Z",
+      "finishedAt": "2026-11-06T03:55:43.265Z"
+    }
+  },
+  "duplicatesExcluded": [
+    {
+      "file": "details.json",
+      "pointer": "/requests/19",
+      "duplicateOf": "/requests/18"
+    }
+  ],
+  "savedRequestRecords": 84,
+  "independentCapturedRequests": 83,
+  "successfulCapturedRequests": 83,
+  "successfulDistinctPaths": [
+    "/v1.design/getDesign",
+    "/v1.design/getDesignMenu",
+    "/v1.design/getList",
+    "/v1.order/getDeliveryHistory",
+    "/v1.order/getDeliverys",
+    "/v1.order/getOrderArtifacts",
+    "/v1.order/getPackageArtifacts",
+    "/v1.order/getPackageInfo",
+    "/v1.order/getPackageList",
+    "/v1.production/getInspectionInfo",
+    "/v1.production/getInspections",
+    "/v1.production/getPlan",
+    "/v1.production/getPlanArtifacts",
+    "/v1.production/getPlans",
+    "/v1.production/getSchedulings",
+    "/v1.production/getTaskArtifacts",
+    "/v1.production/getTasks",
+    "/v1.project/getProjectSelect",
+    "/v1.user/getBranchs",
+    "/v1.user/getInfo",
+    "/v1.user/getInspectionUsers",
+    "/v1.user/getPlanUsers"
+  ],
+  "successfulPathsNewToBaseline": [
+    "/v1.design/getDesign",
+    "/v1.design/getDesignMenu",
+    "/v1.design/getList",
+    "/v1.user/getInspectionUsers",
+    "/v1.user/getPlanUsers"
+  ],
+  "frontendDeclaredPathCount": 163,
+  "frontendDeclaredPathsNewToBaseline": [
+    "/index/getMainPlans",
+    "/index/getMainProject",
+    "/index/getMainTeam",
+    "/index/getPlanArtifacts",
+    "/v1.design/addDesign",
+    "/v1.design/addFeature",
+    "/v1.design/addManage",
+    "/v1.design/delDesign",
+    "/v1.design/delFeature",
+    "/v1.design/delManage",
+    "/v1.design/delManageFeatures",
+    "/v1.design/getAllManages",
+    "/v1.design/getDesign",
+    "/v1.design/getDesignMenu",
+    "/v1.design/getDesigns",
+    "/v1.design/getFeature",
+    "/v1.design/getFeatures",
+    "/v1.design/getList",
+    "/v1.design/getManage",
+    "/v1.design/getManageFeatures",
+    "/v1.design/getManages",
+    "/v1.design/getProcessAndType",
+    "/v1.design/saveDesign",
+    "/v1.design/saveFeature",
+    "/v1.design/saveManage",
+    "/v1.design/submitManageFeatures",
+    "/v1.order/addCalculate",
+    "/v1.order/addSubwork",
+    "/v1.order/addTransfer",
+    "/v1.order/completeCalculate",
+    "/v1.order/completeSubwork",
+    "/v1.order/del",
+    "/v1.order/delCalculate",
+    "/v1.order/delSubwork",
+    "/v1.order/delTransfer",
+    "/v1.order/edit",
+    "/v1.order/editCalculate",
+    "/v1.order/editSubwork",
+    "/v1.order/editTransfer",
+    "/v1.order/exportCalculate",
+    "/v1.order/exportSubwork",
+    "/v1.order/exportTransfer",
+    "/v1.order/getCalculate",
+    "/v1.order/getCalculateAdd",
+    "/v1.order/getCalculateInfo",
+    "/v1.order/getCalculates",
+    "/v1.order/getSubwork",
+    "/v1.order/getSubworkInfo",
+    "/v1.order/getSubworks",
+    "/v1.order/getTransfer",
+    "/v1.order/getTransferInfo",
+    "/v1.order/getTransfers",
+    "/v1.order/removeCalculateInfo",
+    "/v1.order/removeSubworkInfo",
+    "/v1.order/searchCalculateInfo",
+    "/v1.order/searchSubworkInfo",
+    "/v1.order/submitCalculate",
+    "/v1.order/submitCalculateInfo",
+    "/v1.order/submitSubworkInfo",
+    "/v1.project/addProjectFiles",
+    "/v1.project/addProjectFolder",
+    "/v1.project/confirmProjectDocument",
+    "/v1.project/delProjectFile",
+    "/v1.project/editProjectFile",
+    "/v1.project/refreshProjectToken",
+    "/v1.project/removeProjectDocument",
+    "/v1.project/submitProjectDocument",
+    "/v1.user/addBranch",
+    "/v1.user/addRole",
+    "/v1.user/addUser",
+    "/v1.user/banBranch",
+    "/v1.user/banUser",
+    "/v1.user/delBranch",
+    "/v1.user/delRole",
+    "/v1.user/delUser",
+    "/v1.user/editBranch",
+    "/v1.user/editRole",
+    "/v1.user/editUser",
+    "/v1.user/getAllRole",
+    "/v1.user/getBranch",
+    "/v1.user/getInspectionUsers",
+    "/v1.user/getList",
+    "/v1.user/getPlanUsers",
+    "/v1.user/getRole",
+    "/v1.user/getRoles",
+    "/v1.user/getUser",
+    "/v1.user/getUserSelect",
+    "/v1.user/logout"
+  ],
+  "previousRetainedPathCount": 92,
+  "unionPreviousAndFrontendPathCount": 180,
+  "taskComparison": {
+    "planId": 9081,
+    "accountDepartment": 68,
+    "planRows": 167,
+    "currentRows": 8,
+    "myRows": 68,
+    "currentSubsetOfMy": true,
+    "mySubsetOfPlan": true,
+    "currentEqualsDepartment68": true,
+    "myEqualsDepartmentsContaining68": true,
+    "myCompletedRows": 32,
+    "first50AllTasksSameIdsAsPlans": true,
+    "listCounts": {
+      "plans": 8432,
+      "tasksOmitted": 8479,
+      "tasksAll": 8479,
+      "tasksCurrent": 27,
+      "tasksMy": 103
+    }
+  },
+  "identityJoins": [
+    {
+      "planId": 9155,
+      "orderId": 9207,
+      "productionPointer": "details.json#/requests/7/data",
+      "orderPointer": "identity.json#/requests/0/data",
+      "productionRows": 10,
+      "orderRows": 10,
+      "orderReturned": 10,
+      "matchedByOrderArtifactId": 10,
+      "sameGuid": 10,
+      "sameProjectAndOrder": 10,
+      "uniqueProductionIds": 10,
+      "uniqueOrderArtifactRefs": 10,
+      "quantityDistribution": {
+        "1": 10
+      }
+    },
+    {
+      "planId": 9081,
+      "orderId": 9134,
+      "productionPointer": "details.json#/requests/9/data",
+      "orderPointer": "identity.json#/requests/1/data",
+      "productionRows": 167,
+      "orderRows": 167,
+      "orderReturned": 167,
+      "matchedByOrderArtifactId": 167,
+      "sameGuid": 167,
+      "sameProjectAndOrder": 167,
+      "uniqueProductionIds": 167,
+      "uniqueOrderArtifactRefs": 167,
+      "quantityDistribution": {
+        "1": 167
+      }
+    },
+    {
+      "planId": 9153,
+      "orderId": 9205,
+      "productionPointer": "details.json#/requests/11/data",
+      "orderPointer": "identity.json#/requests/2/data",
+      "productionRows": 144,
+      "orderRows": 144,
+      "orderReturned": 144,
+      "matchedByOrderArtifactId": 144,
+      "sameGuid": 144,
+      "sameProjectAndOrder": 144,
+      "uniqueProductionIds": 144,
+      "uniqueOrderArtifactRefs": 144,
+      "quantityDistribution": {
+        "1": 144
+      }
+    },
+    {
+      "planId": 163,
+      "orderId": 221,
+      "productionPointer": "details.json#/requests/13/data",
+      "orderPointer": "identity.json#/requests/3/data",
+      "productionRows": 87,
+      "orderRows": 87,
+      "orderReturned": 87,
+      "matchedByOrderArtifactId": 87,
+      "sameGuid": 87,
+      "sameProjectAndOrder": 87,
+      "uniqueProductionIds": 87,
+      "uniqueOrderArtifactRefs": 87,
+      "quantityDistribution": {
+        "1": 87
+      }
+    }
+  ],
+  "inspectionDetails": [
+    {
+      "pointer": "details.json#/requests/14/data",
+      "id": 34056,
+      "status": 0,
+      "statusName": "待检查",
+      "headerPlanId": "8939,9016",
+      "memberPlans": {
+        "8939": 4,
+        "9016": 1
+      },
+      "memberResults": {
+        "0:-": 5
+      },
+      "count": 5,
+      "savedRows": 5,
+      "returnedRows": 5,
+      "flawTime": 0,
+      "inspectionTime": 0
+    },
+    {
+      "pointer": "details.json#/requests/15/data",
+      "id": 34054,
+      "status": 1,
+      "statusName": "质检通过",
+      "headerPlanId": "9016",
+      "memberPlans": {
+        "9016": 3
+      },
+      "memberResults": {
+        "1:质检通过": 3
+      },
+      "count": 3,
+      "savedRows": 3,
+      "returnedRows": 3,
+      "flawTime": 1793883160,
+      "inspectionTime": 1793885996
+    },
+    {
+      "pointer": "details.json#/requests/16/data",
+      "id": 34053,
+      "status": 3,
+      "statusName": "探伤通过",
+      "headerPlanId": "9018",
+      "memberPlans": {
+        "9018": 2
+      },
+      "memberResults": {
+        "3:探伤通过": 2
+      },
+      "count": 2,
+      "savedRows": 2,
+      "returnedRows": 2,
+      "flawTime": 1793868326,
+      "inspectionTime": 0
+    },
+    {
+      "pointer": "followup.json#/requests/2/data",
+      "id": 33407,
+      "status": 2,
+      "statusName": "质检拒绝",
+      "headerPlanId": "8855",
+      "memberPlans": {
+        "8855": 2
+      },
+      "memberResults": {
+        "2:质检拒绝": 2
+      },
+      "count": 2,
+      "savedRows": 2,
+      "returnedRows": 2,
+      "flawTime": 1791523295,
+      "inspectionTime": 1791701317
+    },
+    {
+      "pointer": "followup.json#/requests/3/data",
+      "id": 30613,
+      "status": 4,
+      "statusName": "探伤拒绝",
+      "headerPlanId": "8163",
+      "memberPlans": {
+        "8163": 1
+      },
+      "memberResults": {
+        "4:探伤拒绝": 1
+      },
+      "count": 1,
+      "savedRows": 1,
+      "returnedRows": 1,
+      "flawTime": 1779785828,
+      "inspectionTime": 0
+    }
+  ],
+  "packages": [
+    {
+      "id": 1622105,
+      "deliveryId": 8514,
+      "declaredCount": 26,
+      "memberCount": 26,
+      "memberOrders": {
+        "8826": 26
+      },
+      "memberWeightSum": "36201.21",
+      "memberQuantitySum": "26",
+      "pointer": "remaining.json#/requests/5/data"
+    },
+    {
+      "id": 1614199,
+      "deliveryId": 8513,
+      "declaredCount": 28,
+      "memberCount": 28,
+      "memberOrders": {
+        "8903": 17,
+        "8905": 11
+      },
+      "memberWeightSum": "31155.28",
+      "memberQuantitySum": "28",
+      "pointer": "remaining.json#/requests/7/data"
+    },
+    {
+      "id": 1614198,
+      "deliveryId": 8512,
+      "declaredCount": 32,
+      "memberCount": 32,
+      "memberOrders": {
+        "8903": 30,
+        "8905": 2
+      },
+      "memberWeightSum": "31337.32",
+      "memberQuantitySum": "32",
+      "pointer": "remaining.json#/requests/9/data"
+    }
+  ],
+  "shippingComparison": {
+    "packageId": 1622105,
+    "deliveryId": 8514,
+    "historySize": 26,
+    "historySavedRows": 26,
+    "historyReturnedRows": 26,
+    "historySameMemberIdsAsPackage": true,
+    "allHistoryRowsReferencePackage": true,
+    "allHistoryRowsReferenceDelivery": true,
+    "historyIsPackageValues": [
+      0
+    ],
+    "historyWeight": "36201.2100",
+    "memberWeightSum": "36201.21"
+  },
+  "designs": [
+    {
+      "planId": 9155,
+      "designId": 31,
+      "pointer": "details.json#/requests/6/data/design_info",
+      "nodes": [
+        {
+          "id": "1",
+          "name": "钢构生产开始",
+          "type": "start",
+          "quality": 0,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "PEC",
+            "qkc",
+            "xc",
+            "WX"
+          ]
+        },
+        {
+          "id": "42",
+          "name": "装焊报检",
+          "type": "process",
+          "quality": 1,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "PEC"
+          ]
+        },
+        {
+          "id": "50",
+          "name": "装焊探伤",
+          "type": "process",
+          "quality": 3,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "PEC"
+          ]
+        },
+        {
+          "id": "36",
+          "name": "装焊质检",
+          "type": "process",
+          "quality": 2,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "PEC"
+          ]
+        },
+        {
+          "id": "25",
+          "name": "涂装",
+          "type": "end",
+          "quality": 0,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "WX"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "1",
+          "to": "42"
+        },
+        {
+          "from": "42",
+          "to": "50"
+        },
+        {
+          "from": "50",
+          "to": "36"
+        },
+        {
+          "from": "36",
+          "to": "25"
+        }
+      ],
+      "featureCounts": {
+        "GJG": 10
+      },
+      "successStateWithoutCompletionCount": 40
+    },
+    {
+      "planId": 9081,
+      "designId": 31,
+      "pointer": "details.json#/requests/8/data/design_info",
+      "nodes": [
+        {
+          "id": "1",
+          "name": "钢构生产开始",
+          "type": "start",
+          "quality": 0,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "PEC",
+            "qkc",
+            "xc",
+            "WX"
+          ]
+        },
+        {
+          "id": "42",
+          "name": "装焊报检",
+          "type": "process",
+          "quality": 1,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "PEC"
+          ]
+        },
+        {
+          "id": "50",
+          "name": "装焊探伤",
+          "type": "process",
+          "quality": 3,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "PEC"
+          ]
+        },
+        {
+          "id": "36",
+          "name": "装焊质检",
+          "type": "process",
+          "quality": 2,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "PEC"
+          ]
+        },
+        {
+          "id": "25",
+          "name": "涂装",
+          "type": "end",
+          "quality": 0,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "WX"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "1",
+          "to": "42"
+        },
+        {
+          "from": "42",
+          "to": "50"
+        },
+        {
+          "from": "50",
+          "to": "36"
+        },
+        {
+          "from": "36",
+          "to": "25"
+        }
+      ],
+      "featureCounts": {
+        "GJG": 167
+      },
+      "successStateWithoutCompletionCount": 516
+    },
+    {
+      "planId": 9153,
+      "designId": 22,
+      "pointer": "details.json#/requests/10/data/design_info",
+      "nodes": [
+        {
+          "id": "1",
+          "name": "钢构生产开始",
+          "type": "start",
+          "quality": 0,
+          "features_codes": [
+            "GJG",
+            "lsx",
+            "zh",
+            "FXC",
+            "ZFJ",
+            "PEC",
+            "qkc",
+            "xc",
+            "WX"
+          ]
+        },
+        {
+          "id": "43",
+          "name": "流水线报工",
+          "type": "process",
+          "quality": 0,
+          "features_codes": [
+            "lsx",
+            "xc"
+          ]
+        },
+        {
+          "id": "45",
+          "name": "转运",
+          "type": "end",
+          "quality": 0,
+          "features_codes": [
+            "lsx",
+            "xc",
+            "WX"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "1",
+          "to": "43"
+        },
+        {
+          "from": "43",
+          "to": "45"
+        }
+      ],
+      "featureCounts": {
+        "LSX": 144
+      },
+      "successStateWithoutCompletionCount": 288
+    },
+    {
+      "planId": 163,
+      "designId": 1,
+      "pointer": "details.json#/requests/12/data/design_info",
+      "nodes": [
+        {
+          "id": "1",
+          "name": "钢构生产开始",
+          "type": "start",
+          "features_codes": [
+            "GJG",
+            "FXC"
+          ]
+        },
+        {
+          "id": "31",
+          "name": "构件装焊",
+          "type": "process",
+          "features_codes": [
+            "GJG"
+          ]
+        },
+        {
+          "id": "25",
+          "name": "涂装",
+          "type": "process",
+          "features_codes": [
+            "GJG",
+            "FXC"
+          ]
+        },
+        {
+          "id": "26",
+          "name": "成品库",
+          "type": "end",
+          "features_codes": [
+            "GJG",
+            "FXC"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "25",
+          "to": "26"
+        },
+        {
+          "from": "1",
+          "to": "31"
+        },
+        {
+          "from": "31",
+          "to": "25"
+        }
+      ],
+      "featureCounts": {
+        "FXC": 39,
+        "GJG": 48
+      },
+      "successStateWithoutCompletionCount": 39
+    }
+  ]
+}

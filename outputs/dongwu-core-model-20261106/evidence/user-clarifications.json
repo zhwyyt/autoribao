@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-06",
+  "source": "本会话用户在本轮探索中的直接补充",
+  "priorDecisions": "outputs/dongwu-business-confirmation-20261106/evidence/business-decisions.json",
+  "quotes": [
+    {"id":"U04","text":"流水线只能算是半成品完成，可以排除。工序是可以跳过的，比如说发现场件不需要探伤。"},
+    {"id":"U05","text":"每个构件具体走哪些流程，目前是看生产特征在工艺流程、工序管理模块来定义的"}
+  ],
+  "rules": [
+    {"id":"BR-06","sourceId":"U04","confidence":"已验证","evidenceType":"用户确认","statement":"流水线完成属于半成品完成，从本轮成品完成与成品入库映射中排除。"},
+    {"id":"BR-07","sourceId":"U04","confidence":"已验证","evidenceType":"用户确认","statement":"工序可以跳过；发现场件不需要探伤。全部工序完成按该构件应走的工序解释。"},
+    {"id":"BR-08","sourceId":"U05","confidence":"已验证","evidenceType":"用户确认","statement":"每个构件的流程由生产特征及工艺流程、工序管理模块配置确定。"}
+  ],
+  "limits": ["未确认任意人工跳过工序的权限或审核规则。", "未确认修改当前配置是否追溯影响已下发或已完成的生产记录。", "业务定义确认不等于旧系统写操作已实测。"]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "apiPath": "/v1.order/getOrderArtifacts",
+    "payload": {
+      "id": 9207
+    },
+    "limit": 2000
+  },
+  {
+    "apiPath": "/v1.order/getOrderArtifacts",
+    "payload": {
+      "id": 9134
+    },
+    "limit": 2000
+  },
+  {
+    "apiPath": "/v1.order/getOrderArtifacts",
+    "payload": {
+      "id": 9205
+    },
+    "limit": 2000
+  },
+  {
+    "apiPath": "/v1.order/getOrderArtifacts",
+    "payload": {
+      "id": 221
+    },
+    "limit": 2000
+  }
+]

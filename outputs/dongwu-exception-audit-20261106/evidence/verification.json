@@ -1,0 +1,184 @@
+{
+  "verifiedAt": "2026-11-06T05:20:10.101214+00:00",
+  "status": "passed",
+  "checksPassed": 32,
+  "checksTotal": 32,
+  "checks": [
+    {
+      "name": "Original baseline files and both prior deliverables preserved",
+      "passed": true,
+      "details": {
+        "count": 286,
+        "changed": []
+      }
+    },
+    {
+      "name": "Preexisting git status preserved",
+      "passed": true,
+      "details": {
+        "preexistingPermissionWarnings": true
+      }
+    },
+    {
+      "name": "All output JSON parses",
+      "passed": true,
+      "details": 11
+    },
+    {
+      "name": "55 JSON responses succeeded across nine read paths",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Collected JSON business paths are reads",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "getPlans pagination complete with unique IDs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "getPlans projections declared and preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "getTasks pagination complete with unique IDs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "getTasks projections declared and preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "47 extra tasks and zero plan-only IDs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Difference composition matches classification evidence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Ordinary plans equal category2 nonchange task set",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All 8479 current scheduling references are unique",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All 47 row evidence pointers resolve",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Real change page uses is_change=1 and returns7962",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PC and unknown labels come from actual details",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Six PDF fetches succeeded and extracted two pages each",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF page text differs only in whitespace across two extractors",
+      "passed": true,
+      "details": {
+        "comparison": "All non-whitespace characters must match; table quantities also visually inspected."
+      }
+    },
+    {
+      "name": "All six table crop hashes match",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8514 groups cover each member once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8514 group quantities reconcile",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8513 groups cover each member once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8513 group quantities reconcile",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8512 groups cover each member once",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "PDF 8512 group quantities reconcile",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All 1315 quantity sample records saved without truncation and equal1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Source excerpts exactly match preserved local code",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "All document and image links resolve",
+      "passed": true,
+      "details": {
+        "links": 25,
+        "broken": []
+      }
+    },
+    {
+      "name": "All 20 original verification IDs remain tracked",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Standalone scripts syntax passes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Configured credentials absent from text outputs",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "No unredacted raw PDF persisted in output directory",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "limits": [
+    "Read-only snapshots do not prove backend write rules or universal lifecycle constraints.",
+    "Complete pagination is within this account and collection window, not a transactional database snapshot.",
+    "Original PDFs were processed in memory; retained evidence is redacted text, table crops and source metadata.",
+    "Business identifiers and names are retained; credential checking is not complete anonymization."
+  ]
+}

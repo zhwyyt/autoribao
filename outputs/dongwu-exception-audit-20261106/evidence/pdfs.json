@@ -1,0 +1,76 @@
+{
+  "phase": "pdfs",
+  "startedAt": "2026-11-06T05:04:52.376Z",
+  "pages": [],
+  "requests": [
+    {
+      "id": 8514,
+      "url": "https://dwyunsc.ddwjzkj.com:10086/delivery/info?id=8514",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 27122,
+      "sha256": "ece19c1b7a6dbfe4afd5cad9d4691026a6d9648b08c09a4629c80b19fa74f4c2",
+      "extraction": {
+        "pageCount": 2,
+        "pages": [
+          {
+            "page": 1,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n成品发货单\n \n编号：徐汇-20261106-01\n收货单位： 项目名称：\n收货人/电话： 发货日期：\n[REDACTED contact/transport line]\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 2026年11月6日发货徐汇 /\nB20261106094005\n1\n审核： 审核： 制表：\n[REDACTED contact/transport line]\n承运人： 项目现场签\n收/日期：\n合计： 1\n[REDACTED contact/transport line]\n如有疑问，请在3个工作日内与本公司取得联系！\n[REDACTED contact/transport line]\n项目介绍：[REDACTED]"
+          },
+          {
+            "page": 2,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n附表：2026年11月6日发货徐汇\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 T3-23GKL-4 / T3-23GKL-4 BH1050×400×20×30 9240 1\n2 T3-23GKL-5 / T3-23GKL-5 BH950×400×16×30 8440 1\n3 T3-23GKL-6 / T3-23GKL-6 BH950×400×16×30 10081 1\n4 T3-23GKL-7 / T3-23GKL-7 BH1050×400×20×30 9240 1\n5 T3-23GKL-11 / T3-23GKL-11 BH1050×400×20×30 9240 1\n6 T3-23GKL-12 / T3-23GKL-12 BH1050×400×20×30 9240 1\n7 T3-23GKL-14 / T3-23GKL-14 BH950×400×16×30 8440 1\n8 T3-23GKL-15 / T3-23GKL-15 BH950×400×16×30 10000 1\n9 T3-23GL-1 / T3-23GL-1 BH400×150×8×8 9980 1\n10 T3-23GL-5 / T3-23GL-5 BH400×150×8×8 9980 4\n11 T3-23GL-10 / T3-23GL-10 BH500×200×7×12 3541 1\n12 T3-23GL-24 / T3-23GL-24 BH500×200×7×12 9202 1\n13 T3-23GL-39 / T3-23GL-39 BH500×200×7×12 9767 1\n14 T3-23GL-45 / T3-23GL-45 BH500×150×200×7×\n8×10\n6030 1\n15 T3-23GL-65 / T3-23GL-65 BH450×200×8×12 5631 1\n16 T3-23GL-74 / T3-23GL-74 异形梁 10685 1\n17 T3-23GL-114 / T3-23GL-114 BH500×150×200×7×\n8×10\n7087 1\n18 T3-23GL-118 / T3-23GL-118 BH500×150×200×7×\n8×10\n4284 1\n19 T3-23GL-131 / T3-23GL-131 异形梁 12990 1\n20 T3-23GL-136 / T3-23GL-136 BH500×200×7×12 9938 1\n21 T3-23GL-137 / T3-23GL-137 BH500×200×7×10 7694 1\n22 T3-23GL-150 / T3-23GL-150 BH400×150×8×8 9980 1\n23 T3-23GL-151 / T3-23GL-151 BH400×150×8×8 9980 1\nPowered by TCPDF (www.tcpdf.org)\n                               2 / 2"
+          }
+        ],
+        "redactions": "Contact/transport lines, introduction, phone and plate patterns; raw bytes not saved."
+      }
+    },
+    {
+      "id": 8513,
+      "url": "https://dwyunsc.ddwjzkj.com:10086/delivery/info?id=8513",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 27437,
+      "sha256": "d7cb5d1c9aa9a92954f3840ad5ce9ceaf2f072646dd896431026c1c27cc19b91",
+      "extraction": {
+        "pageCount": 2,
+        "pages": [
+          {
+            "page": 1,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n成品发货单\n \n编号：徐汇-20261104-03\n收货单位： 项目名称：\n收货人/电话： 发货日期：\n[REDACTED contact/transport line]\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 2026年11月4日发货徐汇 /\nB20261104130431\n1\n审核： 审核： 制表：\n[REDACTED contact/transport line]\n承运人： 项目现场签\n收/日期：\n合计： 1\n[REDACTED contact/transport line]\n如有疑问，请在3个工作日内与本公司取得联系！\n[REDACTED contact/transport line]\n项目介绍：[REDACTED]"
+          },
+          {
+            "page": 2,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n附表：2026年11月4日发货徐汇\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 T2-33GKL-7 / T2-33GKL-7 PL16×890 10188 1\n2 T2-33GKL-8 / T2-33GKL-8 PL16×910 9900 1\n3 T2-33GKL-9 / T2-33GKL-9 PL16×890 9900 1\n4 T2-33GKL-10 / T2-33GKL-10 PL16×910 9900 1\n5 T2-33GKL-11 / T2-33GKL-11 PL16×910 9900 1\n6 T2-33GKL-12 / T2-33GKL-12 PL16×910 9900 1\n7 T2-33GKL-13 / T2-33GKL-13 PL16×910 9900 1\n8 T2-33GKL-15 / T2-33GKL-15 PL16×890 9900 1\n9 T2-33GL-26 / T2-33GL-26 PL20×460 8690 1\n10 T2-33GL-50 / T2-33GL-50 PL8×376 3852 1\n11 T2-33GL-51 / T2-33GL-51 PL8×376 3714 1\n12 T2-33GL-57 / T2-33GL-57 PL8×376 3674 1\n13 T2-33GL-60 / T2-33GL-60 PL8×376 3751 1\n14 T2-33GL-82 / T2-33GL-82 BH600×200×8×10 3192 1\n15 T2-33GL-85 / T2-33GL-85 BH600×200×8×10 4389 1\n16 T2-33GL-88 / T2-33GL-88 PL8×390 2420 1\n17 T2-33GL-89 / T2-33GL-89 PL8×384 3338 1\n18 T2-32GL-28 / T2-32GL-28 PL10×730 3939 1\n19 T2-32GL-37 / T2-32GL-37 PL10×744 4541 1\n20 T2-32GL-38 / T2-32GL-38 PL10×746 4465 1\n21 T2-32GL-46 / T2-32GL-46 PL10×748 3524 1\n22 T2-32GL-47 / T2-32GL-47 PL10×748 4408 1\n23 T2-32GL-48 / T2-32GL-48 PL10×748 3189 1\n24 T2-32GL-50 / T2-32GL-50 PL10×748 3292 1\n25 T2-32GL-54 / T2-32GL-54 PL10×748 3782 1\n26 T2-32GL-100 / T2-32GL-100 PL8×384 2259 1\n27 T2-32GL-101 / T2-32GL-101 PL8×384 3634 1\n28 T2-32GL-102 / T2-32GL-102 PL8×384 3874 1\nPowered by TCPDF (www.tcpdf.org)\n                               2 / 2"
+          }
+        ],
+        "redactions": "Contact/transport lines, introduction, phone and plate patterns; raw bytes not saved."
+      }
+    },
+    {
+      "id": 8512,
+      "url": "https://dwyunsc.ddwjzkj.com:10086/delivery/info?id=8512",
+      "httpStatus": 200,
+      "contentType": "application/pdf",
+      "bytes": 27193,
+      "sha256": "e5c504e61fc905ba06f7200b21875c049e59bb6dd009d41598fe45bae94848c5",
+      "extraction": {
+        "pageCount": 2,
+        "pages": [
+          {
+            "page": 1,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n成品发货单\n \n编号：徐汇-20261104-02\n收货单位： 项目名称：\n收货人/电话： 发货日期：\n[REDACTED contact/transport line]\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 2026年11月4日发货徐汇 /\nB20261104114627\n1\n审核： 审核： 制表：\n[REDACTED contact/transport line]\n承运人： 项目现场签\n收/日期：\n合计： 1\n[REDACTED contact/transport line]\n如有疑问，请在3个工作日内与本公司取得联系！\n[REDACTED contact/transport line]\n项目介绍：[REDACTED]"
+          },
+          {
+            "page": 2,
+            "text": "浙江大东吴建筑科技有限公司\nZhejiang dadongwu Construction Technology Co., Ltd\n地址：浙江省湖州市南浔区和孚镇尤夫路999号-12\n附表：2026年11月4日发货徐汇\n序列 产品名称 / 构件编码 规格  长度(mm)数量 备注\n1 T2-33GKL-4 / T2-33GKL-4 PL16×910 9900 1\n2 T2-33GKL-16 / T2-33GKL-16 PL16×890 9900 1\n3 T2-33GL-2 / T2-33GL-2 PL12×747 8174 1\n4 T2-33GL-13 / T2-33GL-13 PL10×574 13235 1\n5 T2-33GL-17 / T2-33GL-17 PL10×574 12648 1\n6 T2-33GL-22 / T2-33GL-22 PL12×572 12920 3\n7 T2-33GL-23 / T2-33GL-23 PL10×574 12920 1\n8 T2-33GL-24 / T2-33GL-24 PL12×572 12500 1\n9 T2-33GL-25 / T2-33GL-25 PL12×576 13438 1\n10 T2-33GL-30 / T2-33GL-30 PL10×580 11400 1\n11 T2-33GL-31 / T2-33GL-31 PL10×580 11770 1\n12 T2-33GL-68 / T2-33GL-68 PL8×376 10040 1\n13 T2-33GL-69 / T2-33GL-69 PL8×376 10040 1\n14 T2-33GL-70 / T2-33GL-70 PL8×376 10040 1\n15 T2-33GL-71 / T2-33GL-71 PL8×376 10040 1\n16 T2-33GL-72 / T2-33GL-72 PL8×376 10040 1\n17 T2-33GL-73 / T2-33GL-73 PL8×376 10040 1\n18 T2-33GL-75 / T2-33GL-75 PL8×376 10040 1\n19 T2-33GL-77 / T2-33GL-77 PL8×376 10040 1\n20 T2-33GL-79 / T2-33GL-79 PL8×582 11696 1\n21 T2-33GL-90 / T2-33GL-90 PL8×582 10920 6\n22 T2-33GL-95 / T2-33GL-95 PL8×582 11093 1\n23 T2-33GL-97 / T2-33GL-97 PL8×582 11449 1\n24 T2-32GL-14 / T2-32GL-14 BH400×150×8×8 10040 1\n25 T2-32GL-18 / T2-32GL-18 BH400×150×8×8 10040 1\nPowered by TCPDF (www.tcpdf.org)\n                               2 / 2"
+          }
+        ],
+        "redactions": "Contact/transport lines, introduction, phone and plate patterns; raw bytes not saved."
+      }
+    }
+  ],
+  "assets": [],
+  "outcome": "completed",
+  "finishedAt": "2026-11-06T05:05:00.316Z"
+}

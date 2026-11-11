@@ -1,0 +1,146 @@
+[
+  {
+    "id": "S01",
+    "file": "docs/dwyunsc-api-reference.md",
+    "line": 3,
+    "scope": "既有接口参考；明确非官方全量，含外部项目转述"
+  },
+  {
+    "id": "S02",
+    "file": "东吴云生产管理平台_重开发数据流转说明.md",
+    "line": 12,
+    "scope": "既有重开发说明；混有前端/响应记载与设计建议"
+  },
+  {
+    "id": "S03",
+    "file": "src/extract-production-plan.js",
+    "line": 144,
+    "scope": "计划状态、构件映射、状态文本解析与本地回退"
+  },
+  {
+    "id": "S04",
+    "file": "src/extract-order-sync.js",
+    "line": 190,
+    "scope": "订单字段映射与本地订单构件同步"
+  },
+  {
+    "id": "S05",
+    "file": "src/project-list-component-api.js",
+    "line": 99,
+    "scope": "项目订单、项目构件、排产计划桥接"
+  },
+  {
+    "id": "S06",
+    "file": "src/order-component-match.js",
+    "line": 121,
+    "scope": "关联匹配和歧义拒绝逻辑"
+  },
+  {
+    "id": "S07",
+    "file": "src/extract-project-list.js",
+    "line": 342,
+    "scope": "负责人文本映射本地项目状态"
+  },
+  {
+    "id": "S08",
+    "file": "src/main.js",
+    "line": 280,
+    "scope": "装焊报检/已出库页面取数与列映射"
+  },
+  {
+    "id": "S09",
+    "file": "src/export-logistics-vehicle-workbook.js",
+    "line": 245,
+    "scope": "包件按 delivery_id 归集及发运单 PDF 读取"
+  },
+  {
+    "id": "S10",
+    "file": "db/dwyunsc_schema.sql",
+    "line": 29,
+    "scope": "本地 schema 基础定义，非原系统 schema"
+  },
+  {
+    "id": "S11",
+    "file": "db/order_sync_schema.sql",
+    "line": 11,
+    "scope": "本地订单和构件关联表约束"
+  },
+  {
+    "id": "S12",
+    "file": "logs/project_component_api_inspect_1779323231441.json",
+    "line": null,
+    "scope": "历史结构样本；/probeResults/3 工艺图、/4 生产构件"
+  },
+  {
+    "id": "S13",
+    "file": "logs/project_goujian_capture_1779324343063.json",
+    "line": null,
+    "scope": "历史页面请求；/capturedApis/3 项目订单、/4 项目构件"
+  },
+  {
+    "id": "S14",
+    "file": "logs/order_api_inspect_1779260921983.json",
+    "line": null,
+    "scope": "历史订单、包件和失败探测"
+  },
+  {
+    "id": "S15",
+    "file": "logs/order_bridge_verify_1779261457316.json",
+    "line": null,
+    "scope": "5 单/489 构件的历史桥接成功样本"
+  },
+  {
+    "id": "S16",
+    "file": "logs/order_sync_report_20261027193003.json",
+    "line": null,
+    "scope": "较新订单同步报告，存在缺失"
+  },
+  {
+    "id": "S17",
+    "file": "logs/project_bridge_report_20261027193304.json",
+    "line": null,
+    "scope": "较新项目桥接报告，存在缺失"
+  },
+  {
+    "id": "S18",
+    "file": "STATUS.md",
+    "line": 3,
+    "scope": "本地边界、遗留问题与现有运行结果陈述"
+  },
+  {
+    "id": "S19",
+    "file": "DESIGN.md",
+    "line": 17,
+    "scope": "本地报表口径与历史快照设计"
+  },
+  {
+    "id": "L01",
+    "file": "_evidence/live-readonly.json",
+    "line": null,
+    "scope": "2026-11-06 新补采；19 个只读调用；脱敏、保留每列表前三条"
+  },
+  {
+    "id": "X01",
+    "file": "_evidence/endpoint-occurrences.json",
+    "line": null,
+    "scope": "既有文本中全部接口路径出现位置"
+  },
+  {
+    "id": "X02",
+    "file": "_evidence/scan-manifest.json",
+    "line": null,
+    "scope": "扫描范围、文件类型计数及排除项"
+  },
+  {
+    "id": "X03",
+    "file": "_evidence/api-catalog.json",
+    "line": null,
+    "scope": "92 个保留路径的可复算明细"
+  },
+  {
+    "id": "X04",
+    "file": "_evidence/verification.json",
+    "line": null,
+    "scope": "本次交付验证结果；由验证步骤生成"
+  }
+]

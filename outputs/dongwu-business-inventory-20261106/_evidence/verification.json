@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "checks": {
+    "eight_deliverables": {
+      "passed": true,
+      "detail": null
+    },
+    "path_coverage_exact": {
+      "passed": true,
+      "detail": null
+    },
+    "raw_path_reconciliation": {
+      "passed": true,
+      "detail": null
+    },
+    "module_counts": {
+      "passed": true,
+      "detail": null
+    },
+    "coverage_counts": {
+      "passed": true,
+      "detail": null
+    },
+    "api_table_has_every_id": {
+      "passed": true,
+      "detail": null
+    },
+    "api_evidence_targets": {
+      "passed": true,
+      "detail": []
+    },
+    "original_occurrence_lines": {
+      "passed": true,
+      "detail": {
+        "references": 8791,
+        "failures": []
+      }
+    },
+    "markdown_file_links": {
+      "passed": true,
+      "detail": []
+    },
+    "original_source_document_hashes": {
+      "passed": true,
+      "detail": {
+        "files": 217,
+        "changed": []
+      }
+    },
+    "existing_untracked_docx_preserved": {
+      "passed": true,
+      "detail": null
+    },
+    "existing_git_status_preserved": {
+      "passed": true,
+      "detail": [
+        " D outputs/oa-production-20261031/~$OA生产管理平台_页面表单与报表模板.xlsx",
+        "?? outputs/oa-production-20261031-v2/OA生产管理平台_建设与应用方案_V2.1.docx"
+      ]
+    },
+    "live_success": {
+      "passed": true,
+      "detail": null
+    },
+    "live_business_queries_readonly": {
+      "passed": true,
+      "detail": null
+    },
+    "identity_chain": {
+      "passed": true,
+      "detail": null
+    },
+    "node_success_is_not_completion": {
+      "passed": true,
+      "detail": null
+    },
+    "task_plan_sample_identity": {
+      "passed": true,
+      "detail": null
+    },
+    "package_delivery_sample": {
+      "passed": true,
+      "detail": null
+    },
+    "live_sensitive_fields_redacted": {
+      "passed": true,
+      "detail": []
+    },
+    "no_jwt_in_delivery": {
+      "passed": true,
+      "detail": []
+    }
+  },
+  "failedChecks": [],
+  "scope": "static evidence/document verification; no original project tests or remote writes executed"
+}

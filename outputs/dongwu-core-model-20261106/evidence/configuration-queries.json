@@ -1,0 +1,20 @@
+[
+  {
+    "apiPath": "/v1.design/getManages",
+    "payload": {
+      "keyword": "",
+      "page": 1,
+      "size": 10
+    },
+    "limit": 50
+  },
+  {
+    "apiPath": "/v1.design/getFeatures",
+    "payload": {
+      "keyword": "",
+      "page": 1,
+      "size": 10
+    },
+    "limit": 50
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "verifiedAt": "2026-11-06T05:33:55.834458+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "原文件及既有交付哈希不变",
+      "passed": true,
+      "files": 318,
+      "changed": []
+    },
+    {
+      "name": "既有Git状态保持",
+      "passed": true
+    },
+    {
+      "name": "文档链接存在",
+      "passed": true,
+      "broken": []
+    },
+    {
+      "name": "代码摘录与原文逐行一致",
+      "passed": true
+    },
+    {
+      "name": "五项业务规则可追溯到三项用户答复",
+      "passed": true
+    },
+    {
+      "name": "证据明确区分业务确认与旧API验证",
+      "passed": true
+    }
+  ]
+}

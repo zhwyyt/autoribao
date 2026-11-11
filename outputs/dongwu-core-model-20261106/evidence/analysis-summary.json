@@ -1,0 +1,338 @@
+{
+  "newRequestCount": 26,
+  "newDistinctPaths": [
+    "/v1.design/getFeatures",
+    "/v1.design/getManageFeatures",
+    "/v1.design/getManages",
+    "/v1.order/getOrderArtifacts",
+    "/v1.production/getPlan",
+    "/v1.production/getPlanArtifacts",
+    "/v1.user/getInfo"
+  ],
+  "plans": [
+    {
+      "planId": 9154,
+      "designId": 31,
+      "name": "构件_中航二期补做栓钉试板",
+      "headerPointer": "mapping.json#/requests/0/data",
+      "rowsPointer": "mapping.json#/requests/1/data",
+      "returned": 20,
+      "saved": 20,
+      "counts": {
+        "isComplete": 0,
+        "coatingCompleted": 0,
+        "everyGraphNodeCompleted": 0
+      },
+      "nodeEnds": {
+        "25": 20
+      },
+      "features": {
+        "GJG": 20
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "9206": 20
+      }
+    },
+    {
+      "planId": 5984,
+      "designId": 31,
+      "name": "构件-0503-0504-新昌澄潭之家1号楼2层梁补做",
+      "headerPointer": "mapping.json#/requests/2/data",
+      "rowsPointer": "mapping.json#/requests/3/data",
+      "returned": 1,
+      "saved": 1,
+      "counts": {
+        "isComplete": 1,
+        "coatingCompleted": 1,
+        "everyGraphNodeCompleted": 1,
+        "timedRows": 1,
+        "completionTimeEqualsEndNodeTime": 1
+      },
+      "nodeEnds": {
+        "25": 1
+      },
+      "features": {
+        "gjg": 1
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "5867": 1
+      }
+    },
+    {
+      "planId": 7097,
+      "designId": 31,
+      "name": "构件_金融城D区10层新增-D-10XZCL-1删错补充",
+      "headerPointer": "mapping.json#/requests/4/data",
+      "rowsPointer": "mapping.json#/requests/5/data",
+      "returned": 1,
+      "saved": 1,
+      "counts": {
+        "isComplete": 1,
+        "coatingCompleted": 1,
+        "everyGraphNodeCompleted": 1,
+        "timedRows": 1,
+        "completionTimeEqualsEndNodeTime": 1
+      },
+      "nodeEnds": {
+        "25": 1
+      },
+      "features": {
+        "gjg": 1
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "7067": 1
+      }
+    },
+    {
+      "planId": 8819,
+      "designId": 22,
+      "name": "流水线-传统线-徐汇D地块T2塔楼外框地上32层钢梁组立下料任务单",
+      "headerPointer": "mapping.json#/requests/6/data",
+      "rowsPointer": "mapping.json#/requests/7/data",
+      "returned": 259,
+      "saved": 259,
+      "counts": {
+        "isComplete": 259,
+        "coatingCompleted": 0,
+        "everyGraphNodeCompleted": 259,
+        "timedRows": 259,
+        "completionTimeEqualsEndNodeTime": 259
+      },
+      "nodeEnds": {
+        "45": 259
+      },
+      "features": {
+        "LSX": 259
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "8881": 259
+      }
+    },
+    {
+      "planId": 4362,
+      "designId": 30,
+      "name": "清库存-上海圆通",
+      "headerPointer": "mapping.json#/requests/8/data",
+      "rowsPointer": "mapping.json#/requests/9/data",
+      "returned": 146,
+      "saved": 146,
+      "counts": {
+        "isComplete": 146,
+        "coatingCompleted": 0,
+        "everyGraphNodeCompleted": 146,
+        "timedRows": 146,
+        "completionTimeEqualsEndNodeTime": 145
+      },
+      "nodeEnds": {
+        "26": 146
+      },
+      "features": {
+        "fxc": 146
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "2832": 53,
+        "2763": 40,
+        "2816": 22,
+        "2815": 31
+      }
+    },
+    {
+      "planId": 9097,
+      "designId": 31,
+      "name": "T3塔楼外框地上22-23层梁扁铁",
+      "headerPointer": "mapping.json#/requests/10/data",
+      "rowsPointer": "mapping.json#/requests/11/data",
+      "returned": 27,
+      "saved": 27,
+      "counts": {
+        "isComplete": 27,
+        "coatingCompleted": 27,
+        "everyGraphNodeCompleted": 0,
+        "timedRows": 27,
+        "completionTimeEqualsEndNodeTime": 27
+      },
+      "nodeEnds": {
+        "25": 27
+      },
+      "features": {
+        "fxc": 27
+      },
+      "isChange": 0,
+      "memberChangeValues": [
+        "0"
+      ],
+      "orderIds": {
+        "9151": 27
+      }
+    }
+  ],
+  "timeMismatches": [
+    {
+      "pointer": "mapping.json#/requests/9/data/samples/50",
+      "id": 865391,
+      "completeTime": 1724290173,
+      "completeTimeAtUTC8": "2024-08-22 09:29:33",
+      "nodeEnd": 26,
+      "endNodeTime": "2024-08-22 09:29:32"
+    }
+  ],
+  "identityJoins": [
+    {
+      "productionPointer": "mapping.json#/requests/1/data",
+      "orderPointer": "identity.json#/requests/0/data",
+      "orderId": 9206,
+      "checkedRows": 20,
+      "matchedIds": 20,
+      "matchedGuids": 20
+    },
+    {
+      "productionPointer": "mapping.json#/requests/3/data",
+      "orderPointer": "identity.json#/requests/1/data",
+      "orderId": 5867,
+      "checkedRows": 1,
+      "matchedIds": 1,
+      "matchedGuids": 1
+    },
+    {
+      "productionPointer": "mapping.json#/requests/5/data",
+      "orderPointer": "identity.json#/requests/2/data",
+      "orderId": 7067,
+      "checkedRows": 1,
+      "matchedIds": 1,
+      "matchedGuids": 1
+    },
+    {
+      "productionPointer": "mapping.json#/requests/9/data",
+      "orderPointer": "identity.json#/requests/3/data",
+      "orderId": 2832,
+      "checkedRows": 53,
+      "matchedIds": 53,
+      "matchedGuids": 53
+    }
+  ],
+  "legacyCounterexample": {
+    "source": "outputs/dongwu-ontology-exploration-20261106/evidence/details.json#/requests/13/data",
+    "planId": 163,
+    "rows": 87,
+    "completed": 87,
+    "zeroCompleteTime": 87,
+    "coatingCompleted": 87
+  },
+  "processCatalogCount": 8,
+  "featureCatalogCount": 9,
+  "plan9097FeatureConfiguration": [
+    {
+      "id": "1",
+      "name": "钢构生产开始",
+      "features_codes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "FXC",
+        "ZFJ",
+        "PEC",
+        "qkc",
+        "xc",
+        "WX"
+      ]
+    },
+    {
+      "id": "42",
+      "name": "装焊报检",
+      "features_codes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "FXC",
+        "ZFJ",
+        "PEC"
+      ]
+    },
+    {
+      "id": "50",
+      "name": "装焊探伤",
+      "features_codes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "PEC"
+      ]
+    },
+    {
+      "id": "36",
+      "name": "装焊质检",
+      "features_codes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "FXC",
+        "PEC"
+      ]
+    },
+    {
+      "id": "25",
+      "name": "涂装",
+      "features_codes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "FXC",
+        "ZFJ",
+        "WX"
+      ]
+    }
+  ],
+  "liveNodeFeatureLists": {
+    "50": {
+      "pointer": "feature-pages.json#/requests/1/data",
+      "count": 4,
+      "saved": 4,
+      "savedCodes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "PEC"
+      ],
+      "complete": true
+    },
+    "25": {
+      "pointer": "feature-pages.json#/requests/3/data",
+      "count": 6,
+      "saved": 5,
+      "savedCodes": [
+        "GJG",
+        "lsx",
+        "zh",
+        "FXC",
+        "ZFJ"
+      ],
+      "complete": false
+    }
+  },
+  "blockedSupplement": {
+    "queriesFile": "node-features-queries.json",
+    "plannedRequests": 4,
+    "executedRequests": 0,
+    "reason": "Automatic permission approval review timed out twice; no process launched; no response file created."
+  }
+}
