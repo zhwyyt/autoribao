@@ -79,3 +79,5 @@ npm run qq-bot-napcat
 - `config/*.example.json`：可公开的配置模板。
 
 更多设计背景见 [DESIGN.md](DESIGN.md)，数据库结构见 [DB.md](DB.md)。
+
+工序校对按东吴云实时部门树确定查询范围，装焊报检、探伤、质检、涂装均参与差异检查。构件重量保留原始精度，部署现有数据库时执行 `db/alter_component_weight_precision.sql`。

@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 
 const {
     buildPlanSyncTargets,
+    collectDepartmentTeamNames,
     shouldCountForMismatch
 } = require('../src/nightly-process-reconciliation');
 const {
@@ -71,11 +72,11 @@ test('buildPlanSyncTargets deduplicates by task and plan_id while preserving sou
     ]);
 });
 
-test('shouldCountForMismatch ignores fitup_ndi and fitup_qc', () => {
+test('shouldCountForMismatch includes all four process tasks', () => {
     assert.equal(shouldCountForMismatch({ task: { key: 'fitup_report' } }), true);
     assert.equal(shouldCountForMismatch({ task: { key: 'painting' } }), true);
-    assert.equal(shouldCountForMismatch({ task: { key: 'fitup_ndi' } }), false);
-    assert.equal(shouldCountForMismatch({ task: { key: 'fitup_qc' } }), false);
+    assert.equal(shouldCountForMismatch({ task: { key: 'fitup_ndi' } }), true);
+    assert.equal(shouldCountForMismatch({ task: { key: 'fitup_qc' } }), true);
 });
 
 test('buildGjgRollbackEvents adds rollback rows only for GJG latest-completed statuses missing in API', () => {
@@ -113,4 +114,16 @@ test('buildGjgRollbackEvents adds rollback rows only for GJG latest-completed st
             raw_value: 'API_MISSING_ROLLBACK'
         }
     ]);
+});
+
+test('department scope follows the selected platform tree including nested teams', () => {
+ const tree = [
+  { label: '质检与探伤', children: [
+   { label: '质检', children: [{ label: '甲质检组', children: [{ label: '乙质检组' }] }] },
+   { label: '探伤部门', children: [{ label: '丙探伤组' }] }
+  ] },
+  { label: '钢结构厂', children: [{ label: '发现场班组-轻钢' }] }
+ ];
+ assert.deepEqual(collectDepartmentTeamNames(tree, ['质检与探伤', '质检']), ['质检', '甲质检组', '乙质检组']);
+ assert.throws(() => collectDepartmentTeamNames(tree, ['不存在']), /部门/);
 });
