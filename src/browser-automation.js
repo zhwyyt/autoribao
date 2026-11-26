@@ -87,9 +87,18 @@ class BrowserAutomation {
                 }
             }
 
-            this.context = await this.browser.newContext({
-                acceptDownloads: true
-            });
+            const contextOptions = { acceptDownloads: true };
+            if (this.browserOptions.headless !== false) {
+                // 沿用 unified 的处理，保留实际浏览器版本。
+                const probePage = await this.browser.newPage();
+                try {
+                    const userAgent = await probePage.evaluate(() => navigator.userAgent);
+                    contextOptions.userAgent = userAgent.replace('HeadlessChrome/', 'Chrome/');
+                } finally {
+                    await probePage.close();
+                }
+            }
+            this.context = await this.browser.newContext(contextOptions);
 
             this.page = await this.context.newPage();
             this.page.setDefaultTimeout(this.browserOptions.timeout);
