@@ -113,16 +113,6 @@ function buildNoMismatchMessage(taskType, rangeType, range) {
     return `${rangeLabel}${taskLabel}已执行，${range.label} 无差异，无需报告。`;
 }
 
-async function notifyResult(taskType, rangeType, result) {
-    const prefix = taskType === 'shipping'
-        ? `⚠️ ${result.range.label} 发货数据发现差异，已按 API 完成对齐。`
-        : `⚠️ ${result.range.label} 工序数据校对发现差异。`;
-    await sendPrivateMessage(TARGET_USER_ID, `${prefix}\n\n${result.summaryText}`);
-    if (result.reportPath) {
-        await sendResultFile(TARGET_USER_ID, result.reportPath, 'file');
-    }
-}
-
 async function main() {
     const args = parseArgs(process.argv);
     const taskType = String(args.task || 'process').trim().toLowerCase();
@@ -151,8 +141,22 @@ async function main() {
         return;
     }
 
-    await notifyResult(taskType, rangeType, result);
-    console.log(`已发送${taskType === 'shipping' ? '发货' : '工序'}报告：${result.reportPath}`);
+    if (taskType === 'shipping') {
+        await sendPrivateMessage(
+            TARGET_USER_ID,
+            `⚠️ ${result.range.label} 发货数据发现差异，已按 API 完成对齐。\n\n${result.summaryText}`
+        );
+        if (result.reportPath) {
+            await sendResultFile(TARGET_USER_ID, result.reportPath, 'file');
+        }
+        console.log(`已发送发货报告：${result.reportPath}`);
+        return;
+    }
+
+    console.log(result.summaryText);
+    if (result.reportPath) {
+        console.log(`报告已保存在：${result.reportPath}`);
+    }
 }
 
 main().catch(error => {
